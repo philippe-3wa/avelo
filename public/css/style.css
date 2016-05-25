@@ -31,7 +31,7 @@ body a{
 	font-family: 'Lato', sans-serif;
 }
 .search-bar input[type="submit"] {
-	background: url(../images/search.png)no-repeat 0px 0px;
+	background: url(../public/images/search.png)no-repeat 0px 0px;
 	outline: none;
 	-webkit-appearance: none;
 	border: 0;
