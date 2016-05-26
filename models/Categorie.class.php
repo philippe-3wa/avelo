@@ -48,6 +48,7 @@ class Categorie
 	}
 	public function setActif($actif)
 	{
+		$actif = intval($actif);
 		if ( ($actif < 0) || ($actif > 1) )
 			return "actif doit être = à 0 ou 1";
 		$this->actif = $actif;
