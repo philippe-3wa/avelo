@@ -18,7 +18,7 @@ class CategorieManager
 			$list[] = $categorie;
 		return $list;
 	}
-	
+
 	public function findById($id)
 	{
 		$id = intval($id);
@@ -47,8 +47,8 @@ class CategorieManager
 			return $error;
 		else
 		{
-			$nom = $categorie->getNom();
-			$description = $categorie->getDescription();
+			$nom = mysqli_real_escape_string($this->link, $categorie->getNom());
+			$description = mysqli_real_escape_string($this->link, $categorie->getDescription());
 			$actif = $categorie->getActif();
 			$request = "INSERT INTO categorie (nom, description, actif) VALUES('".$nom."', '".$description."', '".$actif."')";
 			$res = mysqli_query($this->link, $request);
@@ -75,7 +75,7 @@ class CategorieManager
 		{
 			$nom = mysqli_real_escape_string($this->link, $categorie->getNom());
 			$description = mysqli_real_escape_string($this->link, $categorie->getDescription());
-			$actif = intval($categorie->getActif());
+			$actif = $categorie->getActif();
 			$request = "UPDATE categorie SET nom='".$nom."', description='".$description."', actif='".$actif."' WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
