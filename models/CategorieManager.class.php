@@ -30,7 +30,7 @@ class CategorieManager
 	
 	public function create($data)
 	{
-		if (!isset($_SESSION['id']))
+		if (!isset($_SESSION['admin']))
 			return "Vous devez être connecté";
 		$categorie = new Categorie();
 
@@ -70,6 +70,9 @@ class CategorieManager
 
 	public function update(Categorie $categorie)
 	{
+		if (!isset($_SESSION['admin']))
+			return "Vous devez être connecté";
+		
 		$id = $categorie->getId();
 		if ($id)// true si > 0
 		{
