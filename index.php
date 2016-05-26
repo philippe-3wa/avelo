@@ -16,7 +16,7 @@ function __autoload($className)
 	require('models/'.$className.'.class.php');
 }
 
-$access = array('home', 'produit', 'user', 'categorie', 'avis', 'panier', 'admin', 'contact');
+$access = array('home', 'produit', 'user', 'categorie', 'avis', 'panier', 'admin', 'contact', 'profil');
 
 if (isset($_GET['page']))
 {
