@@ -1,5 +1,4 @@
 <?php
-// models/AvisManager.class.php
 class SousCategorieManager
 {
 	private $link;
@@ -60,35 +59,35 @@ class SousCategorieManager
 
 		$request = "INSERT INTO categorie (nom, description, actif) VALUES('".$nom."', '".$description."', '".$actif."')";
 		$res = mysqli_query($this->link, $request);
-		if ($res)// Si la requete s'est bien passée
+		if ($res)
 		{
 			$id = mysqli_insert_id($this->link);
-			if ($id)// si c'est bon id > 0
+			if ($id)
 			{
 				$avis = $this->findById($id);
 				return $categorie;
 			}
-			else// Sinon
+			else
 				throw new Exception ("Internal server error");
 		}
-		else// Sinon
+		else
 			throw new Exception ("Internal server error");
 	}
 
-	public function update(Categorie $categorie)
+	public function update(SousCategorie $sous_categorie)
 	{
 		if (!isset($_SESSION['admin']))
 			throw new Exception ("Vous devez être connecté");
 
-		$this->verifVariables($categorie);
+		$this->verifVariables($sous_categorie);
 
-		$id = $categorie->getId();
-		if ($id)// true si > 0
+		$id = $sous_categorie->getId();
+		if ($id)
 		{
-			$nom = mysqli_real_escape_string($this->link, $categorie->getNom());
-			$description = mysqli_real_escape_string($this->link, $categorie->getDescription());
-			$actif = $categorie->getActif();
-			$request = "UPDATE categorie SET nom='".$nom."', description='".$description."', actif='".$actif."' WHERE id=".$id;
+			$nom = mysqli_real_escape_string($this->link, $sous_categorie->getNom());
+			$description = mysqli_real_escape_string($this->link, $sous_categorie->getDescription());
+			$actif = $sous_categorie->getActif();
+			$request = "UPDATE sous_categorie SET nom='".$nom."', description='".$description."', actif='".$actif."' WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 				return $this->findById($id);

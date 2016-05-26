@@ -1,5 +1,4 @@
 <?php
-// models/AvisManager.class.php
 class ProduitManager
 {
 	private $link;
@@ -87,18 +86,18 @@ class ProduitManager
 
 		$request = "INSERT INTO categorie (nom, description, actif) VALUES('".$nom."', '".$description."', '".$actif."')";
 		$res = mysqli_query($this->link, $request);
-		if ($res)// Si la requete s'est bien passée
+		if ($res)
 		{
 			$id = mysqli_insert_id($this->link);
-			if ($id)// si c'est bon id > 0
+			if ($id)
 			{
 				$avis = $this->findById($id);
 				return $categorie;
 			}
-			else// Sinon
+			else
 				throw new Exception ("Internal server error");
 		}
-		else// Sinon
+		else
 			throw new Exception ("Internal server error");
 		
 	}
@@ -108,7 +107,7 @@ class ProduitManager
 		$this->verifVariables($categorie);
 
 		$id = $categorie->getId();
-		if ($id)// true si > 0
+		if ($id)
 		{
 			$nom = mysqli_real_escape_string($this->link, $categorie->getNom());
 			$description = mysqli_real_escape_string($this->link, $categorie->getDescription());
