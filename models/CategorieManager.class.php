@@ -18,6 +18,7 @@ class CategorieManager
 			$list[] = $categorie;
 		return $list;
 	}
+	
 	public function findById($id)
 	{
 		$id = intval($id);
@@ -66,10 +67,7 @@ class CategorieManager
 				return "Internal server error";
 		}
 	}
-	public function getById($id)
-	{
-		return $this->findById($id);
-	}
+
 	public function update(Categorie $categorie)
 	{
 		$id = $categorie->getId();
@@ -85,6 +83,11 @@ class CategorieManager
 			else
 				return "Internal server error";
 		}
+	}
+
+	public function getById($id)
+	{
+		return $this->findById($id);
 	}
 }
 ?>
