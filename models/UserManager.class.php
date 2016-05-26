@@ -59,43 +59,40 @@ class User
 	public function create($data)
 	{
 		if (!isset($_SESSION['id']))
-			return "Vous devez être connecté";
+			throw new Exception ("Vous devez être connecté");
 		$user = new User();
 		
 		if (!isset($data['email']))
-			return "Missing paramater : email";
+			throw new Exception ("Missing paramater : email");
 		if (!isset($data['login']))
-			return "Missing paramater : login";
+			throw new Exception ("Missing paramater : login");
 		if (!isset($data['password']))
-			return "Missing paramater : password";
+			throw new Exception ("Missing paramater : password");
 		if (!isset($data['prenom']))
-			return "Missing paramater : prenom";
+			throw new Exception ("Missing paramater : prenom");
 		if (!isset($data['nom']))
-			return "Missing paramater : nom";
+			throw new Exception ("Missing paramater : nom");
 		if (!isset($data['sexe']))
-			return "Missing paramater : sexe";
+			throw new Exception ("Missing paramater : sexe");
 		if (!isset($data['date_naissance']))
-			return "Missing paramater : date_naissance";
+			throw new Exception ("Missing paramater : date_naissance");
 		if (!isset($data['date_inscription']))
-			return "Missing paramater : date_inscription";
+			throw new Exception ("Missing paramater : date_inscription");
 		if (!isset($data['actif']))
-			return "Missing paramater : actif";
+			throw new Exception ("Missing paramater : actif");
 		if (!isset($data['admin']))
-			return "Missing paramater : admin";
-		$error = $user->setEmail($data['email']);
-		$error = $user->setLogin($data['login']);
-		$error = $user->setPassword($data['password']);
-		$error = $user->setPrenom($data['prenom']);
-		$error = $user->setNom($data['nom']);
-		$error = $user->setSexe($data['sexe']);
-		$error = $user->setDateNaissance($data['date_naissance']);
-		$error = $user->setDateInscription($data['date_inscription']);
-		$error = $user->setActif($data['actif']);
-		$error = $user->setAdmin($data['admin']);
-		if ($error)
-			return $error;
-		else
-		{
+			throw new Exception ("Missing paramater : admin");
+		$user->setEmail($data['email']);
+		$user->setLogin($data['login']);
+		$user->setPassword($data['password']);
+		$user->setPrenom($data['prenom']);
+		$user->setNom($data['nom']);
+		$user->setSexe($data['sexe']);
+		$user->setDateNaissance($data['date_naissance']);
+		$user->setDateInscription($data['date_inscription']);
+		$user->setActif($data['actif']);
+		$user->setAdmin($data['admin']);
+	
 			$email = $user->getEmail();
 			$login = $user->getLogin();
 			$password = $user->getPassword();
@@ -116,11 +113,10 @@ class User
 					return $user;
 				}
 				else
-					return "Internal server error";
+					throw new Exception ("Internal server error");
 			}
 			else
-				return "Internal server error";
-		}
+				throw new Exception ("Internal server error");
 	}
 	public function getById($id)
 	{
@@ -138,7 +134,7 @@ class User
 			if ($res)
 				return $this->findById($id);
 			else
-				return "Internal server error";
+				throw new Exception ("Internal server error");
 		}
 	}
 	public function remove(User $user)
@@ -151,7 +147,7 @@ class User
 			if ($res)
 				return $user;
 			else
-				return "Internal server error";
+				throw new Exception ("Internal server error");
 		}
 	}
 }
