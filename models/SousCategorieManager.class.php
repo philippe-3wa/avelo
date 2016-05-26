@@ -74,20 +74,20 @@ class SousCategorieManager
 			throw new Exception ("Internal server error");
 	}
 
-	public function update(Categorie $categorie)
+	public function update(SousCategorie $sous_categorie)
 	{
 		if (!isset($_SESSION['admin']))
 			throw new Exception ("Vous devez être connecté");
 
-		$this->verifVariables($categorie);
+		$this->verifVariables($sous_categorie);
 
-		$id = $categorie->getId();
+		$id = $sous_categorie->getId();
 		if ($id)
 		{
-			$nom = mysqli_real_escape_string($this->link, $categorie->getNom());
-			$description = mysqli_real_escape_string($this->link, $categorie->getDescription());
-			$actif = $categorie->getActif();
-			$request = "UPDATE categorie SET nom='".$nom."', description='".$description."', actif='".$actif."' WHERE id=".$id;
+			$nom = mysqli_real_escape_string($this->link, $sous_categorie->getNom());
+			$description = mysqli_real_escape_string($this->link, $sous_categorie->getDescription());
+			$actif = $sous_categorie->getActif();
+			$request = "UPDATE sous_categorie SET nom='".$nom."', description='".$description."', actif='".$actif."' WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 				return $this->findById($id);
