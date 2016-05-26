@@ -88,7 +88,8 @@ body a{
 }
 .box_1 h3 {
 	color: #702428 !important;
-	font-size: 1em;
+	text-align: right;
+	font-size: 1.2em;
 	font-weight: 700;
 	margin: 0;
 }
@@ -96,7 +97,8 @@ a.simpleCart_empty {
 	color: #702428;
 	font-weight: 500;
 	font-family: 'Lato', sans-serif;
-	font-size: 13px;
+	font-size: 10px;
+	text-align: left;
 }
 .box_1 p {
 	margin: 0px 0 0px 8px;
@@ -350,6 +352,7 @@ ul.callbacks_tabs.callbacks2_tabs {
 /*--start-footer--*/
 .footer{
 	padding:5em 0px;
+	text-align: center;
 }
 .footer-left h3{
 	color: #242424;
@@ -1142,7 +1145,7 @@ ul.size {
 	font-size: 13px;
 }
 a.simpleCart_empty {
-	font-size: 12px;
+	font-size: 10px;
 }
 .box_1 p {
 	margin: 0px 0 0px 4px;
