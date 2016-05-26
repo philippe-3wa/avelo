@@ -7,6 +7,7 @@ class SousCategorie
 	private $nom;
 	private $description;
 	private $id_categorie;
+	private $actif;
 
 
 	// Getter/Setter | Accesseur/Mutateur | Accessor/Mutator
@@ -26,6 +27,11 @@ class SousCategorie
 	{
 		return $this->id_categorie;
 	}
+	public function getActif()
+	{
+		return $this->actif;
+	}
+	
 	
 	
 
@@ -45,6 +51,12 @@ class SousCategorie
 		else if (strlen($description) > 127)
 			return "Content trop long (> 127)";
 		$this->description = $description;
+	}
+	public function setActif($actif)
+	{
+		if ( ($actif < 0) || ($actif > 1) )
+			return "actif doit être = à 0 ou 1";
+		$this->actif = $actif;
 	}
 
 }
