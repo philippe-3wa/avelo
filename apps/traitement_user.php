@@ -36,7 +36,7 @@ if (isset($_POST['action']))
 				$user->setDateInscription($_POST['date_inscription']);
 				$user->setActif($_POST['actif']);
 				$user->setAdmin($_POST['admin']);
-				$manager->update($article);
+				$manager->update($user);
 				header('Location: index.php');
 				exit;
 			}
@@ -54,7 +54,7 @@ if (isset($_POST['action']))
 			try
 			{
 				$user = $manager->findById($_POST['id']);
-				$manager->remove($article);
+				$manager->remove($user);
 				header('Location: index.php');
 				exit;
 			}

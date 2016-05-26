@@ -138,7 +138,15 @@ class User
 		if ($id)
 		{
 			$email = mysqli_real_escape_string($this->link, $user->getEmail());
+			$login = mysqli_real_escape_string($this->link, $user->getLogin());
 			$password = mysqli_real_escape_string($this->link, $user->getPassword());
+			$prenom = mysqli_real_escape_string($this->link, $user->getPrenom());
+			$nom = mysqli_real_escape_string($this->link, $user->getNom());
+			$sexe = mysqli_real_escape_string($this->link, $user->getSexe());
+			$date_naissance = mysqli_real_escape_string($this->link, $user->getDateNaissance());
+			$date_inscription = mysqli_real_escape_string($this->link, $user->getDateInscription());
+			$actif = mysqli_real_escape_string($this->link, $user->getActif());
+			$admin = mysqli_real_escape_string($this->link, $user->getAdmin());
 			$request = "UPDATE user SET email='".$email."', password='".$password."' WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
