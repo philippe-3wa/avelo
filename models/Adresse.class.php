@@ -53,22 +53,35 @@ class Adresse
 		return $this->id_user;
 	}
 
-	public function setTitle($title)
+	public function setTelephone($telephone)
 	{
-		if (strlen($title) < 4)
-			return "Titre trop court (< 4)";
-		else if (strlen($title) > 63)
-			return "Titre trop long (> 63)";
-		$this->title = $title;
+		if (preg_match(''[0-9]{8,12}'',$telephone)
+			$this->telephone = $telephone;
+		else
+			return "Numéro invalide";
 	}
-	public function setContent($content)
+	public function setCp($cp)
 	{
-		if (strlen($content) < 20)
-			return "Content trop court (< 20)";
-		else if (strlen($content) > 2023)
-			return "Content trop long (> 2023)";
-		$this->content = $content;
+		if (preg_match(''[0-9]{5}'',$cp)
+			$this->cp = $cp;
+		else
+			return "Numéro invalide";
 	}
-
+	if (empty($_POST['numero']))
+		return "Le numéro de rue n'a pas été renseigné";
+	else
+		$numero=$_POST['numero'];
+	if (empty($_POST['rue']))
+		return "Le nom de la rue n'a pas été renseignée";
+	else
+		$rue=$_POST['rue'];
+	if (empty($_POST['ville']))
+		return "La ville n'a pas été renseignée";
+	else
+		$ville=$_POST['ville'];
+	if (empty($_POST['pays']))
+		return "le pays n'a pas été renseigné";
+	else
+		$pays=$_POST['pays'];
 }
 ?>
