@@ -86,6 +86,10 @@ class User
 			return "Missing paramater : date_naissance";
 		if (!isset($data['date_inscription']))
 			return "Missing paramater : date_inscription";
+		if (!isset($data['actif']))
+			return "Missing paramater : actif";
+		if (!isset($data['admin']))
+			return "Missing paramater : admin";
 		$error = $user->setEmail($data['email']);
 		$error = $user->setLogin($data['login']);
 		$error = $user->setPassword($data['password']);
@@ -94,6 +98,8 @@ class User
 		$error = $user->setSexe($data['sexe']);
 		$error = $user->setDateNaissance($data['date_naissance']);
 		$error = $user->setDateInscription($data['date_inscription']);
+		$error = $user->setActif($data['actif']);
+		$error = $user->setAdmin($data['admin']);
 		if ($error)
 			return $error;
 		else
@@ -107,7 +113,7 @@ class User
 			$date_naissance = $user->getDateNaissance();
 			$date_inscription = $user->getDateInscription();
 			$id = $_SESSION['id'];
-			$request = "INSERT INTO user (email, login, password, prenom, nom, sexe, date_inscription, date_naissance) VALUES('".$email."', '".$login."', '".$password."', '".$prenom."', '".$nom."', '".$sexe."', '".$date_inscription."')";
+			$request = "INSERT INTO user (email, login, password, prenom, nom, sexe, date_inscription, date_naissance, actif, admin) VALUES('".$email."', '".$login."', '".$password."', '".$prenom."', '".$nom."', '".$sexe."', '".$date_inscription."')";
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 			{
