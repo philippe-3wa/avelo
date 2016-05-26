@@ -80,6 +80,12 @@ class User
 			return "Missing paramater : prenom";
 		if (!isset($data['nom']))
 			return "Missing paramater : nom";
+		if (!isset($data['sexe']))
+			return "Missing paramater : sexe";
+		if (!isset($data['date_naissance']))
+			return "Missing paramater : date_naissance";
+		if (!isset($data['date_inscription']))
+			return "Missing paramater : date_inscription";
 		$error = $user->setEmail($data['email']);
 		$error = $user->setLogin($data['login']);
 		$error = $user->setPassword($data['password']);
