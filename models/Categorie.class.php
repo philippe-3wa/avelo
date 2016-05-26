@@ -33,24 +33,24 @@ class Categorie
 	public function setNom($nom)
 	{
 		if (strlen($nom) < 4)
-			return "Nom trop court (< 4)";
+			throw new Exception ("Nom trop court (< 4)");
 		else if (strlen($nom) > 63)
-			return "Nom trop long (> 63)";
+			throw new Exception ("Nom trop long (> 63)");
 		$this->nom = $nom;
 	}
 	public function setDescription($description)
 	{
 		if (strlen($description) < 15)
-			return "Content trop court (< 20)";
+			throw new Exception ("description trop court (< 15)");
 		else if (strlen($description) > 127)
-			return "Content trop long (> 127)";
+			throw new Exception ("description trop long (> 127)");
 		$this->description = $description;
 	}
 	public function setActif($actif)
 	{
 		$actif = intval($actif);
 		if ( ($actif < 0) || ($actif > 1) )
-			return "actif doit être = à 0 ou 1";
+			throw new Exception ("actif doit être = à 0 ou 1");
 		$this->actif = $actif;
 	}
 
