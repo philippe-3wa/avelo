@@ -56,46 +56,49 @@ class User
 		$user = mysqli_fetch_object($res, "User");
 		return $user;
 	}
+
+	public function verifVariables($date)
+	{
+	if (!isset($data['email']))
+		throw new Exception ("Missing paramater : email");
+	if (!isset($data['login']))
+		throw new Exception ("Missing paramater : login");
+	if (!isset($data['password']))
+		throw new Exception ("Missing paramater : password");
+	if (!isset($data['prenom']))
+		throw new Exception ("Missing paramater : prenom");
+	if (!isset($data['nom']))
+		throw new Exception ("Missing paramater : nom");
+	if (!isset($data['sexe']))
+		throw new Exception ("Missing paramater : sexe");
+	if (!isset($data['date_naissance']))
+		throw new Exception ("Missing paramater : date_naissance");
+	if (!isset($data['date_inscription']))
+		throw new Exception ("Missing paramater : date_inscription");
+	if (!isset($data['actif']))
+		throw new Exception ("Missing paramater : actif");
+	if (!isset($data['admin']))
+		throw new Exception ("Missing paramater : admin");
+	}
+
 	public function create($data)
 	{
-		if (!isset($_SESSION['id']))
-			return "Vous devez être connecté";
+		if (!isset($_SESSION['admin']))
+			throw new Exception ("Vous devez être connecté");
 		$user = new User();
 		
-		if (!isset($data['email']))
-			return "Missing paramater : email";
-		if (!isset($data['login']))
-			return "Missing paramater : login";
-		if (!isset($data['password']))
-			return "Missing paramater : password";
-		if (!isset($data['prenom']))
-			return "Missing paramater : prenom";
-		if (!isset($data['nom']))
-			return "Missing paramater : nom";
-		if (!isset($data['sexe']))
-			return "Missing paramater : sexe";
-		if (!isset($data['date_naissance']))
-			return "Missing paramater : date_naissance";
-		if (!isset($data['date_inscription']))
-			return "Missing paramater : date_inscription";
-		if (!isset($data['actif']))
-			return "Missing paramater : actif";
-		if (!isset($data['admin']))
-			return "Missing paramater : admin";
-		$error = $user->setEmail($data['email']);
-		$error = $user->setLogin($data['login']);
-		$error = $user->setPassword($data['password']);
-		$error = $user->setPrenom($data['prenom']);
-		$error = $user->setNom($data['nom']);
-		$error = $user->setSexe($data['sexe']);
-		$error = $user->setDateNaissance($data['date_naissance']);
-		$error = $user->setDateInscription($data['date_inscription']);
-		$error = $user->setActif($data['actif']);
-		$error = $user->setAdmin($data['admin']);
-		if ($error)
-			return $error;
-		else
-		{
+		$this->verifVariables($data);
+		$user->setEmail($data['email']);
+		$user->setLogin($data['login']);
+		$user->setPassword($data['password']);
+		$user->setPrenom($data['prenom']);
+		$user->setNom($data['nom']);
+		$user->setSexe($data['sexe']);
+		$user->setDateNaissance($data['date_naissance']);
+		$user->setDateInscription($data['date_inscription']);
+		$user->setActif($data['actif']);
+		$user->setAdmin($data['admin']);
+	
 			$email = $user->getEmail();
 			$login = $user->getLogin();
 			$password = $user->getPassword();
@@ -104,8 +107,8 @@ class User
 			$sexe = $user->getSexe();
 			$date_naissance = $user->getDateNaissance();
 			$date_inscription = $user->getDateInscription();
-			$id = $_SESSION['id'];
-			$request = "INSERT INTO user (email, login, password, prenom, nom, sexe, date_inscription, date_naissance, actif, admin) VALUES('".$email."', '".$login."', '".$password."', '".$prenom."', '".$nom."', '".$sexe."', '".$date_inscription."')";
+			$id = $_SESSION['admin'];
+			$request = "INSERT INTO user (email, login, password, prenom, nom, sexe, date_inscription, date_naissance, actif, admin) VALUES('".$email."', '".$login."', '".$password."', '".$prenom."', '".$nom."', '".$sexe."', '".$date_inscription."', '".$date_naissance."', '".$actif."', '".$admin."')";
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 			{
@@ -116,11 +119,10 @@ class User
 					return $user;
 				}
 				else
-					return "Internal server error";
+					throw new Exception ("Internal server error");
 			}
 			else
-				return "Internal server error";
-		}
+				throw new Exception ("Internal server error");
 	}
 	public function getById($id)
 	{
@@ -128,6 +130,10 @@ class User
 	}
 	public function update(User $user)
 	{
+		if (!isset($_SESSION['admin']))
+			throw new Exception ("Vous devez être connecté");
+		$user = new User();
+		$this->verifVariables($data);
 		$id = $user->getId();
 		if ($id)
 		{
@@ -138,11 +144,15 @@ class User
 			if ($res)
 				return $this->findById($id);
 			else
-				return "Internal server error";
+				throw new Exception ("Internal server error");
 		}
 	}
 	public function remove(User $user)
 	{
+		if (!isset($_SESSION['admin']))
+			throw new Exception ("Vous devez être connecté");
+		$user = new User();
+		$this->verifVariables($data);
 		$id = $user->getId();
 		if ($id)
 		{
@@ -151,7 +161,7 @@ class User
 			if ($res)
 				return $user;
 			else
-				return "Internal server error";
+				throw new Exception ("Internal server error");
 		}
 	}
 }

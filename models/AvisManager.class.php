@@ -39,15 +39,17 @@ class AvisManager
 	public function create($data)
 	{
 		if (!isset($_SESSION['id']))
-			return "Vous devez être connecté";
+			throw new Exception ("Vous devez être connecté");
 		$avis = new Avis();
 
 		if (!isset($data['contenu']))
-			return "Missing paramater : contenu";
+			throw new Exception ("Missing paramater : contenu");
 		if (!isset($data['note']))
-			return "Missing paramater : note";
+			throw new Exception ("Missing paramater : note");
+		// 
 		$error = $avis->setnote($data['note']);
 		$error = $avis->setContenu($data['contenu']);
+		// 
 		if ($error)
 			return $error;
 		else
@@ -65,11 +67,11 @@ class AvisManager
 					$avis = $this->findById($id);
 					return $avis;
 				}
-				else// Sinon
-					return "Internal server error";
+				else // Sinon
+					throw new Exception ("Internal server error");
 			}
-			else// Sinon
-				return "Internal server error";
+			else // Sinon
+				throw new Exception ("Internal server error");
 		}
 	}
 	public function getById($id)
@@ -88,7 +90,7 @@ class AvisManager
 			if ($res)
 				return $this->findById($id);
 			else
-				return "Internal server error";
+				throw new Exception ("Internal server error");
 		}
 	}
 	public function remove(Avis $avis)
@@ -102,7 +104,7 @@ class AvisManager
 			if ($res)
 				return $avis;
 			else
-				return "Internal server error";
+				throw new Exception ("Internal server error");
 		}
 	}
 }

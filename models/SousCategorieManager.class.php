@@ -1,5 +1,4 @@
 <?php
-// models/AvisManager.class.php
 class SousCategorieManager
 {
 	private $link;
@@ -27,67 +26,73 @@ class SousCategorieManager
 		$sous_categorie = mysqli_fetch_object($res, "SousCategorie");
 		return $sous_categorie;
 	}
+
+	public function verifVariables($data)
+	{
+		if (!isset($data['description']))
+			throw new Exception ("Missing paramater : description");
+		if (!isset($data['nom']))
+			throw new Exception ("Missing paramater : nom");
+		if (!isset($data['id_categorie']))
+			throw new Exception ("Missing paramater : id_categorie");
+		if (!isset($data['actif']))
+			throw new Exception ("Missing paramater : actif");
+	}
 	
 	public function create($data)
 	{
 		if (!isset($_SESSION['admin']))
-			return "Vous devez être connecté";
+			throw new Exception ("Vous devez être connecté");
+
+		$this->verifVariables($data);
+
 		$categorie = new SousCategorie();
 
-		if (!isset($data['description']))
-			return "Missing paramater : description";
-		if (!isset($data['nom']))
-			return "Missing paramater : nom";
-		if (!isset($data['id_categorie']))
-			return "Missing paramater : id_categorie";
-		if (!isset($data['actif']))
-			return "Missing paramater : actif";
-		$error = $categorie->setNom($data['nom']);
-		$error = $categorie->setDescription($data['description']);
-		$error = $categorie->setIdCategorie($data['id_categorie']);
-		$error = $categorie->setActif($data['actif']);
-		if ($error)
-			return $error;
-		else
+		$categorie->setNom($data['nom']);
+		$categorie->setDescription($data['description']);
+		$categorie->setIdCategorie($data['id_categorie']);
+		$categorie->setActif($data['actif']);
+		
+		$nom = mysqli_real_escape_string($this->link, $categorie->getNom());
+		$description = mysqli_real_escape_string($this->link, $categorie->getDescription());
+		$actif = $categorie->getActif();
+
+		$request = "INSERT INTO categorie (nom, description, actif) VALUES('".$nom."', '".$description."', '".$actif."')";
+		$res = mysqli_query($this->link, $request);
+		if ($res)
 		{
-			$nom = mysqli_real_escape_string($this->link, $categorie->getNom());
-			$description = mysqli_real_escape_string($this->link, $categorie->getDescription());
-			$actif = $categorie->getActif();
-			$request = "INSERT INTO categorie (nom, description, actif) VALUES('".$nom."', '".$description."', '".$actif."')";
-			$res = mysqli_query($this->link, $request);
-			if ($res)// Si la requete s'est bien passée
+			$id = mysqli_insert_id($this->link);
+			if ($id)
 			{
-				$id = mysqli_insert_id($this->link);
-				if ($id)// si c'est bon id > 0
-				{
-					$avis = $this->findById($id);
-					return $categorie;
-				}
-				else// Sinon
-					return "Internal server error";
+				$avis = $this->findById($id);
+				return $categorie;
 			}
-			else// Sinon
-				return "Internal server error";
+			else
+				throw new Exception ("Internal server error");
 		}
+		else
+			throw new Exception ("Internal server error");
 	}
 
-	public function update(Categorie $categorie)
+	public function update(SousCategorie $sous_categorie)
 	{
 		if (!isset($_SESSION['admin']))
-			return "Vous devez être connecté";
-		
-		$id = $categorie->getId();
-		if ($id)// true si > 0
+			throw new Exception ("Vous devez être connecté");
+
+		$this->verifVariables($sous_categorie);
+
+		$id = $sous_categorie->getId();
+		if ($id)
 		{
-			$nom = mysqli_real_escape_string($this->link, $categorie->getNom());
-			$description = mysqli_real_escape_string($this->link, $categorie->getDescription());
-			$actif = $categorie->getActif();
-			$request = "UPDATE categorie SET nom='".$nom."', description='".$description."', actif='".$actif."' WHERE id=".$id;
+			$nom = mysqli_real_escape_string($this->link, $sous_categorie->getNom());
+			$description = mysqli_real_escape_string($this->link, $sous_categorie->getDescription());
+			$actif = $sous_categorie->getActif();
+			$request = "UPDATE sous_categorie SET nom='".$nom."', description='".$description."', actif='".$actif."' WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 				return $this->findById($id);
 			else
-				return "Internal server error";
+				throw new Exception ("Internal server error");
 		}
 	}
 

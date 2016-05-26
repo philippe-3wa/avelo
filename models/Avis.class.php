@@ -40,12 +40,18 @@ class avis
 	}
 
 
+	public function setNote($note)
+	{
+		
+		return $this->Note;
+	}
+
 	public function setContenu($contenu)
 	{
-		if (strlen($contenu) < 4)
-			return "Contenu trop court (< 4)";
-		else if (strlen($contenu )> 511)
-			return "Contenu trop long (> 511)";
+		if (strlen($contenu) < 20)
+			throw new Exception("Contenu trop court (< 20)");
+		else if (strlen($contenu) > 2023)
+			throw new Exception("Contenu trop long (> 2023)");
 		$this->contenu = $contenu;
 	}
 
