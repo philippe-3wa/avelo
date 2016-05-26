@@ -6,6 +6,7 @@ class Categorie
 	private $id;
 	private $nom;
 	private $description;
+	private $actif;
 
 
 	// Getter/Setter | Accesseur/Mutateur | Accessor/Mutator
@@ -21,6 +22,11 @@ class Categorie
 	{
 		return $this->description;
 	}
+	public function getActif()
+	{
+		return $this->actif;
+	}
+	
 	
 
 
@@ -39,6 +45,13 @@ class Categorie
 		else if (strlen($description) > 127)
 			return "Content trop long (> 127)";
 		$this->description = $description;
+	}
+	public function setActif($actif)
+	{
+		$actif = intval($actif);
+		if ( ($actif < 0) || ($actif > 1) )
+			return "actif doit être = à 0 ou 1";
+		$this->actif = $actif;
 	}
 
 }
