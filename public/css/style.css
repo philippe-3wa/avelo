@@ -16,6 +16,10 @@ body a{
 	-ms-transition: 0.5s all;
 }
 /*--starts-top-header--*/
+.bkg{
+	min-width: 100%;
+}
+
 .top-header {
 	padding: 3em 0px 1.5em 0px;
 }
