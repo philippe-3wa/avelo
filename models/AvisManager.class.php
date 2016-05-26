@@ -90,7 +90,7 @@ class AvisManager
 			if ($res)
 				return $this->findById($id);
 			else
-				return "Internal server error";
+				throw new Exception ("Internal server error");
 		}
 	}
 	public function remove(Avis $avis)
@@ -104,7 +104,7 @@ class AvisManager
 			if ($res)
 				return $avis;
 			else
-				return "Internal server error";
+				throw new Exception ("Internal server error");
 		}
 	}
 }
