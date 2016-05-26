@@ -33,9 +33,10 @@ class ProduitManager
 	{
 		$list[];
 		$categorie = intval($categorie);
-		$request = "SELECT * FROM produit 
+		$request = "SELECT produit.* FROM produit 
 		INNER JOIN sous_categorie 
-		ON sous_categorie.id_categorie =".$categorie;
+		ON sous_categorie.id=produit.id_sous_categorie
+		WHERE sous_categorie.id_categorie=".$categorie;
 		$res = mysqli_query($this->link, $request);
 		while ($produit = mysqli_fetch_object($res, "Produit"))
 			$list[] = $produit;
