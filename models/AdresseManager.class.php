@@ -36,72 +36,81 @@ class AdresseManager
 	public function create($data)
 	{
 		if (!isset($_SESSION['id']))
-			return "Vous devez être connecté";
+			throw new Exception("Vous devez être connecté");
 		$adresse = new Adresse();
-		// Choix 1
-		if (isset($data['title']))
-			$error = $adresse->setTitle($data['title']);
-		else
-			return "Missing paramater : title";
-		if (isset($data['content']))
-			$error = $article->setContent($data['content']);
-		else
-			return "Missing paramater : content";
-		// OU Choix 2
+
 		if (!isset($data['nom']))
-			return "Remplir le champs : nom";
-		if (!isset($data['numéro']))
-			return "Remplir le champs : numéro de rue";
+			throw new Exception("Remplir le champs : nom");
+		if (!isset($data['numero']))
+			throw new Exception("Remplir le champs : numéro de rue");
 		if (!isset($data['rue']))
-			return "Remplir le champs : rue";
+			throw new Exception("Remplir le champs : rue");
 		if (!isset($data['cp']))
-			return "Remplir le champs : CP";
+			throw new Exception("Remplir le champs : CP");
 		if (!isset($data['ville']))
-			return "Remplir le champs : ville";
+			throw new Exception("Remplir le champs : ville");
 		if (!isset($data['pays']))
-			return "Remplir le champs : pays";
+			throw new Exception("Remplir le champs : pays");
 		if (!isset($data['telephone']))
-			return "Remplir le champs : téléphone";
+			throw new Exception("Remplir le champs : téléphone");
 		if (!isset($data['type']))
-			return "Remplir le champs : type d'adresse";
-		$error = $article->setTitle($data['title']);
-		$error = $article->setContent($data['content']);
-		if ($error)
-			return $error;
-		else
-		{
-			$title = $article->getTitle();
-			$content = $article->getContent();
-			$id_author = $_SESSION['id'];
-			$request = "INSERT INTO article (title, content, id_author) VALUES('".$title."', '".$content."', '".$id_author."')";
+			throw new Exception("Remplir le champs : type d'adresse");
+		$adresse->setNom($data['nom']);
+		$adresse->setNumero($data['numero']);
+		$adresse->setRue($data['rue']);
+		$adresse->setCp($data['cp']);
+		$adresse->setVille($data['ville']);
+		$adresse->setPays($data['pays']);
+		$adresse->setTelephone($data['telephone']);
+		$adresse->setType($data['type']);
+		//
+		
+		$nom = $adresse->getNom();
+		$numero = $adresse->getNumero();
+		$rue = $adresse->getRue();
+		$cp = $adresse->getCp();
+		$ville = $adresse->getVille();
+		$pays = $adresse->getPays();
+		$telephone = $adresse->gettelephone();
+		$type = $adresse->getType();
+		$id_user = $_SESSION['id'];	// à vérifier
+
+		$request = "INSERT INTO adresse (nom, numero, rue, cp, ville, pays, telephone, type, id_user) VALUES('".$nom."', '".$numero."', '".$rue."', '".$cp."', '".$ville."', '".$pays."', '".$telephone."', '".$type."', '".$id_user."')";
 			$res = mysqli_query($this->link, $request);
 			if ($res)// Si la requete s'est bien passée
 			{
 				$id = mysqli_insert_id($this->link);
 				if ($id)// si c'est bon id > 0
 				{
-					$article = $this->findById($id);
-					return $article;
+					$adresse = $this->findById($id);
+					return $adresse;
 				}
 				else// Sinon
-					return "Internal server error";
+					throw new Exception("Internal server error");
 			}
 			else// Sinon
-				return "Internal server error";
+				throw new Exception("Internal server error");
 		}
 	}
 	public function getById($id)
 	{
 		return $this->findById($id);
 	}
-	public function update(Article $article)// type-hinting
+	public function update(Adresse $adresse)// type-hinting
 	{
-		$id = $article->getId();
+		$id = $adresse->getId();
 		if ($id)// true si > 0
 		{
-			$title = mysqli_real_escape_string($this->link, $article->getTitle());
-			$content = mysqli_real_escape_string($this->link, $article->getContent());
-			$request = "UPDATE article SET title='".$title."', content='".$content."' WHERE id=".$id;
+			$nom = mysqli_real_escape_string($this->link, $adresse->getNom());
+			$numero = mysqli_real_escape_string($this->link, $adresse->getNumero());
+			$rue = mysqli_real_escape_string($this->link, $adresse->getRue());
+			$cp = mysqli_real_escape_string($this->link, $adresse->getCp());
+			$ville = mysqli_real_escape_string($this->link, $adresse->getVille());
+			$pays = mysqli_real_escape_string($this->link, $adresse->getPays());
+			$telephone = mysqli_real_escape_string($this->link, $adresse->getTelephone());
+			$type = mysqli_real_escape_string($this->link, $adresse->getType());
+
+			$request = "UPDATE adresse SET nom='".$nom."', numero='".$numero."',rue='".$rue."',cp='".$cp."',ville='".$ville."',pays='".$pays."',telephone='".$telephone."',type='".$type."' WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 				return $this->findById($id);
@@ -109,16 +118,16 @@ class AdresseManager
 				return "Internal server error";
 		}
 	}
-	public function remove(Article $article)
+	public function remove(Adresse $adresse)
 	{
-		$id = $article->getId();
+		$id = $adresse->getId();
 		// droit ? admin ? access ?
 		if ($id)// true si > 0
 		{
-			$request = "DELETE FROM article WHERE id=".$id;
+			$request = "DELETE FROM adresse WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
-				return $article;
+				return $adresse;
 			else
 				return "Internal server error";
 		}
