@@ -121,7 +121,7 @@ a.simpleCart_empty {
 /*--end-bottom-header--*/
 /*--banner-starts--*/
 .banner-1{
-	background:url(../public/images/banner-1.jpg) no-repeat center;
+	background:url(../images/banner-1.jpg) no-repeat center;
 	min-height:700px;
 	background-size:cover;
 	-webkit-background-size:cover;
@@ -130,7 +130,7 @@ a.simpleCart_empty {
 	-ms-background-size:cover;
 }
 .banner-2{
-	background:url(../public/images/banner-2.jpg) no-repeat;
+	background:url(../images/banner-2.jpg) no-repeat center;
 	min-height:700px;
 	background-size:cover;
 	-webkit-background-size:cover;
@@ -139,7 +139,7 @@ a.simpleCart_empty {
 	-ms-background-size:cover;
 }
 .banner-3{
-	background:url(../public/images/banner-3.png) no-repeat center;
+	background:url(../images/banner-3.png) no-repeat center;
 	min-height:700px;
 	background-size:cover;
 	-webkit-background-size:cover;
