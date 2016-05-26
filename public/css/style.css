@@ -16,7 +16,7 @@ body a{
 	-ms-transition: 0.5s all;
 }
 /*--starts-top-header--*/
-.bkg{
+.bkg img{
 	min-width: 100%;
 }
 
@@ -317,8 +317,9 @@ ul.callbacks_tabs.callbacks2_tabs {
 }
 /*--end-banner-bottom--*/
 /*--start-shoes--*/
-.shoes {
-	padding: 7em 0px;
+.bikes {
+	padding: 1em 0px;
+	margin: 0;
 }
 /*--end-shoes--*/
 /*--start-abt-shoe--*/
