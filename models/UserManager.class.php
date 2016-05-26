@@ -40,14 +40,6 @@ class User
 		$user = mysqli_fetch_object($res, "User");
 		return $user;
 	}
-	public function findByPassword($password)
-	{
-		$password = mysqli_real_escape_string($this->link, $password);
-		$request = "SELECT * FROM user WHERE password='".$password."'";
-		$res = mysqli_query($this->link, $request);
-		$user = mysqli_fetch_object($res, "User");
-		return $user;
-	}
 	public function findByPrenom($prenom)
 	{
 		$prenom = mysqli_real_escape_string($this->link, $prenom);
