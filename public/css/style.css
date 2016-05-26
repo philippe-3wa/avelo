@@ -179,7 +179,7 @@ a.simpleCart_empty {
   	text-decoration: none;
   	height: 30px;
   	width: 30px;
-  	background: transparent url("../images/arrows.png") no-repeat left top;
+  	background: transparent url("../public/images/arrows.png") no-repeat left top;
 }
 .callbacks_nav:active {
   	opacity: 1.0;
@@ -422,7 +422,7 @@ ul.callbacks_tabs.callbacks2_tabs {
 	height: 28px;
 	border: none;
 	text-indent: 100%;
-	background: url(../images/top-arrow.png) no-repeat;
+	background: url(../public/images/top-arrow.png) no-repeat;
 } 
 /*--start-contact--*/
 .heading h3{
@@ -644,7 +644,7 @@ ol.breadcrumb {
 	color: #999;
 }
 .p-one p i {
-	background: url(../images/cart.png) no-repeat;
+	background: url(../public/images/cart.png) no-repeat;
 	width: 25px;
 	height: 18px;
 	display: inline-block;
@@ -652,7 +652,7 @@ ol.breadcrumb {
 	vertical-align: middle;
 }
 .product-left:hover .p-one p i{
-	background: url(../images/cart-2.png) no-repeat;
+	background: url(../public/images/cart-2.png) no-repeat;
 }
 /*--end-product--*/
 /*--start-checkout--*/
@@ -678,7 +678,7 @@ a.add-cart:hover {
 	-ms-transition: 0.5s all;
 }
 .close1,.close2,.close3{
-	background: url('../images/close-1.png') no-repeat 0px 0px;
+	background: url('../public/images/close-1.png') no-repeat 0px 0px;
 	cursor: pointer;
 	width: 28px;
 	height: 28px;
@@ -1009,9 +1009,9 @@ ul.size {
 	width: 87%;
 	margin-top: 7px;
 }
-.top-header-middle img{
+/*.top-header-middle img{
 	width:100%;
-}
+}*/
 .box_1 {
 	margin-top: 3px;
 }
