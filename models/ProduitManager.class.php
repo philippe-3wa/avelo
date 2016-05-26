@@ -29,6 +29,19 @@ class ProduitManager
 		return $list;
 	}
 
+	public function findByCategorie($categorie)
+	{
+		$list[];
+		$categorie = intval($categorie);
+		$request = "SELECT * FROM produit 
+		INNER JOIN sous_categorie 
+		ON sous_categorie.id_categorie =".$categorie;
+		$res = mysqli_query($this->link, $request);
+		while ($produit = mysqli_fetch_object($res, "Produit"))
+			$list[] = $produit;
+		return $list;
+	}
+
 	public function verifVariables($data)
 	{
 		if (!isset($data['reference']))
