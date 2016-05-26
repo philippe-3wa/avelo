@@ -115,13 +115,12 @@ class AdresseManager
 			if ($res)
 				return $this->findById($id);
 			else
-				return "Internal server error";
+				throw new Exception("Internal server error");
 		}
 	}
 	public function remove(Adresse $adresse)
 	{
 		$id = $adresse->getId();
-		// droit ? admin ? access ?
 		if ($id)// true si > 0
 		{
 			$request = "DELETE FROM adresse WHERE id=".$id;
@@ -129,7 +128,7 @@ class AdresseManager
 			if ($res)
 				return $adresse;
 			else
-				return "Internal server error";
+				throw new Exception("Internal server error");
 		}
 	}
 }

@@ -58,29 +58,29 @@ class Adresse
 		if (preg_match(''[0-9]{8,12}'',$telephone)
 			$this->telephone = $telephone;
 		else
-			return "Numéro invalide";
+			throw new Exception("Numéro invalide");
 	}
 	public function setCp($cp)
 	{
 		if (preg_match(''[0-9]{5}'',$cp)
 			$this->cp = $cp;
 		else
-			return "Numéro invalide";
+			throw new Exception("Numéro invalide");
 	}
 	if (empty($_POST['numero']))
-		return "Le numéro de rue n'a pas été renseigné";
+		throw new Exception("Le numéro de rue n'a pas été renseigné");
 	else
 		$numero=$_POST['numero'];
 	if (empty($_POST['rue']))
-		return "Le nom de la rue n'a pas été renseignée";
+		throw new Exception("Le nom de la rue n'a pas été renseignée");
 	else
 		$rue=$_POST['rue'];
 	if (empty($_POST['ville']))
-		return "La ville n'a pas été renseignée";
+		throw new Exception("La ville n'a pas été renseignée");
 	else
 		$ville=$_POST['ville'];
 	if (empty($_POST['pays']))
-		return "le pays n'a pas été renseigné";
+		throw new Exception("le pays n'a pas été renseigné");
 	else
 		$pays=$_POST['pays'];
 }
