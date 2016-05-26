@@ -28,10 +28,10 @@ class AvisManager
 		$avis = mysqli_fetch_object($res, "Avis");
 		return $avis;
 	}
-	public function findByTitle($title)
+	public function findByNote($note)
 	{
-		$title = mysqli_real_escape_string($this->link, $title);
-		$request = "SELECT * FROM avis WHERE title='".$title."'";
+		$note = mysqli_real_escape_string($this->link, $note);
+		$request = "SELECT * FROM avis WHERE note='".$note."'";
 		$res = mysqli_query($this->link, $request);
 		$avis = mysqli_fetch_object($res, "Avis");
 		return $avis;
@@ -41,30 +41,21 @@ class AvisManager
 		if (!isset($_SESSION['id']))
 			return "Vous devez être connecté";
 		$avis = new Avis();
-		// Choix 1
-		if (isset($data['title']))
-			$error = $avis->setTitle($data['title']);
-		else
-			return "Missing paramater : title";
-		if (isset($data['content']))
-			$error = $avis->setContent($data['content']);
-		else
-			return "Missing paramater : content";
-		// OU Choix 2
-		if (!isset($data['content']))
-			return "Missing paramater : content";
-		if (!isset($data['title']))
-			return "Missing paramater : title";
-		$error = $avis->setTitle($data['title']);
-		$error = $avis->setContent($data['content']);
+
+		if (!isset($data['contenu']))
+			return "Missing paramater : contenu";
+		if (!isset($data['note']))
+			return "Missing paramater : note";
+		$error = $avis->setnote($data['note']);
+		$error = $avis->setContenu($data['contenu']);
 		if ($error)
 			return $error;
 		else
 		{
-			$title = $avis->getTitle();
-			$content = $avis->getContent();
+			$note = $avis->getNote();
+			$contenu = $avis->getContenu();
 			$id_author = $_SESSION['id'];
-			$request = "INSERT INTO avis (title, content, id_author) VALUES('".$title."', '".$content."', '".$id_author."')";
+			$request = "INSERT INTO avis (note, contenu, id_author) VALUES('".$note."', '".$contenu."', '".$id_author."')";
 			$res = mysqli_query($this->link, $request);
 			if ($res)// Si la requete s'est bien passée
 			{
@@ -90,9 +81,9 @@ class AvisManager
 		$id = $avis->getId();
 		if ($id)// true si > 0
 		{
-			$title = mysqli_real_escape_string($this->link, $avis->getTitle());
-			$content = mysqli_real_escape_string($this->link, $avis->getContent());
-			$request = "UPDATE avis SET title='".$title."', content='".$content."' WHERE id=".$id;
+			$note = mysqli_real_escape_string($this->link, $avis->getNote());
+			$contenu = mysqli_real_escape_string($this->link, $avis->getContenu());
+			$request = "UPDATE avis SET note='".$note."', contenu='".$contenu."' WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 				return $this->findById($id);
