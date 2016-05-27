@@ -1831,9 +1831,6 @@ ul.product-categories li a {
     height: 100% ;
 }
 
-.jq-star:hover .fs-star-svg polygon {
-}
-
 /* un-used */
 .jq-shadow {
     -webkit-filter: drop-shadow( -2px -2px 2px #888 );
