@@ -409,7 +409,7 @@ ul.callbacks_tabs.callbacks2_tabs {
 /*--end-footer--*/
 /*--start-footer-text--*/
 .footer-text {
-	padding: 2em 0px;
+	padding: 0.5em 0px;
 	background: #8C2830;
 }
 .footer-main{
@@ -417,7 +417,7 @@ ul.callbacks_tabs.callbacks2_tabs {
 }
 .footer-main p {
 	color: white;
-	font-size: 15px;
+	font-size: 12px;
 	font-weight: 600;
 	font-family: 'Lato', sans-serif;
 	margin: 0;
@@ -980,7 +980,7 @@ ul.size li a:hover {
 }
 @media(max-width:1280px){
 .footer {
-	padding: 4em 0px;
+	padding: 2em 0px;
 }
 .shoes {
 	padding: 6em 0px;
@@ -1282,10 +1282,10 @@ a.simpleCart_empty {
 	padding: 2.2em 0px;
 }
 .footer-main p {
-	font-size: 14px;
+	font-size: 12px;
 }
 .footer-text {
-	padding: 1.7em 0px;
+	padding: 0.5em 0px;
 }
 .banner-bottom {
 	padding-top: 2em;
@@ -1427,7 +1427,7 @@ ul.unit li span {
 	margin: 6% 0 0 0;
 }
 .footer-text {
-	padding: 1.5em 0px;
+	padding: 0.5em 0px;
 }
 #toTop {
 	width: 40px;
@@ -1653,10 +1653,10 @@ a.simpleCart_empty {
 	text-align: left;
 }
 .footer-main p {
-	font-size: 13px;
+	font-size: 11px;
 }
 .footer-text {
-	padding: 1.2em 0px;
+	padding: 0.5em 0px;
 }
 .single-main-left {
 	padding: 0;
@@ -1672,7 +1672,7 @@ a.simpleCart_empty {
 	text-align: center;
 }
 .footer-text {
-	padding: 1em 0px;
+	padding: 0.5em 0px;
 }
 .p-one {
 	padding: 0px 10px 15px 10px;
@@ -1830,7 +1830,7 @@ ul.product-categories li a {
 	padding: 0;
 }
 .footer-main p {
-	font-size: 11px;
+	font-size: 10px;
 	line-height: 1.6em;
 }
 }
