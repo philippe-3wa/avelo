@@ -34,8 +34,6 @@ class Categorie
 	}
 	
 	
-
-
 	public function setNom($nom)
 	{
 		if (strlen($nom) < 4)
