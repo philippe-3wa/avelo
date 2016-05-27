@@ -1,0 +1,45 @@
+<div id="main_container">
+    <div class="main_content">
+                <div class="menu">
+                    <ul>
+                    <li><a class="current" href="index.html">Admin Home</a></li>
+                    <li><a href="list.html">Catégories</a></li>
+                    <li><a href="login.html">users</a></li>
+                    <li><a href="login.html">Commandes</a></li>
+                    <li><a href="login.html">Settings</a></li>
+                </div>              
+    <div class="sidebar_search">
+        <form>
+            <input type="text" name="" class="search_input" value="search keyword" onclick="this.value=''" />
+            <input type="image" class="search_submit" src="images/search.png" />
+        </form>            
+    </div>
+</div>
+
+<div class="right_content">            
+    <h2>Gestion des catégories</h2>                                  
+    <table id="rounded-corner">
+        <thead>
+    	<tr>
+        	<th scope="col" class="rounded-company"></th>
+            <th scope="col" class="rounded">Id</th>
+            <th scope="col" class="rounded">Nom</th>
+            <th scope="col" class="rounded">Description</th>
+            <th scope="col" class="rounded">Actif</th>
+        </tr>
+        </thead>
+        <tbody>
+    	<tr>
+        	<td><input type="checkbox" name="" /></td>
+            <td>$id</td>
+            <td>$nom</td>
+            <td>$description</td>
+            <td>$actif</td>
+
+            <td><a href="#"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
+            <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
+        </tr>
+        </tbody>
+    </table>
+	<a href="#" class="bt_green"><span class="bt_green_lft"></span><strong>Ajouter</strong><span class="bt_green_r"></span></a>
+</div>
