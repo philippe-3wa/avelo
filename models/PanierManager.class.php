@@ -125,10 +125,12 @@ class Panier
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 			{
-				DELETE FROM link_panier_produit WHERE id_panier=$id
-				$panier->getProduts();
-				while
-					INSERT INTO link_panier_produit () VALUES()
+				mysqli_query($this->link, "DELETE FROM link_panier_produit WHERE id_panier=".$id);
+				$panier->getProducts();
+				$i = 0;
+				while ($i < count($panier)) {
+					mysqli_query("INSERT INTO link_panier_produit () VALUES()");
+				}
 				return $this->findById($id);
 			}
 			else
