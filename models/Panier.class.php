@@ -11,7 +11,7 @@ class Panier
 	private $poids;
 	private $id_user;
 
-
+	private $produits;// NULL
 
 	private $link;
 
@@ -21,6 +21,12 @@ class Panier
 	}
 
 	// Getter/Setter | Accesseur/Mutateur | Accessor/Mutator
+	public function getProduits()
+	{
+		$pm = new ProduitManager($this->link);
+		$this->produits = $pm->findByPanier($this);
+		return $this->produits;
+	}
 	public function getId()
 	{
 		return $this->id;
@@ -51,7 +57,20 @@ class Panier
 	}
 	
 	
-
+	public function addProduit(Produit $produit)
+	{
+		if ($this->produits === null)
+			$this->getProduits();
+		$this->produits[] = $produit;
+		// $this->produits[] = ["produit"=>$produit, "quantite"=>$quantite];
+	}
+	public function removeProduit(Produit $produit)
+	{
+		if ($this->produits === null)
+			$this->getProduits();
+		// while
+		$this->produits[] = $produit;
+	}
 	public function setNbrProduits($nbr_produits)
 	{
 		$nbr_produits = intval($actif);
@@ -90,4 +109,10 @@ class Panier
 	}
 
 }
+/*
+$panier = $panierM->findByIdUser($_SESSION['id]']);
+$produit = $produitM->findById(3);
+$panier->addProduit($produit);
+$panierM->update($panier);
+*/
 ?>

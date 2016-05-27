@@ -124,7 +124,13 @@ class Panier
 			$request = "UPDATE panier SET date='".$date."', nbr_produits='".$nbr_produits."', statut='".$statut."', prix='".$prix."', poids='".$poids."', id_user='".$id_user."' WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
+			{
+				DELETE FROM link_panier_produit WHERE id_panier=$id
+				$panier->getProduts();
+				while
+					INSERT INTO link_panier_produit () VALUES()
 				return $this->findById($id);
+			}
 			else
 				throw new Exception ("Internal server error");
 		}
