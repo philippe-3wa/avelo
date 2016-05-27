@@ -3,22 +3,21 @@ if (isset($_POST['action']))
 {
 	if ($_POST['action'] == 'create')
 	{
-		if (isset($_SESSION['admin']))
+		$manager = new UserManager($link);
+		try
 		{
-			$manager = new UserManager($link);
-			try
-			{
-				$user = $manager->create($_POST);
-				header('Location: index.php');
-				exit;
-			}
-			catch (Exception $exception)
-			{
-				$error = $exception->getMessage();
-			}
+			$user = $manager->create($_POST);
+			header('Location: index.php');
+			exit;
+		}
+		catch (Exception $exception)
+		{
+			$error = $exception->getMessage();
 		}
 	}
-	else if ($_POST['action'] == 'update')
+}
+
+/*else if ($_POST['action'] == 'update')
 	{
 		if (isset($_SESSION['admin']))
 		{
@@ -65,4 +64,5 @@ if (isset($_POST['action']))
 		}
 	}
 }
+*/
 ?>

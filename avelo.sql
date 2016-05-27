@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 27 Mai 2016 à 13:24
+-- Généré le: Ven 27 Mai 2016 à 15:40
 -- Version du serveur: 5.5.47-0ubuntu0.14.04.1
 -- Version de PHP: 5.5.9-1ubuntu4.14
 
@@ -195,8 +195,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `sexe` tinyint(1) NOT NULL,
   `date_naissance` date NOT NULL,
   `date_inscription` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `actif` tinyint(1) NOT NULL,
-  `admin` tinyint(1) NOT NULL,
+  `actif` tinyint(1) NOT NULL DEFAULT '1',
+  `admin` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `login` (`login`)
