@@ -12,6 +12,13 @@ class Adresse
 	private $type;
 	private $id_user;
 
+	private $link
+
+	public function __construct($link)
+	{
+		$this->link = $link;
+	}
+
 	public function getId()
 	{
 		return $this->id;
@@ -83,5 +90,12 @@ class Adresse
 		throw new Exception("le pays n'a pas été renseigné");
 	else
 		$pays=$_POST['pays'];
+
+	public function getUsers()
+	{
+		$userManager = new UserManager($this->link);
+		$users = $userManager->getByAdresse($this);
+		return $users;
+	}
 }
 ?>

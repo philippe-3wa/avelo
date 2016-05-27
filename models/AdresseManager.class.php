@@ -13,7 +13,7 @@ class AdresseManager
 		$list = [];
 		$request = "SELECT * FROM adresse";
 		$res = mysqli_query($this->link, $request);
-		while ($adresse = mysqli_fetch_object($res, "Adresse"))
+		while ($adresse = mysqli_fetch_object($res, "Adresse", [$this->link]))
 			$list[] = $adresse;
 		return $list;
 	}
@@ -22,7 +22,7 @@ class AdresseManager
 		$id = intval($id);
 		$request = "SELECT * FROM adresse WHERE id=".$id;
 		$res = mysqli_query($this->link, $request);
-		$adresse = mysqli_fetch_object($res, "Adresse");
+		$adresse = mysqli_fetch_object($res, "Adresse", [$this->link]);
 		return $adresse;
 	}
 	public function findByType($type) // pareil, faut ajouter pour un seul ID ms je sais pas comment
@@ -30,7 +30,7 @@ class AdresseManager
 		$type = mysqli_real_escape_string($this->link, $type);
 		$request = "SELECT * FROM adresse WHERE type='".$type."'";
 		$res = mysqli_query($this->link, $request);
-		$adresse = mysqli_fetch_object($res, "Adresse");
+		$adresse = mysqli_fetch_object($res, "Adresse", [$this->link]);
 		return $adresse;
 	}
 	public function create($data)
