@@ -32,6 +32,10 @@ class User
 	{
 		return $this->login;
 	}
+	public function getPassword()
+	{
+		return $this->password;
+	}
 	public function verifyPassword($password)
 	{
 		if (password_verify($password, $this->password))
@@ -81,16 +85,14 @@ class User
 			throw new Exception ("Login trop long (> 15)");
 		$this->login = $login;
 	}
-	public function setPassword($password1 ,$password2)
+	public function setPassword($password)
 	{
-		if (strlen($password1) < 4)
+		if (strlen($password) < 4)
 			throw new Exception ("Mot de passe trop court (< 4)");
-		else if (strlen($password1) > 255)
+		else if (strlen($password) > 255)
 			throw new Exception ("Mot de passe trop long (> 255)");
-		else if ($password1 != $password2)
-			throw new Exception ("les mots de passe ne correspondent pas");
-		$password = password_hash($password1, PASSWORD_BCRYPT, array("cost"=>8));
-		$this->password = $password1;
+		$password = password_hash($password, PASSWORD_BCRYPT, array("cost"=>8));
+		$this->password = $password;
 	}
 	public function setPrenom($prenom)
 	{
@@ -128,6 +130,13 @@ class User
 		if ($admin = 1)
 			throw new Exception ("admin doit être = 1");
 		$this->admin = $admin;
+	}
+	public function setSexe($sexe)
+	{
+		$sexe = intval($sexe);
+		if (($sexe < 0) || ($sexe > 1))
+			throw new Exception ("Sexe doit être égal à 0(femme) ou 1(homme) ");
+		$this->sexe = $sexe;
 	}
 
 	public function getAdresses()

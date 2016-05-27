@@ -10,6 +10,7 @@ if (!$link)
 }
 
 $page = 'home';
+$error ='';
 
 function __autoload($className)
 {
@@ -24,7 +25,9 @@ if (isset($_GET['page']))
 	if (in_array($_GET['page'], $access))
 		$page = $_GET['page'];
 }
+
 $access_traitement = array(/*'user', */'avis', /*'panier', 'admin',*/'adresse');
+
 if (in_array($page, $access_traitement))
 	require('apps/traitement_'.$page.'.php');
 require('apps/skel.php');

@@ -1,5 +1,5 @@
 <?php
-class User
+class UserManager
 {
 	private $link;
 	public function __construct($link)
@@ -57,14 +57,18 @@ class User
 		return $user;
 	}
 
-	public function verifVariables($date)
+	public function verifVariables($data)
 	{
 	if (!isset($data['email']))
 		throw new Exception ("Missing paramater : email");
 	if (!isset($data['login']))
 		throw new Exception ("Missing paramater : login");
-	if (!isset($data['password']))
-		throw new Exception ("Missing paramater : password");
+	if (!isset($data['password1']))
+		throw new Exception ("Missing paramater : password1");
+	if (!isset($data['password2']))
+		throw new Exception ("Missing paramater : password2");
+	if ($data['password1'] != $data['password2'])
+		throw new Exception ("les passwords ne correspondent pas");
 	if (!isset($data['prenom']))
 		throw new Exception ("Missing paramater : prenom");
 	if (!isset($data['nom']))
@@ -73,56 +77,44 @@ class User
 		throw new Exception ("Missing paramater : sexe");
 	if (!isset($data['date_naissance']))
 		throw new Exception ("Missing paramater : date_naissance");
-	if (!isset($data['date_inscription']))
-		throw new Exception ("Missing paramater : date_inscription");
-	if (!isset($data['actif']))
-		throw new Exception ("Missing paramater : actif");
-	if (!isset($data['admin']))
-		throw new Exception ("Missing paramater : admin");
 	}
 
 	public function create($data)
 	{
-		if (!isset($_SESSION['admin']))
-			throw new Exception ("Vous devez être connecté");
 		$user = new User($this->link);
 		
 		$this->verifVariables($data);
+
 		$user->setEmail($data['email']);
 		$user->setLogin($data['login']);
-		$user->setPassword($data['password']);
+		$user->setPassword($data['password1']);
 		$user->setPrenom($data['prenom']);
 		$user->setNom($data['nom']);
 		$user->setSexe($data['sexe']);
 		$user->setDateNaissance($data['date_naissance']);
-		$user->setDateInscription($data['date_inscription']);
-		$user->setActif($data['actif']);
-		$user->setAdmin($data['admin']);
 	
-			$email = $user->getEmail();
-			$login = $user->getLogin();
-			$password = $user->getPassword();
-			$prenom = $user->getPrenom();
-			$nom = $user->getNom();
-			$sexe = $user->getSexe();
-			$date_naissance = $user->getDateNaissance();
-			$date_inscription = $user->getDateInscription();
-			$id = $_SESSION['admin'];
-			$request = "INSERT INTO user (email, login, password, prenom, nom, sexe, date_inscription, date_naissance, actif, admin) VALUES('".$email."', '".$login."', '".$password."', '".$prenom."', '".$nom."', '".$sexe."', '".$date_inscription."', '".$date_naissance."', '".$actif."', '".$admin."')";
-			$res = mysqli_query($this->link, $request);
-			if ($res)
+		$email = $user->getEmail();
+		$login = $user->getLogin();
+		$password = $user->getPassword();
+		$prenom = $user->getPrenom();
+		$nom = $user->getNom();
+		$sexe = $user->getSexe();
+		$date_naissance = $user->getDateNaissance();
+		$request = "INSERT INTO user (email, login, password, prenom, nom, sexe, date_naissance) VALUES('".$email."', '".$login."', '".$password."', '".$prenom."', '".$nom."', '".$sexe."', '".$date_naissance."')";
+		$res = mysqli_query($this->link, $request);
+		if ($res)
+		{
+			$id = mysqli_insert_id($this->link);
+			if ($id)
 			{
-				$id = mysqli_insert_id($this->link);
-				if ($id)
-				{
-					$user = $this->findById($id);
-					return $user;
-				}
-				else
-					throw new Exception ("Internal server error");
+				$user = $this->findById($id);
+				return $user;
 			}
 			else
 				throw new Exception ("Internal server error");
+		}
+		else
+			throw new Exception (var_dump($request));
 	}
 	public function getById($id)
 	{
@@ -130,7 +122,7 @@ class User
 	}
 	public function update(User $user)
 	{
-		if (!isset($_SESSION['admin']))
+		if (!isset($_SESSION['id']))
 			throw new Exception ("Vous devez être connecté");
 		$user = new User($this->link);
 		$this->verifVariables($data);
