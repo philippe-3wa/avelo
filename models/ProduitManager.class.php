@@ -18,7 +18,18 @@ class ProduitManager
 			$list[] = $produit;
 		return $list;
 	}
-
+	public function findByPanier(Panier $panier)
+	{
+		$id = $panier->getId();
+		$list = [];
+		$request = "SELECT * FROM produit
+			INNER JOIN link_panier_produit ON produit.id=link_panier_produit.id_produit
+			WHERE link_panier_produit.id_panier=".$id;
+		$res = mysqli_query($this->link, $request);
+		while ($produit = mysqli_fetch_object($res, "Produit", [$this->link]))
+			$list[] = $produit;
+		return $list;
+	}
 
 	public function findById($id)
 	{
