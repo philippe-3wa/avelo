@@ -8,6 +8,12 @@ class Categorie
 	private $description;
 	private $actif;
 
+	private $link;
+
+	public function __construct($link)
+	{
+		$this->link = $link;
+	}
 
 	// Getter/Setter | Accesseur/Mutateur | Accessor/Mutator
 	public function getId()
@@ -52,6 +58,20 @@ class Categorie
 		if ( ($actif < 0) || ($actif > 1) )
 			throw new Exception ("actif doit être = à 0 ou 1");
 		$this->actif = $actif;
+	}
+
+	public function getSousCategories()
+	{
+		$sous_categorieManager = new SousCategorieManager($this->link);
+		$sous_categories = $sous_categorieManager->findByCategorie($this);
+		return $sous_categories;
+	}
+
+	public function getProduits()
+	{
+		$produitManager = new ProduitManager($this->link);
+		$produits = $produitManager->findByCategorie($this);
+		return $produits;
 	}
 
 }

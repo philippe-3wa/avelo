@@ -13,7 +13,17 @@ class SousCategorieManager
 		$list = [];
 		$request = "SELECT * FROM sous_categorie";
 		$res = mysqli_query($this->link, $request);
-		while ($sous_categorie = mysqli_fetch_object($res, "SousCategorie"))
+		while ($sous_categorie = mysqli_fetch_object($res, "SousCategorie", [$this->link]))
+			$list[] = $sous_categorie;
+		return $list;
+	}
+
+	public function findByCategorie($categorie)
+	{
+		$list = [];
+		$request = "SELECT * FROM sous_categorie WHERE id_categorie=".$categorie;
+		$res = mysqli_query($this->link, $request);
+		while ($sous_categorie = mysqli_fetch_object($res, "SousCategorie", [$this->link]))
 			$list[] = $sous_categorie;
 		return $list;
 	}
@@ -23,7 +33,7 @@ class SousCategorieManager
 		$id = intval($id);
 		$request = "SELECT * FROM sous_categorie WHERE id=".$id;
 		$res = mysqli_query($this->link, $request);
-		$sous_categorie = mysqli_fetch_object($res, "SousCategorie");
+		$sous_categorie = mysqli_fetch_object($res, "SousCategorie", [$this->link]);
 		return $sous_categorie;
 	}
 
