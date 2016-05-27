@@ -81,14 +81,16 @@ class User
 			throw new Exception ("Login trop long (> 15)");
 		$this->login = $login;
 	}
-	public function setPassword($password)
+	public function setPassword($password1 ,$password2)
 	{
-		if (strlen($password) < 4)
+		if (strlen($password1) < 4)
 			throw new Exception ("Mot de passe trop court (< 4)");
-		else if (strlen($password) > 255)
+		else if (strlen($password1) > 255)
 			throw new Exception ("Mot de passe trop long (> 255)");
-		$password = password_hash($password, PASSWORD_BCRYPT, array("cost"=>8));
-		$this->password = $password;
+		else if ($password1 != $password2)
+			throw new Exception ("les mots de passe ne correspondent pas");
+		$password = password_hash($password1, PASSWORD_BCRYPT, array("cost"=>8));
+		$this->password = $password1;
 	}
 	public function setPrenom($prenom)
 	{
