@@ -9,6 +9,7 @@
 		</div>
 	</div>
 <?=$error?>
+<?php if (isset($_SESSION['id'])){ echo $_SESSION['id'];} ?>
 	<div class="account">
 		<div class="container"> 
 			<div class="account-bottom">
@@ -62,7 +63,7 @@
 					</form>
 				</div>
 				<div class="col-md-6 account-left">
-					<form>
+					<form method="POST">
 					<div class="account-top heading">
 						<h3>CONNEXION</h3>
 					</div>
@@ -72,8 +73,9 @@
 					</div>
 					<div class="address">
 						<span>Password</span>
-						<input name="password1" type="password" class="form-control" id="password1" placeholder="Password">
+						<input name="password" type="password" class="form-control" id="password" placeholder="Password">
 					</div>
+					<input type="hidden" name="action" value="login" />
 					<div class="address new">
 						<input type="submit" value="login">
 					</div>

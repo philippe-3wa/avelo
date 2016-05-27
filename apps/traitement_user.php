@@ -7,6 +7,21 @@ if (isset($_POST['action']))
 		try
 		{
 			$user = $manager->create($_POST);
+			header('Location: index.php?page=user');
+			exit;
+		}
+		catch (Exception $exception)
+		{
+			$error = $exception->getMessage();
+		}
+	}
+
+	if ($_POST['action'] == 'login')
+	{
+		$manager = new UserManager($link);
+		try
+		{
+			$user = $manager->login($_POST);
 			header('Location: index.php');
 			exit;
 		}
@@ -15,6 +30,7 @@ if (isset($_POST['action']))
 			$error = $exception->getMessage();
 		}
 	}
+
 }
 
 /*else if ($_POST['action'] == 'update')

@@ -114,7 +114,7 @@ class UserManager
 				throw new Exception ("Internal server error");
 		}
 		else
-			throw new Exception (var_dump($request));
+			throw new Exception ("Internal server error");
 	}
 	public function getById($id)
 	{
@@ -163,6 +163,32 @@ class UserManager
 			else
 				throw new Exception ("Internal server error");
 		}
+	}
+	public function login($data)
+	{
+		if (!isset($data['login']) || empty($data['login']))
+			throw new Exception ("Missing paramater : login");
+		if (!isset($data['password']) || empty($data['password']))
+			throw new Exception ("Missing paramater : password");
+
+		$login = mysqli_real_escape_string($this->link, $data['login']);
+		$password = mysqli_real_escape_string($this->link, $data['password']);
+		$request = "SELECT * FROM user WHERE login='".$login."' LIMIT 1";
+		$res = mysqli_query($this->link, $request);
+		$user = mysqli_fetch_object($res, "User", [$this->link]);
+		if ($user)
+		{
+			$verif_password = $user->verifyPassword($password);
+			if ($verif_password)
+			{
+				$_SESSION['id'] = $user->getID();
+				return $user;
+			}
+			else
+				throw new Exception("Incorrect password");
+		}
+		else
+			throw new Exception("User not found");
 	}
 }
 ?>
