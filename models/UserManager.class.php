@@ -182,6 +182,10 @@ class UserManager
 			if ($verif_password)
 			{
 				$_SESSION['id'] = $user->getID();
+				$_SESSION['prenom'] = $user->getPrenom();
+				if ($user->getAdmin=1)
+					$_SESSION['admin'] = $user->getAdmin();
+				
 				return $user;
 			}
 			else
