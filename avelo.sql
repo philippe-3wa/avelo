@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 26 Mai 2016 à 10:08
+-- Généré le: Ven 27 Mai 2016 à 13:24
 -- Version du serveur: 5.5.47-0ubuntu0.14.04.1
 -- Version de PHP: 5.5.9-1ubuntu4.14
 
@@ -72,7 +72,16 @@ CREATE TABLE IF NOT EXISTS `categorie` (
   `actif` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `nom` (`nom`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Contenu de la table `categorie`
+--
+
+INSERT INTO `categorie` (`id`, `nom`, `description`, `actif`) VALUES
+(1, 'femme', 'Tous les vélos pour femme', 1),
+(2, 'homme', 'Tous les vélos pour homme', 1),
+(3, 'enfant', 'Tous les vélos pour enfant', 1);
 
 -- --------------------------------------------------------
 
@@ -129,7 +138,15 @@ CREATE TABLE IF NOT EXISTS `produit` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `reference` (`reference`,`nom`),
   KEY `id_sous_categorie` (`id_sous_categorie`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `produit`
+--
+
+INSERT INTO `produit` (`id`, `reference`, `nom`, `description`, `prix`, `tva`, `photo`, `poids`, `actif`, `stock`, `id_sous_categorie`) VALUES
+(1, 'velo-001', 'Vélo champêtre', 'le parfait vélo pour partir en picnic', 500, 5.5, 'velo.jpg', 10, 1, 12, 3),
+(2, 'velo-002', 'Speed 2000', '0 à 30 en 5 secondes', 621, 5.5, 'velo.jpg', 12, 1, 12, 2);
 
 -- --------------------------------------------------------
 
@@ -145,7 +162,22 @@ CREATE TABLE IF NOT EXISTS `sous_categorie` (
   `actif` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `id_categorie` (`id_categorie`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+--
+-- Contenu de la table `sous_categorie`
+--
+
+INSERT INTO `sous_categorie` (`id`, `nom`, `description`, `id_categorie`, `actif`) VALUES
+(1, 'vtt', 'vtt femmes', 1, 1),
+(2, 'course', 'vélos de course femmes', 1, 1),
+(3, 'ville', 'vélos de ville femme', 1, 1),
+(4, 'vtt', 'vtt hommes', 2, 1),
+(5, 'course', 'vélos de course hommes', 2, 1),
+(6, 'ville', 'vélos de ville hommes', 2, 1),
+(7, 'vtt', 'vtt enfants', 3, 1),
+(8, 'course', 'vélos de course enfants', 3, 1),
+(9, 'ville', 'vélos de ville enfants', 3, 1);
 
 -- --------------------------------------------------------
 
