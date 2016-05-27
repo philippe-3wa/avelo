@@ -32,6 +32,9 @@ body a{
 	width: 15%;
 }
 
+.img-product img{
+	max-width: 100%;
+}
 
 .top-header {
 	padding: 3em 0px 1.5em 0px;
