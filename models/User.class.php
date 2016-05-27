@@ -134,5 +134,12 @@ class User
 		$adresses = $adresseManager->getByUser($this);
 		return $adresses;
 	}
+
+	public function getListeAvis()
+	{
+		$avisManager = new AvisManager($this->link);
+		$liste_avis = $avisManager->findByProduit($this);
+		return $liste_avis;
+	}
 }
 ?>
