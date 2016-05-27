@@ -1870,3 +1870,180 @@ ul.product-categories li a {
 /*---- responsive-design -----*/
 
 /*---- admin -----*/
+#main_container{
+margin:0 auto;
+width:900px;
+padding:0px 0 0px 0;
+}
+.main_content{
+margin:0 auto;
+width:900px;
+height:auto;
+padding:0px 0 50px 0;
+background:url(public/images/menu_bg.jpg) no-repeat center top #fff;
+}
+.menu {font-size:11px;padding:0px 10px 0 10px; float:left; width:880px;}
+
+/* remove all the bullets, borders and padding from the default list styling */
+.menu ul {padding:0;margin:0;list-style-type:none; height:34px;}
+
+/* style the sub-level lists */
+.menu ul ul {width: auto;}
+
+/* float the top list items to make it horizontal and a relative positon so that you can control the dropdown menu positon */
+.menu ul li {float:left;height:34px;line-height:34px;}
+
+/* style the sub level list items */
+.menu ul ul li {display:block;width: auto;height:auto;position:relative;line-height:1em;}
+
+/* style the links for the top level */
+.menu a, .menu a:visited {display:block;float:left;height:100%;font-size:11px;text-decoration:none;color:#fff;padding:0 21px 0 17px;}
+.menu a.current{background:url(images/menu_bg.gif) repeat-x center;}
+/* style the sub level links */
+.menu ul ul a, .menu ul ul a:visited {display:block;background:#57c0e8; border-bottom:1px #81dafc solid; color:#fff;width:12em;height:100%;line-height:1em;padding:1em 1em;}
+.menu ul table ul a, .menu ul table ul a:visited  {width:14em; w\idth:12em;}
+
+
+/* style the table so that it takes no part in the layout - required for IE to work */
+.menu table {position:absolute; left:0; top:0; font-size:1em; z-index:-1;}
+.menu ul ul table {lef\t:-1px;}
+.menu ul ul table ul.left {margin-lef\t:2px;}
+
+.menu li:hover {position:relative;}
+* html .menu a:hover {position:relative;}
+
+/* style the third level background */
+.menu ul ul ul a, .menu ul ul ul a:visited {background:#57c0e8;}
+/* style the fourth level background */
+.menu ul ul ul ul a, .menu ul ul ul ul a:visited {background:#57c0e8;}
+/* style the sub level 1 background */
+.menu ul :hover a.sub1 {background:url(images/arrow.gif) no-repeat right #309dc7;}
+/* style the sub level 2 background */
+.menu ul ul :hover a.sub2 {background:url(images/arrow.gif) no-repeat right #088bb4;}
+
+/* style the level hovers */
+/* first */
+.menu a:hover {color:#fff;background:url(images/menu_bg.gif) repeat-x center;}
+.menu :hover > a {color:#fff;background:url(images/menu_bg.gif) repeat-x center;}
+/* second */
+.menu ul ul a:hover{color:#fff;background:url(images/menu_bg_a.gif) repeat-x center;}
+.menu ul ul :hover > a {color:#fff;background:url(images/menu_bg_a.gif) repeat-x center;}
+/* third */
+.menu ul ul ul a:hover {background:url(images/menu_bg_a.gif) repeat-x center;}
+.menu ul ul ul :hover > a {background:url(images/menu_bg_a.gif) repeat-x center;}
+/* fourth */
+.menu ul ul ul ul a:hover {background:url(images/menu_bg_a.gif) repeat-x center;}
+
+
+/* hide the sub levels and give them a positon absolute so that they take up no room */
+.menu ul ul {visibility:hidden;position:absolute;height:0;top:34px;left:0;width:14em; z-index:999;}
+
+/* position the third level flyout menu */
+.menu ul ul ul{left:14em;top:0;width:14em;}
+
+/* position the third level flyout menu for a left flyout */
+.menu ul ul ul.left {left:-14em;}
+
+
+/* make the second level visible when hover on first level list OR link */
+.menu ul li:hover ul, .menu ul a:hover ul {visibility:visible; height:auto; padding-bottom:3em; background:transparent url(images/trans.gif);}
+/* keep the third level hidden when you hover on first level list OR link */
+.menu ul :hover ul ul{visibility:hidden;}
+/* keep the fourth level hidden when you hover on second level list OR link */
+.menu ul :hover ul :hover ul ul{visibility:hidden;}
+/* make the third level visible when you hover over second level list OR link */
+.menu ul :hover ul :hover ul{visibility:visible;}
+/* make the fourth level visible when you hover over third level list OR link */
+.menu ul :hover ul :hover ul :hover ul {visibility:visible;}
+
+.sidebar_search{
+background:url(images/sidebar_menu_top.gif) no-repeat center;
+width:195px;
+height:31px;
+margin:0 0 5px 0;
+}
+input.search_input{
+width:155px;
+height:16px;
+margin:5px 0 0 5px;
+border:1px #bdebfd solid;
+background:#92dbf8;
+padding:4px 0 0 2px;
+float:left;
+color:#096184;
+font-size:11px;
+}
+
+input.search_submit{
+float:left;
+background:none;
+border:none;
+margin:7px 0 0 8px;
+}
+.right_content{
+width:625px;
+float:left;
+padding:30px 0 0 30px;
+}
+#rounded-corner
+{
+margin:0px;
+width:625px;
+text-align: left;
+border-collapse: collapse;
+}
+#rounded-corner thead th.rounded-company
+{
+width:26px;
+background: #60c8f2 url('images/left.jpg') left top no-repeat;
+}
+#rounded-corner thead th.rounded-q4
+{
+background: #60c8f2 url('images/right.jpg') right top no-repeat;
+}
+#rounded-corner th
+{
+padding: 8px;
+font-weight: normal;
+font-size: 13px;
+color: #039;
+background: #60c8f2;
+}
+#rounded-corner td
+{
+padding: 8px;
+background: #ecf8fd;
+border-top: 1px solid #fff;
+color: #669;
+}
+#rounded-corner tfoot td.rounded-foot-left
+{
+background: #ecf8fd url('images/botleft.jpg') left bottom no-repeat;
+}
+#rounded-corner tfoot td.rounded-foot-right
+{
+background: #ecf8fd url('images/botright.jpg') right bottom no-repeat;
+}
+#rounded-corner tbody tr:hover td
+{
+background: #d2e7f0;
+}
+
+a.bt_green{display:block; float:right; margin:10px 5px 10px 5px; line-height:31px; text-decoration:none; color:#FFFFFF; text-shadow:1px 1px #8fa42b;}
+a.bt_green strong{width:auto;height:31px; padding:0 10px 0 10px;display:block; float:left;background:url(images/bt_green_center.gif) repeat-x center;}
+a.bt_green span.bt_green_lft{width:10px;height:31px;display:block; float:left;background:url(images/bt_green_left.gif) no-repeat center right;}
+a.bt_green span.bt_green_r{width:10px;height:31px;display:block; float:left;background:url(images/bt_green_r.gif) no-repeat center right;}
+a:hover.bt_green{ text-decoration:underline;}
+
+a.bt_blue{display:block; float:right; margin:10px 5px 10px 5px; line-height:31px; text-decoration:none; color:#FFFFFF; text-shadow:1px 1px #3597bf;}
+a.bt_blue strong{width:auto;height:31px; padding:0 10px 0 10px;display:block; float:left;background:url(images/bt_blue_center.gif) repeat-x center;}
+a.bt_blue span.bt_blue_lft{width:10px;height:31px;display:block; float:left;background:url(images/bt_blue_left.gif) no-repeat center right;}
+a.bt_blue span.bt_blue_r{width:10px;height:31px;display:block; float:left;background:url(images/bt_blue_r.gif) no-repeat center right;}
+a:hover.bt_blue{ text-decoration:underline;}
+
+a.bt_red{display:block; float:right; margin:10px 5px 10px 5px; line-height:31px; text-decoration:none; color:#FFFFFF; text-shadow:1px 1px #c24739;}
+a.bt_red strong{width:auto;height:31px; padding:0 10px 0 10px;display:block; float:left;background:url(images/bt_red_center.gif) repeat-x center;}
+a.bt_red span.bt_red_lft{width:10px;height:31px;display:block; float:left;background:url(images/bt_red_left.gif) no-repeat center right;}
+a.bt_red span.bt_red_r{width:10px;height:31px;display:block; float:left;background:url(images/bt_red_r.gif) no-repeat center right;}
+a:hover.bt_red{ text-decoration:underline;}
+
