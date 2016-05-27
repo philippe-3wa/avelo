@@ -93,7 +93,7 @@ class Panier
 				$id = mysqli_insert_id($this->link);
 				if ($id)
 				{
-					$user = $this->findById($id);
+					$panier = $this->findById($id);
 					return $panier;
 				}
 				else
@@ -115,12 +115,12 @@ class Panier
 		$id = $panier->getId();
 		if ($id)
 		{
-			$date = mysqli_real_escape_string($this->link, $user->getDate());
-			$nbr_produits = mysqli_real_escape_string($this->link, $user->getNbrProduits());
-			$statut = mysqli_real_escape_string($this->link, $user->getStatut());
-			$prix = mysqli_real_escape_string($this->link, $user->getPrix());
-			$poids = mysqli_real_escape_string($this->link, $user->getPoids());
-			$id_user = mysqli_real_escape_string($this->link, $user->getIdUser());;
+			$date = mysqli_real_escape_string($this->link, $panier->getDate());
+			$nbr_produits = mysqli_real_escape_string($this->link, $panier->getNbrProduits());
+			$statut = mysqli_real_escape_string($this->link, $panier->getStatut());
+			$prix = mysqli_real_escape_string($this->link, $panier->getPrix());
+			$poids = mysqli_real_escape_string($this->link, $panier->getPoids());
+			$id_panier = mysqli_real_escape_string($this->link, $panier->getIdUser());;
 			$request = "UPDATE panier SET date='".$date."', nbr_produits='".$nbr_produits."', statut='".$statut."', prix='".$prix."', poids='".$poids."', id_user='".$id_user."' WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
