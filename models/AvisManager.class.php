@@ -38,6 +38,16 @@ class AvisManager
 			$list[] = $avis;
 		return $list;
 	}
+	public function findByUser(User $user)
+	{
+		$id=$user->getId();
+		$list = [];
+		$request = "SELECT * FROM avis WHERE id_user=".$id;
+		$res = mysqli_query($this->link, $request);
+		while ($avis = mysqli_fetch_object($res, "Avis", [$this->link]))
+			$list[] = $avis;
+		return $list;
+	}
 	public function findByNote($note)
 	{
 		$note = mysqli_real_escape_string($this->link, $note);
