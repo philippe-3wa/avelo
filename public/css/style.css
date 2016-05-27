@@ -36,6 +36,14 @@ body a{
 	width: 15%;
 }
 
+.bandeau-nav{
+	background-color: #8C2830;
+	height: 31px;
+}
+.bandeau-nav li{
+	color: white;
+}
+
 .img-product img{
 	max-width: 100%;
 }
@@ -1106,7 +1114,7 @@ ul.size {
 }
 @media(max-width:768px){
 .top-header-left,.top-header-middle,.top-header-right{
-	width: 33.3%;
+	width: 50%;
 	float: left;
 }
 .account-left {
@@ -1442,6 +1450,7 @@ ul.unit li span {
 @media(max-width:480px){
 .top-header-left, .top-header-middle, .top-header-right {
 	padding: 0 5px;
+	width: 50%;
 }
 .col-md-9.p-left {
 	padding: 0;
