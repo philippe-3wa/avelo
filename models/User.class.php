@@ -124,5 +124,12 @@ class User
 			throw new Exception ("admin doit être = 1");
 		$this->admin = $admin;
 	}
+
+	public function getAdresses()
+	{
+		$adresseManager = new AdresseManager($this->link);
+		$adresses = $adresseManager->getByUser($this);
+		return $adresses;
+	}
 }
 ?>

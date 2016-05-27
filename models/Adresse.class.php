@@ -91,11 +91,6 @@ class Adresse
 	else
 		$pays=$_POST['pays'];
 
-	public function getUsers()
-	{
-		$userManager = new UserManager($this->link);
-		$users = $userManager->getByAdresse($this);
-		return $users;
-	}
+	
 }
 ?>
