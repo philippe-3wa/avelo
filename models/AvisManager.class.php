@@ -15,7 +15,7 @@ class AvisManager
 		$list = [];
 		$request = "SELECT * FROM avis";
 		$res = mysqli_query($this->link, $request);
-		while ($avis = mysqli_fetch_object($res, "Avis"))
+		while ($avis = mysqli_fetch_object($res, "Avis", [$this->link]))
 			$list[] = $avis;
 		return $list;
 	}
@@ -25,22 +25,31 @@ class AvisManager
 		$request = "SELECT * FROM avis WHERE id=".$id;
 		// SELECT * FROM avis WHERE id=1
 		$res = mysqli_query($this->link, $request);
-		$avis = mysqli_fetch_object($res, "Avis");
+		$avis = mysqli_fetch_object($res, "Avis", [$this->link]);
 		return $avis;
+	}
+	public function findByProduit($produit)
+	{
+		$list = [];
+		$request = "SELECT * FROM avis WHERE id_produit=".$produit;
+		$res = mysqli_query($this->link, $request);
+		while ($avis = mysqli_fetch_object($res, "Avis", [$this->link]))
+			$list[] = $avis;
+		return $list;
 	}
 	public function findByNote($note)
 	{
 		$note = mysqli_real_escape_string($this->link, $note);
 		$request = "SELECT * FROM avis WHERE note='".$note."'";
 		$res = mysqli_query($this->link, $request);
-		$avis = mysqli_fetch_object($res, "Avis");
+		$avis = mysqli_fetch_object($res, "Avis", [$this->link]);
 		return $avis;
 	}
 	public function create($data)
 	{
 		if (!isset($_SESSION['id']))
 			throw new Exception ("Vous devez être connecté");
-		$avis = new Avis();
+		$avis = new Avis($this->link);
 
 		if (!isset($data['contenu']))
 			throw new Exception ("Missing paramater : contenu");

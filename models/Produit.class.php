@@ -14,7 +14,13 @@ class Produit
 	private $actif;
 	private $stock;
 	private $id_sous_categorie;
+	
+	private $link;
 
+	public function __construct($link)
+	{
+		$this->link = $link;
+	}
 
 	// Getter/Setter | Accesseur/Mutateur | Accessor/Mutator
 	public function getId()
@@ -132,6 +138,13 @@ class Produit
 		if ($id_sous_categorie =< 0) 
 			throw new Exception ("l'id de la sous categorie doit être supérieur à 0");
 		$this->id_sous_categorie = $id_sous_categorie;
+	}
+
+	public function getListeAvis()
+	{
+		$avisManager = new AvisManager($this->link);
+		$liste_avis = $avisManager->findByProduit($this);
+		return $liste_avis;
 	}
 
 }
