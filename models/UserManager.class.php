@@ -12,7 +12,7 @@ class User
 		$list = [];
 		$request = "SELECT * FROM user";
 		$res = mysqli_query($this->link, $request);
-		while ($user = mysqli_fetch_object($res, "User"))
+		while ($user = mysqli_fetch_object($res, "User", [$this->link]))
 			$list[] = $user;
 		return $list;
 	}
@@ -21,7 +21,7 @@ class User
 		$id = intval($id);
 		$request = "SELECT * FROM user WHERE id=".$id;
 		$res = mysqli_query($this->link, $request);
-		$user = mysqli_fetch_object($res, "User");
+		$user = mysqli_fetch_object($res, "User", [$this->link]);
 		return $user;
 	}
 	public function findByEmail($email)
@@ -29,7 +29,7 @@ class User
 		$email = mysqli_real_escape_string($this->link, $email);
 		$request = "SELECT * FROM user WHERE email='".$email."'";
 		$res = mysqli_query($this->link, $request);
-		$user = mysqli_fetch_object($res, "User");
+		$user = mysqli_fetch_object($res, "User", [$this->link]);
 		return $user;
 	}
 	public function findByLogin($login)
@@ -37,7 +37,7 @@ class User
 		$login = mysqli_real_escape_string($this->link, $login);
 		$request = "SELECT * FROM user WHERE login='".$login."'";
 		$res = mysqli_query($this->link, $request);
-		$user = mysqli_fetch_object($res, "User");
+		$user = mysqli_fetch_object($res, "User", [$this->link]);
 		return $user;
 	}
 	public function findByPrenom($prenom)
@@ -45,7 +45,7 @@ class User
 		$prenom = mysqli_real_escape_string($this->link, $prenom);
 		$request = "SELECT * FROM user WHERE prenom='".$prenom."'";
 		$res = mysqli_query($this->link, $request);
-		$user = mysqli_fetch_object($res, "User");
+		$user = mysqli_fetch_object($res, "User", [$this->link]);
 		return $user;
 	}
 	public function findByNom($nom)
@@ -53,7 +53,7 @@ class User
 		$nom = mysqli_real_escape_string($this->link, $nom);
 		$request = "SELECT * FROM user WHERE nom='".$nom."'";
 		$res = mysqli_query($this->link, $request);
-		$user = mysqli_fetch_object($res, "User");
+		$user = mysqli_fetch_object($res, "User", [$this->link]);
 		return $user;
 	}
 
@@ -85,7 +85,7 @@ class User
 	{
 		if (!isset($_SESSION['admin']))
 			throw new Exception ("Vous devez être connecté");
-		$user = new User();
+		$user = new User($this->link);
 		
 		$this->verifVariables($data);
 		$user->setEmail($data['email']);
@@ -132,7 +132,7 @@ class User
 	{
 		if (!isset($_SESSION['admin']))
 			throw new Exception ("Vous devez être connecté");
-		$user = new User();
+		$user = new User($this->link);
 		$this->verifVariables($data);
 		$id = $user->getId();
 		if ($id)
@@ -159,7 +159,7 @@ class User
 	{
 		if (!isset($_SESSION['admin']))
 			throw new Exception ("Vous devez être connecté");
-		$user = new User();
+		$user = new User($this->link);
 		$this->verifVariables($data);
 		$id = $user->getId();
 		if ($id)
