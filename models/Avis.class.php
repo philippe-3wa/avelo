@@ -10,8 +10,13 @@ class avis
 	private $id_user;
 	private $id_produit;
 
+	private $link;
 
 	// Ctor
+	public function __construct($link)
+	{
+		$this->link = $link;
+	}
 
 	// Getter/Setter | Accesseur/Mutateur | Accessor/Mutator
 	public function getId()
@@ -56,5 +61,7 @@ class avis
 	}
 
 	// Méthodes spécifiques
+	// public function getListComment / getCommentList / getComments / getList
+	
 }
 ?>
