@@ -29,25 +29,25 @@ class ProduitManager
 		return $produit;
 	}
 
-	public function findBySousCategorie($sous_categorie)
+	public function findBySousCategorie(SousCategorie $sous_categorie)
 	{
 		$list = [];
-		$sous_categorie = intval($sous_categorie);
-		$request = "SELECT * FROM produit WHERE id_sous_categorie=".$sous_categorie;
+		$id_sous_categorie = $sous_categorie->getId();
+		$request = "SELECT * FROM produit WHERE id_sous_categorie=".$id_sous_categorie;
 		$res = mysqli_query($this->link, $request);
 		while ($produit = mysqli_fetch_object($res, "Produit", [$this->link]))
 			$list[] = $produit;
 		return $list;
 	}
 
-	public function findByCategorie($categorie)
+	public function findByCategorie(Categorie $categorie)
 	{
 		$list[];
-		$categorie = intval($categorie);
+		$id_categorie = $categorie->getId();
 		$request = "SELECT produit.* FROM produit 
 		INNER JOIN sous_categorie 
 		ON sous_categorie.id=produit.id_sous_categorie
-		WHERE sous_categorie.id_categorie=".$categorie;
+		WHERE sous_categorie.id_categorie=".$id_categorie;
 		$res = mysqli_query($this->link, $request);
 		while ($produit = mysqli_fetch_object($res, "Produit", [$this->link]))
 			$list[] = $produit;

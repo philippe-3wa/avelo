@@ -28,10 +28,21 @@ class AvisManager
 		$avis = mysqli_fetch_object($res, "Avis", [$this->link]);
 		return $avis;
 	}
-	public function findByProduit($produit)
+	public function findByProduit(Produit $produit)
 	{
+		$id=$produit->getId();
 		$list = [];
-		$request = "SELECT * FROM avis WHERE id_produit=".$produit;
+		$request = "SELECT * FROM avis WHERE id_produit=".$id;
+		$res = mysqli_query($this->link, $request);
+		while ($avis = mysqli_fetch_object($res, "Avis", [$this->link]))
+			$list[] = $avis;
+		return $list;
+	}
+	public function findByUser(User $user)
+	{
+		$id=$user->getId();
+		$list = [];
+		$request = "SELECT * FROM avis WHERE id_user=".$id;
 		$res = mysqli_query($this->link, $request);
 		while ($avis = mysqli_fetch_object($res, "Avis", [$this->link]))
 			$list[] = $avis;

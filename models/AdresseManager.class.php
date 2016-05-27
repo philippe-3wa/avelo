@@ -17,6 +17,16 @@ class AdresseManager
 			$list[] = $adresse;
 		return $list;
 	}
+	public function findbyUser(User $user) // faut ajouter pour un seul ID ms je sais pas comment
+	{
+		$list = [];
+		$id = $user->getId();
+		$request = "SELECT * FROM adresse WHERE id=".$id;
+		$res = mysqli_query($this->link, $request);
+		while ($adresse = mysqli_fetch_object($res, "Adresse", [$this->link]))
+			$list[] = $adresse;
+		return $list;
+	}
 	public function findById($id)
 	{
 		$id = intval($id);
