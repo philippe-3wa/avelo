@@ -13,6 +13,13 @@ class User
 	private $actif;
 	private $admin;
 
+	private $link;
+
+	public function __construct($link)
+	{
+		$this->link = $link;
+	}
+
 	public function getId()
 	{
 		return $this->id;
@@ -25,7 +32,7 @@ class User
 	{
 		return $this->login;
 	}
-	private function getPassword()
+	public function getPassword()
 	{
 		return $this->password;
 	}
@@ -45,15 +52,15 @@ class User
 	{
 		return $this->date_naissance;
 	}
-	private function getDateInscription()
+	public function getDateInscription()
 	{
 		return $this->date_inscription;
 	}
-	private function getActif()
+	public function getActif()
 	{
 		return $this->actif;
 	}
-	private function getAdmin()
+	public function getAdmin()
 	{
 		return $this->admin;
 	}
