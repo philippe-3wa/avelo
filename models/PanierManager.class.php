@@ -32,34 +32,10 @@ class Panier
 		$panier = mysqli_fetch_object($res, "Panier", [$this->link]);
 		return $panier;
 	}
-	public function findByNbrProduits($nbr_produits)
-	{
-		$nbr_produits = mysqli_real_escape_string($this->link, $nbr_produits);
-		$request = "SELECT * FROM panier WHERE nbr_produits='".$nbr_produits."'";
-		$res = mysqli_query($this->link, $request);
-		$panier = mysqli_fetch_object($res, "Panier", [$this->link]);
-		return $panier;
-	}
 	public function findByStatut($statut)
 	{
 		$statut = mysqli_real_escape_string($this->link, $statut);
 		$request = "SELECT * FROM panier WHERE statut='".$statut."'";
-		$res = mysqli_query($this->link, $request);
-		$panier = mysqli_fetch_object($res, "Panier", [$this->link]);
-		return $panier;
-	}
-	public function findByPrix($prix)
-	{
-		$prix = mysqli_real_escape_string($this->link, $prix);
-		$request = "SELECT * FROM panier WHERE prix='".$prix."'";
-		$res = mysqli_query($this->link, $request);
-		$panier = mysqli_fetch_object($res, "Panier", [$this->link]);
-		return $panier;
-	}
-	public function findByPoids($poids)
-	{
-		$poids = mysqli_real_escape_string($this->link, $poids);
-		$request = "SELECT * FROM panier WHERE poids='".$poids."'";
 		$res = mysqli_query($this->link, $request);
 		$panier = mysqli_fetch_object($res, "Panier", [$this->link]);
 		return $panier;
