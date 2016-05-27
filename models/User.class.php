@@ -32,9 +32,11 @@ class User
 	{
 		return $this->login;
 	}
-	public function getPassword()
+	public function verifyPassword($password)
 	{
-		return $this->password;
+		if (password_verify($password, $this->password))
+			return true;
+		return false;
 	}
 	public function getPrenom()
 	{
@@ -85,6 +87,7 @@ class User
 			throw new Exception ("Mot de passe trop court (< 4)");
 		else if (strlen($password) > 255)
 			throw new Exception ("Mot de passe trop long (> 255)");
+		$password = password_hash($password, PASSWORD_BCRYPT, array("cost"=>8));
 		$this->password = $password;
 	}
 	public function setPrenom($prenom)

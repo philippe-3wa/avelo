@@ -91,6 +91,5 @@ class Adresse
 	else
 		$pays=$_POST['pays'];
 
-	
 }
 ?>
