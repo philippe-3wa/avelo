@@ -7,6 +7,17 @@ class ProduitManager
 	{
 		$this->link = $link;
 	}
+	
+
+	public function findAll()
+	{
+		$list = [];
+		$request = "SELECT * FROM produit";
+		$res = mysqli_query($this->link, $request);
+		while ($produit = mysqli_fetch_object($res, "Produit", [$this->link]))
+			$list[] = $produit;
+		return $list;
+	}
 
 
 	public function findById($id)
@@ -14,7 +25,7 @@ class ProduitManager
 		$id = intval($id);
 		$request = "SELECT * FROM produit WHERE id=".$id;
 		$res = mysqli_query($this->link, $request);
-		$produit = mysqli_fetch_object($res, "Produit");
+		$produit = mysqli_fetch_object($res, "Produit", [$this->link]);
 		return $produit;
 	}
 
@@ -24,7 +35,7 @@ class ProduitManager
 		$sous_categorie = intval($sous_categorie);
 		$request = "SELECT * FROM produit WHERE id_sous_categorie=".$sous_categorie;
 		$res = mysqli_query($this->link, $request);
-		while ($produit = mysqli_fetch_object($res, "Produit"))
+		while ($produit = mysqli_fetch_object($res, "Produit", [$this->link]))
 			$list[] = $produit;
 		return $list;
 	}
@@ -38,7 +49,7 @@ class ProduitManager
 		ON sous_categorie.id=produit.id_sous_categorie
 		WHERE sous_categorie.id_categorie=".$categorie;
 		$res = mysqli_query($this->link, $request);
-		while ($produit = mysqli_fetch_object($res, "Produit"))
+		while ($produit = mysqli_fetch_object($res, "Produit", [$this->link]))
 			$list[] = $produit;
 		return $list;
 	}
@@ -74,7 +85,7 @@ class ProduitManager
 
 		$this->verifVariables($data);
 
-		$produit = new Produit();
+		$produit = new Produit($this->link);
 
 		$produit->setReference($data['reference']);
 		$produit->setNom($data['nom']);
@@ -116,18 +127,26 @@ class ProduitManager
 		
 	}
 
-	public function update(Categorie $categorie)
+	public function update(Produit $produit)
 	{
-		$this->verifVariables($categorie);
-
-		$id = $categorie->getId();
+		$this->verifVariables($produit);
+		$produit = new Produit($this->link);
+		$id = $produit->getId();
 		if ($id)
 		{
-			$nom = mysqli_real_escape_string($this->link, $categorie->getNom());
-			$description = mysqli_real_escape_string($this->link, $categorie->getDescription());
-			$actif = $categorie->getActif();
+			$reference = $produit->getReference();
+			$nom = mysqli_real_escape_string($this->link, $produit->getNom());
+			$description = mysqli_real_escape_string($this->link, $produit->getDescription());
+			$prix = $produit->getPrix();
+			$tva = $produit->getTva();
+			$photo = mysqli_real_escape_string($this->link, $produit->getPhoto());
+			$poids =$produit->getPoids();
+			$stock = $produit->getStock();
+			$actif = $produit->getActif();
+			$id_sous_categorie = $produit->getIdSousCategorie();
 
-			$request = "UPDATE categorie SET nom='".$nom."', description='".$description."', actif='".$actif."' WHERE id=".$id;
+			$request = "UPDATE produit 
+			SET reference='".$reference."', nom='".$nom."', description='".$description."', prix='".$prix."', tva='".$tva."',photo='".$photo."', poids='".$poids."', actif='".$actif."', stock='".$stock."', id_sous_categorie='".$id_sous_categorie."' WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 				return $this->findById($id);
