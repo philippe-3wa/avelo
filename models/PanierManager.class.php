@@ -79,14 +79,14 @@ class Panier
 		$panier->setPoids($data['poids']);
 		$panier->setIdUser($data['id_user']);
 	
-			$date = $user->getDate();
-			$nbr_produits = $user->getNbrProduits();
-			$statut = $user->getStatut();
-			$prix = $user->getPrix();
-			$poids = $user->getPoids();
-			$id_user = $user->getIdUser();
+			$date = $panier->getDate();
+			$nbr_produits = $panier->getNbrProduits();
+			$statut = $panier->getStatut();
+			$prix = $panier->getPrix();
+			$poids = $panier->getPoids();
+			$id_user = $panier->getIdUser();
 			$id = $_SESSION['user'];
-			$request = "INSERT INTO user (date, nbr_produits, statut, prix, poids, id_user) VALUES('".$date."', '".$nbr_produits."', '".$statut."', '".$prix."', '".$poids."', '".$id_user."')";
+			$request = "INSERT INTO panier (date, nbr_produits, statut, prix, poids, id_user) VALUES('".$date."', '".$nbr_produits."', '".$statut."', '".$prix."', '".$poids."', '".$id_user."')";
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 			{
