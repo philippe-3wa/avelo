@@ -72,12 +72,12 @@ class Panier
 		$panier = new Panier($this->link);
 		
 		$this->verifVariables($data);
-		$user->setDate($data['date']);
-		$user->setNbrProduits($data['nbr_produits']);
-		$user->setStatut($data['statut']);
-		$user->setPrix($data['prix']);
-		$user->setPoids($data['poids']);
-		$user->setIdUser($data['id_user']);
+		$panier->setDate($data['date']);
+		$panier->setNbrProduits($data['nbr_produits']);
+		$panier->setStatut($data['statut']);
+		$panier->setPrix($data['prix']);
+		$panier->setPoids($data['poids']);
+		$panier->setIdUser($data['id_user']);
 	
 			$date = $user->getDate();
 			$nbr_produits = $user->getNbrProduits();
