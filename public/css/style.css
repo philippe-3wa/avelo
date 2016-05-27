@@ -20,6 +20,19 @@ body a{
 	min-width: 100%;
 }
 
+.tab1, .tab2{
+	width: 25%;
+}
+
+.tab3{
+	width: 20%;
+}
+
+.tab4, .tab5{
+	width: 15%;
+}
+
+
 .top-header {
 	padding: 3em 0px 1.5em 0px;
 }
@@ -704,11 +717,13 @@ a.add-cart:hover {
 ul.unit{
 	background:#181b2a;
 	padding:1em;
+	text-align: center;
+	height: 4em;
 }
 ul.unit li {
 	display:inline-block;
-	width:20%;
-	float:left;
+	text-align: center;
+	vertical-align: middle;
 }
  ul.unit li span{
 	display:inline-block;
@@ -727,7 +742,6 @@ ul.cart-header2{
 }
  ul.cart-header li, ul.cart-header1 li,ul.cart-header2 li{
 	display:inline-block;
-	width:20%;
 	float:left;
 }
 ul.cart-header li span,ul.cart-header1 li span,ul.cart-header2 li span{
