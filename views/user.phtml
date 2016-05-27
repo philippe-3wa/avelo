@@ -1,0 +1,84 @@
+	<div class="breadcrumbs">
+		<div class="container">
+			<div class="breadcrumbs-main">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Home</a></li>
+					<li class="active">Account</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+
+	<div class="account">
+		<div class="container"> 
+			<div class="account-bottom">
+				<div class="col-md-6 account-left">
+					<div class="account-top heading">
+						<h3>NOUVEAU CLIENT</h3>
+					</div>
+					<form method="POST" name="register" id="register" novalidate>
+					<div class="address">
+						<span>Prénom</span>
+						<input type="text" name="prenom" id="prenom" placeholder="Votre prénom">
+					</div>
+					<div class="address">
+						<span>Nom</span>
+						<input type="text" name="nom" id="nom" placeholder="Votre nom">
+					</div>
+					<div class="address">
+						<span>Email</span>
+						<input name="email" type="email" class="form-control" placeholder="Votre adresse email" id="email" required data-validation-required-message="Please enter your email address.">
+                        <p class="help-block text-danger"></p>
+					</div>
+					<div class="address">
+						<span>Sexe</span>
+						<input type="radio" name="sexe" value="homme" id="homme"/>
+						<label for="homme">Homme</label>
+						
+						<input type="radio" name="sexe" value="femme" id="femme"/>
+						<label for="femme">Femme</label>
+					</div>
+					<div class="address">
+						<span>Date de naissance</span>
+						<input type="date" name="date_naissance">
+					</div>
+					<hr>
+					<div class="address">
+						<span>Login</span>
+						<input name="login" type="text" autofocus class="form-control" id="login" placeholder="Login" required data-validation-required-message="Please enter a login.">
+                            <p class="help-block text-danger"></p>
+					</div>
+					<div class="address">
+						<span>Password</span>
+						<input type="text">
+					</div>
+					<div class="address">
+						<span>Confirmer Password</span>
+						<input type="text">
+					</div>
+					<div class="address new">
+						<input type="submit" value="submit">
+					</div>
+					</form>
+				</div>
+				<div class="col-md-6 account-left">
+					<form>
+					<div class="account-top heading">
+						<h3>CONNEXION</h3>
+					</div>
+					<div class="address">
+						<span>Login</span>
+						<input type="text">
+					</div>
+					<div class="address">
+						<span>Password</span>
+						<input type="text">
+					</div>
+					<div class="address new">
+						<input type="submit" value="login">
+					</div>
+				</form>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
