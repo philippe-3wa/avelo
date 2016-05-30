@@ -410,7 +410,7 @@ ul.callbacks_tabs.callbacks2_tabs {
 	font-family: 'Lato', sans-serif;
 }
 .footer-left ul li a:hover{
-	color:#97262a;
+	color:#00C8CF;
 	text-decoration:none;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
@@ -490,7 +490,7 @@ ul.callbacks_tabs.callbacks2_tabs {
 .contact-left form input[type="submit"] {
 	font-size: 0.8em;
 	display: inline-block;
-	background: #97262a;
+	background: #00C8CF;
 	padding: 0.8em 2em;
 	border: none;
 	color: #fff;
@@ -543,7 +543,7 @@ ul.callbacks_tabs.callbacks2_tabs {
 	font-family: 'Lato', sans-serif;
 }
 .address input[type="submit"] {
-	background: #97262a;
+	background: #00C8CF;
 	color: #FFF;
 	font-size: 1em;
 	padding: 0.5em 1.2em;
