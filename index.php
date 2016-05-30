@@ -28,8 +28,8 @@ if (isset($_GET['page']))
 
 $access_traitement = array('user'=>'user', 'logout'=>'user', 'avis'=>'avis', 'panier'=>'panier', 'admin'=>'admin','adresse'=>'adresse');
 
-if (in_array($page, $access_traitement))
-	require('apps/traitement_'.$page.'.php');
+if (isset($access_traitement[$page]))
+	require('apps/traitement_'.$access_traitement[$page].'.php');
 require('apps/skel.php');
 
 mysqli_close($link);
