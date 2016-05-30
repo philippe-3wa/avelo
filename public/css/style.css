@@ -37,7 +37,7 @@ body a{
 }
 
 .bandeau-nav{
-	background-color: #8C2830;
+	background-color: #00C8CF;
 	height: 31px;
 }
 .bandeau-nav li{
@@ -275,7 +275,7 @@ a.simpleCart_empty {
 	width: 60px;
 	display: inline-block;
 	border: none;
-	background: #8c2830;
+	background: #00C8CF;
 }
 .callbacks_here a:after{
 	background:#181b2a;
@@ -422,7 +422,7 @@ ul.callbacks_tabs.callbacks2_tabs {
 /*--start-footer-text--*/
 .footer-text {
 	padding: 0.5em 0px;
-	background: #8C2830;
+	background: #00C8CF;
 }
 .footer-main{
 	text-align:center;
@@ -634,7 +634,7 @@ ol.breadcrumb {
 	left: 33%;
 }
 .mask span{
-	background:#8c2830;
+	background:#00C8CF;
 	color:#fff;
 	font-size:15px;
 	font-weight:400;

@@ -63,7 +63,7 @@ ul.memenu.skyblue {text-align: center;}
 .skyblue li>a,.skyblue>li.showhide span{color:white}
 .skyblue>li:hover>a,.skyblue>li.active>a,.skyblue .dropdown li:hover>a{color:#181b2a}.
 skyblue .mepanel img:hover,.skyblue form.contact input[type="text"]:focus,.skyblue form.contact textarea:focus{border:solid 1px #0194be}
-.skyblue form.contact input[type="submit"]{background:#0194be}
+.skyblue form.contact input[type="submit"]{background:#00C8CF}
 @media(max-width:768px){
 	.memenu>li{display:block;width:100%;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
 	.memenu>li:hover,.memenu>li.active{border-top:0}
