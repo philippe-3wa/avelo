@@ -11,7 +11,7 @@ if (isset($_POST['action']))
 				$categorie = $manager->findById($_POST['id']);
 				$categorie->setNom($_POST['nom']);
 				$categorie->setDescription($_POST['description']);
-				$manager->update($article);
+				$manager->update($categorie);
 				header('Location: index.php');
 				exit;
 			}
