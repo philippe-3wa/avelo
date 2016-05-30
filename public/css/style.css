@@ -421,7 +421,8 @@ ul.callbacks_tabs.callbacks2_tabs {
 /*--end-footer--*/
 /*--start-footer-text--*/
 .footer-text {
-	padding: 0.5em 0px;
+
+	padding: 15px 0;
 	background: #00C8CF;
 }
 .footer-main{
@@ -1297,7 +1298,7 @@ a.simpleCart_empty {
 	font-size: 12px;
 }
 .footer-text {
-	padding: 0.5em 0px;
+	padding: 15px 0;
 }
 .banner-bottom {
 	padding-top: 2em;
@@ -1439,7 +1440,7 @@ ul.unit li span {
 	margin: 6% 0 0 0;
 }
 .footer-text {
-	padding: 0.5em 0px;
+	padding: 15px 0;
 }
 #toTop {
 	width: 40px;
@@ -1669,7 +1670,7 @@ a.simpleCart_empty {
 	font-size: 11px;
 }
 .footer-text {
-	padding: 0.5em 0px;
+	padding: 15px 0;
 }
 .single-main-left {
 	padding: 0;
@@ -1685,7 +1686,7 @@ a.simpleCart_empty {
 	text-align: center;
 }
 .footer-text {
-	padding: 0.5em 0px;
+	padding: 15px 0;
 }
 .p-one {
 	padding: 0px 10px 15px 10px;
