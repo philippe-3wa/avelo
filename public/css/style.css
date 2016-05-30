@@ -83,6 +83,10 @@ body a{
 .top-header-middle {
 	text-align: center;
 }
+
+.top-header-left a img{
+	width: 100%;
+}
 /*----*/
 .itemContainer{
 			width:100%;
