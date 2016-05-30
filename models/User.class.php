@@ -152,5 +152,13 @@ class User
 		$liste_avis = $avisManager->findByProduit($this);
 		return $liste_avis;
 	}
+
+	public function isAdmin($is_admin)
+	{
+		if ($is_admin == 1)
+			return true;
+		else
+			return false;
+	}
 }
 ?>
