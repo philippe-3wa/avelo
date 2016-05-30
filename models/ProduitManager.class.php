@@ -18,6 +18,7 @@ class ProduitManager
 			$list[] = $produit;
 		return $list;
 	}
+	
 	public function findByPanier(Panier $panier)
 	{
 		$id = $panier->getId();
@@ -53,7 +54,7 @@ class ProduitManager
 
 	public function findByCategorie(Categorie $categorie)
 	{
-		$list[];
+		$list = [];
 		$id_categorie = $categorie->getId();
 		$request = "SELECT produit.* FROM produit 
 		INNER JOIN sous_categorie 

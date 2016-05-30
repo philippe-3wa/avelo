@@ -135,7 +135,7 @@ class Produit
 	public function setIdSousCategorie($id_sous_categorie)
 	{
 		$id_sous_categorie = intval($id_sous_categorie);
-		if ($id_sous_categorie =< 0) 
+		if ($id_sous_categorie <= 0) 
 			throw new Exception ("l'id de la sous categorie doit être supérieur à 0");
 		$this->id_sous_categorie = $id_sous_categorie;
 	}
