@@ -51,6 +51,10 @@ body a{
 .top-header {
 	padding: 3em 0px 1.5em 0px;
 }
+
+.add{
+	color: #00C8CF;
+}
 .search-bar input[type="text"] {
 	/*width: 100%;*/
 	padding: 8px 45px 8px 8px;
@@ -537,9 +541,6 @@ ul.callbacks_tabs.callbacks2_tabs {
 	font-size: 14px;
 	padding: 10px 10px;
 	font-family: 'Lato', sans-serif;
-}
-.address{
-	margin-top:4%;
 }
 .address a {
 	font-size: 14px;
@@ -1139,12 +1140,7 @@ ul.size {
 .mask1 {
 	left: 33.5% !important;
 }
-.address {
-	margin-top: 3%;
-}
-.address.new {
-	margin-top: 5%;
-}
+
 .address input[type="submit"] {
 	padding: 0.35em 1em;
 }
@@ -1502,9 +1498,7 @@ a.add-cart {
 .address input[type="text"] {
 	padding: 5px 10px;
 }
-.address.new {
-	margin-top: 4%;
-}
+
 .address input[type="submit"] {
 	font-size: 13px;
 }

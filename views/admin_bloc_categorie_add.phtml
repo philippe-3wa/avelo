@@ -1,1 +1,30 @@
-test
+<div class="container"> 
+	<h4 class="add">Nouvelle catégorie :</h4>
+		<form method="POST" name="categorie_add" id="categorie_add">
+			<div>
+				<input type="text" name="nom" id="nom" placeholder="Nom" class="form-control" >
+			</div>
+			<br>
+			<div>
+				<input type="text" name="description" id="description" class="form-control" placeholder="Description">
+			</div>
+			<br>
+			<span>Actif :</span>
+			<div>
+				<label class="radio-inline">
+					<input type="radio" name="actif" id="oui" value="oui"> Oui
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="actif" id="non" value="non"> Non
+				</label>
+			</div>
+			<br>
+			<div>
+				<input type="hidden" name="action" value="create" />
+				<div class="address new">
+					<input type="submit" value="submit">
+				</div>
+			</div>
+		</form>
+		<br>
+</div>
