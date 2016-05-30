@@ -5,7 +5,7 @@
     <td><?=htmlentities($sous_categorie->getDescription()); ?></td>
     <td><?=$sous_categorie->getActif(); ?></td>
 
-    <td><a href="#"><img src="public/images/user_edit.png" alt="" title="" border="0" /></a></td>
-    <td><a href="#" class="ask"><img src="public/images/trash.png" alt="" title="" border="0" /></a></td>
+    <td><a href="index.php?page=admin&action=edit_sous_categorie"><img src="public/images/user_edit.png" alt="" title="" border="0" /></a></td>
+    <td><a href="index.php?page=admin&action=delete_sous_categorie" class="ask"><img src="public/images/trash.png" alt="" title="" border="0" /></a></td>
 </tr>
 </tbody>
