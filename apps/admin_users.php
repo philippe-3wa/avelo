@@ -1,5 +1,6 @@
 <?php
-$manager = new UserManager($link);
+if (!isset($_GET['action']))
+{$manager = new UserManager($link);
 	try
 	{
 		$users = $manager->findAll();
@@ -15,5 +16,13 @@ $manager = new UserManager($link);
 	catch (Exception $exception)
 	{
 		$error = $exception->getMessage();
+	}
+}
+else
+	{
+		$action = $_GET['action'];
+
+		if ($action == "edit_user")
+			require('views/admin_edit_user.phtml');
 	}
 ?>

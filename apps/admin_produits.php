@@ -1,5 +1,7 @@
 <?php
-$manager = new ProduitManager($link);
+if (!isset($_GET['action']))
+{
+	$manager = new ProduitManager($link);
 	try
 	{
 		$produits = $manager->findAll();
@@ -15,5 +17,15 @@ $manager = new ProduitManager($link);
 	catch (Exception $exception)
 	{
 		$error = $exception->getMessage();
+	}
+}
+else
+	{
+		$action = $_GET['action'];
+
+		if ($action == "ajout_produit")
+			require('views/admin_add_produit.phtml');
+		else if ($action == "edit_produit")
+			require('views/admin_edit_produit.phtml');
 	}
 ?>

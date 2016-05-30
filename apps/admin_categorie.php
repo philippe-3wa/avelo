@@ -24,9 +24,10 @@ else
 	{
 		$action = $_GET['action'];
 
-		if ($action == "ajout_acategorie")
-		{
+		if ($action == "ajout_categorie")
 			require('views/admin_add_categorie.phtml');
-		}
+		else if ($action == "edit_categorie")
+			require('views/admin_edit_categorie.phtml');
+
 	}
 ?>
