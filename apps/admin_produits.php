@@ -10,7 +10,7 @@ if (!isset($_GET['action']))
 		while ($count < $max)
 		{
 			$produit = $produits[$count];
-			require('views/admin_gestion_produit.phtml');
+			require('views/admin_bloc_produit_liste.phtml');
 			$count++;
 		}
 	}
@@ -24,8 +24,8 @@ else
 		$action = $_GET['action'];
 
 		if ($action == "ajout_produit")
-			require('views/admin_add_produit.phtml');
+			require('views/admin_bloc_produit_add.phtml');
 		else if ($action == "edit_produit")
-			require('views/admin_edit_produit.phtml');
+			require('views/admin_bloc_produit_edit.phtml');
 	}
 ?>

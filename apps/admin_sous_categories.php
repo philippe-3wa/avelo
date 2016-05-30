@@ -10,7 +10,7 @@ if (!isset($_GET['action']))
 		while ($count < $max)
 		{
 			$sous_categorie = $sous_categories[$count];
-			require('views/admin_sous_categories.phtml');
+			require('views/admin_bloc_sous_categorie_liste.phtml');
 			$count++;
 		}
 	}
@@ -24,8 +24,8 @@ else
 		$action = $_GET['action'];
 
 		if ($action == "ajout_sous_categorie")
-			require('views/admin_add_sous_categorie.phtml');
+			require('views/admin_bloc_sous_categorie_add.phtml');
 		else if ($action == "edit_sous_categorie")
-			require('views/admin_edit_sous_categorie.phtml');
+			require('views/admin_bloc_sous_categorie_edit.phtml');
 	}
 ?>

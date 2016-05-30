@@ -9,7 +9,7 @@ if (!isset($_GET['action']))
 		while ($count < $max)
 		{
 			$user = $users[$count];
-			require('views/admin_gestion_user.phtml');
+			require('views/admin_bloc_user_liste.phtml');
 			$count++;
 		}
 	}
@@ -23,6 +23,6 @@ else
 		$action = $_GET['action'];
 
 		if ($action == "edit_user")
-			require('views/admin_edit_user.phtml');
+			require('views/admin_bloc_user_edit.phtml');
 	}
 ?>
