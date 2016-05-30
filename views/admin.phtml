@@ -11,7 +11,7 @@
 </div>
 
 <div>            
-    <h3>Gestion des CATEGORIES</h3>                                  
+    <h3>Gestion des CATEGORIES</h3>
     <table id="rounded-corner">
         <thead>
     	<tr>
@@ -25,7 +25,12 @@
         </thead>
         <?php require('apps/admin_categorie.php'); ?>
     </table>
-	<a href="index.php?page=admin&action=ajout_categorie" class="btn"><strong>Ajouter une catégorie</strong></span></a>
+    <br>
+    <div class="user-info-box">
+        <a class="btn btn-info btn-edit" href="<index.php?page=admin&action=ajout_categorie" data-toggle="modal" data-target="#addCategorie">
+        Ajouter une catégorie
+        </a>                    
+    </div>
 </div>
 <div>            
     <h3>Gestion des SOUS-CATEGORIES</h3>                                  
