@@ -322,8 +322,8 @@ ul.callbacks_tabs.callbacks2_tabs {
 	font-weight: 700;
 }
 .b-btn a:hover{
-	border:2px solid #8c2830;
-	background:#8c2830;
+	border:2px solid #00C8CF;
+	background:#00C8CF;
 	color:#fff;
 	text-decoration:none;
 	transition: 0.5s all;
@@ -600,7 +600,7 @@ ol.breadcrumb {
 	padding: 40px 15px;
 }
 .product-left:hover .p-one{
-	border: 1px solid #8c2830;
+	border: 1px solid #00C8CF;
 	transition: 0.5s all ease;
 	-webkit-transition: 0.5s all ease;
 	-moz-transition: 0.5s all ease;
@@ -622,7 +622,7 @@ ol.breadcrumb {
   width:100%;
 }
 .product-left:hover .p-one p a{
-	color: #8c2830;
+	color: #00C8CF;
 }
 .product-left:hover .mask{
 	display:block;
@@ -697,7 +697,7 @@ ol.breadcrumb {
 a.add-cart {
 	text-decoration: none;
 	color: #fff;
-	background: #8c2830;
+	background: #00C8CF;
 	padding: 0.4em 0.8em;
 	font-size: 1.15em;
 	text-transform: uppercase;
@@ -808,7 +808,7 @@ ul.product-categories li a {
 }
 ul.product-categories li a:hover {
 	text-decoration: none;
-	color: #8c2830;
+	color: #00C8CF;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-o-transition: 0.5s all;
@@ -948,12 +948,12 @@ ul.product-qty {
 	margin-top: 1em;
 }
 ul.size li a:hover {
-	background: #8c2830;
+	background: #00C8CF;
 	color: #fff;
 	text-decoration: none;
 }
 .single-but input[type="submit"] {
-	background: #8c2830;
+	background: #00C8CF;
 	color: #FFF;
 	font-size: 0.8em;
 	padding: 0.5em 1em;
