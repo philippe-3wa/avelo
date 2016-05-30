@@ -30,6 +30,13 @@ if (isset($_POST['action']))
 			$error = $exception->getMessage();
 		}
 	}
+	if ($_POST['action'] == 'logout')
+	{
+		session_destroy();
+		header('Location: index.php?page=home');
+		exit;
+	}
+
 
 }
 
