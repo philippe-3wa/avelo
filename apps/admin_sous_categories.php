@@ -1,5 +1,7 @@
 <?php
-$manager = new SousCategorieManager($link);
+if (!isset($_GET['action']))
+{
+	$manager = new SousCategorieManager($link);
 	try
 	{
 		$sous_categories = $manager->findAll();
@@ -15,5 +17,15 @@ $manager = new SousCategorieManager($link);
 	catch (Exception $exception)
 	{
 		$error = $exception->getMessage();
+	}
+}
+else
+	{
+		$action = $_GET['action'];
+
+		if ($action == "ajout_sous_categorie")
+			require('views/admin_add_sous_categorie.phtml');
+		else if ($action == "edit_sous_categorie")
+			require('views/admin_edit_sous_categorie.phtml');
 	}
 ?>
