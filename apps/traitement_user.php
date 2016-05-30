@@ -32,10 +32,7 @@ if (isset($_POST['action']))
 	}
 
 }
-else 
-{
-	$error = "toto";
-}
+
 
 /*else if ($_POST['action'] == 'update')
 	{
