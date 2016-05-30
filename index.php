@@ -26,7 +26,7 @@ if (isset($_GET['page']))
 		$page = $_GET['page'];
 }
 
-$access_traitement = array('login'=>'user', 'register'=>'user', 'logout'=>'user', 'avis', 'panier', 'admin','adresse');
+$access_traitement = array('user'=>'user', 'logout'=>'user', 'avis'=>'avis', 'panier'=>'panier', 'admin'=>'admin','adresse'=>'adresse');
 
 if (in_array($page, $access_traitement))
 	require('apps/traitement_'.$page.'.php');
