@@ -44,7 +44,7 @@ class CategorieManager
 
 		$this->verifVariables($data);
 
-		$categorie = new Categorie();
+		$categorie = new Categorie($this->link);
 
 		$categorie->setNom($data['nom']);
 		$categorie->setDescription($data['description']);
