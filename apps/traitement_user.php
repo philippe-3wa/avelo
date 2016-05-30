@@ -33,12 +33,15 @@ if (isset($_POST['action']))
 
 }
 
-if ($_GET['action'] == 'logout')
-	{
+if (isset($_GET['action']))
+{
+	if ($_GET['action'] == 'logout')
+		{
 		session_destroy();
 		header('Location: index.php?page=home');
 		exit;
-	}
+		}
+}
 
 
 /*else if ($_POST['action'] == 'update')
