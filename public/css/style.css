@@ -1988,7 +1988,7 @@ padding:30px 0 0 30px;
 #rounded-corner
 {
 margin:0px;
-width:625px;
+width:100%;
 text-align: left;
 border-collapse: collapse;
 }
@@ -2007,7 +2007,7 @@ padding: 8px;
 font-weight: normal;
 font-size: 13px;
 color: white;
-background: #D26C74;
+background: #33333F;
 }
 #rounded-corner td
 {
