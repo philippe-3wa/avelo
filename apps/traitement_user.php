@@ -7,7 +7,7 @@ if (isset($_POST['action']))
 		try
 		{
 			$user = $manager->create($_POST);
-			header('Location: index.php?page=user');
+			header('Location: index.php');
 			exit;
 		}
 		catch (Exception $exception)
@@ -31,6 +31,10 @@ if (isset($_POST['action']))
 		}
 	}
 
+}
+else 
+{
+	$error = "toto";
 }
 
 /*else if ($_POST['action'] == 'update')
