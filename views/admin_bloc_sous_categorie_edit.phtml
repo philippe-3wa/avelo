@@ -1,0 +1,39 @@
+<form class="form-horizontal" role="form">
+    <div class="header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="false"></span><span class="sr-only">Close</span></button>
+        <h4 class="add" id="edit-profile">Éditer Sous-Catégorie</h4>
+    </div>
+    <div class="body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="nom">Nom</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="description"> Description</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="description" name="description" placeholder=" Description" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="id_categorie">Id Catégorie</label>
+            <div class="col-sm-10">
+                <input name="id_categorie" type="password" class="form-control" id="id_categorie" placeholder="Id Catégorie" >
+            </div>
+        </div>
+        <span>Actif :</span>
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" name="actif" id="oui" value="1"> Oui
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="actif" id="non" value="0"> Non
+                </label>
+            </div>
+    </div>
+    <div class="footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+    </div>
+</form>
