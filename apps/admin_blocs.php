@@ -28,7 +28,7 @@ else
 		else if ($option == "add_sous_categorie")
 			require('views/admin_bloc_sous_categorie_add.phtml');
 		else if ($option == "edit_sous_categorie")
-			require('views/admin_bloc_sous_categorie_edit.phtmll');
+			require('views/admin_bloc_sous_categorie_edit.phtml');
 		else if ($option == "add_produit")
 			require('views/admin_bloc_produit_add.phtml');
 		else if ($option == "edit_produit")
