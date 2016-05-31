@@ -37,17 +37,17 @@
 
         <div class="body">
         <div class="form-group">
-            <label class="col-sm-2 control-label" for="TVA">TVA</label>
+            <label class="col-sm-2 control-label" for="tva">TVA</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="TVA" name="TVA" placeholder="TVA" required>
+                <input type="text" class="form-control" id="tva" name="tva" placeholder="tva" required>
             </div>
         </div>
 
         <div class="body">
         <div class="form-group">
-            <label class="col-sm-2 control-label" for="TVA">Photo</label>
+            <label class="col-sm-2 control-label" for="photo">Photo</label>
             <div class="col-sm-10">
-                <input type="file" class="filestyle" data-buttonText="Find file">
+                <input type="file" class="filestyle" id="photo" name="photo" data-buttonText="Find file">
             </div>    
         </div>
 
@@ -60,7 +60,8 @@
         </div>
 
         <div class="form-group">
-            <label class="col-xs-2 control-label" for="id_categorie">Id de la sous-catégorie</label>
+            <label class="col-xs-2 control-label" for="id_sous_categorie" id="id_sous_categorie" name="id_sous_categorie">Id de la sous-catégorie</label>
+            <?php require('apps/produit_add.php'); ?>
             <div class="col-sm-10">
                 <select class="col-sm-2 control-label">
                     <option>1</option>
@@ -79,11 +80,11 @@
         </div>
 
     <div class="form-group">
-        <label class="col-xs-2 control-label" for="actif">Actif</label>
+        <label class="col-xs-2 control-label" for="actif" id="actif" name="actif">Actif</label>
             <div class="col-sm-10">
               <div class="radio">
                 <label>
-                  <input type="radio" name="gridActif" id="gridActif1" value="1" checked>
+                  <input type="radio" name="actif" id="gridActif1" value="1" checked>
                  Oui
                 </label>
               </div>

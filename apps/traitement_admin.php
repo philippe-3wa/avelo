@@ -40,6 +40,21 @@ else
 				$error = $exception->getMessage();
 			}
 		}
+
+		else if ($action == "produit_add")
+		{
+			$manager = new ProduitManager($link);
+			try
+			{
+				$produit = $manager->create($_POST);
+				header('Location: index.php?page=admin');
+				exit;
+			}
+			catch (Exception $exception)
+			{
+				$error = $exception->getMessage();
+			}
+		}
 	}
 }
 ?>
