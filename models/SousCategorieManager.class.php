@@ -57,18 +57,19 @@ class SousCategorieManager
 
 		$this->verifVariables($data);
 
-		$categorie = new SousCategorie();
+		$categorie = new SousCategorie($this->link);
 
-		$categorie->setNom($data['nom']);
-		$categorie->setDescription($data['description']);
-		$categorie->setIdCategorie($data['id_categorie']);
-		$categorie->setActif($data['actif']);
+		$sous_categorie->setNom($data['nom']);
+		$sous_categorie->setDescription($data['description']);
+		$sous_categorie->setIdCategorie($data['id_categorie']);
+		$sous_categorie->setActif($data['actif']);
 		
-		$nom = mysqli_real_escape_string($this->link, $categorie->getNom());
-		$description = mysqli_real_escape_string($this->link, $categorie->getDescription());
-		$actif = $categorie->getActif();
+		$nom = mysqli_real_escape_string($this->link, $sous_categorie->getNom());
+		$description = mysqli_real_escape_string($this->link, $sous_categorie->getDescription());
+		$id_categorie = $sous_categorie->getIdCategorie();
+		$actif = $sous_categorie->getActif();
 
-		$request = "INSERT INTO categorie (nom, description, actif) VALUES('".$nom."', '".$description."', '".$actif."')";
+		$request = "INSERT INTO sous_categorie (nom, description, id_categorie, actif) VALUES('".$nom."', '".$description."', '".$id_categorie."', '".$actif."')";
 		$res = mysqli_query($this->link, $request);
 		if ($res)
 		{
@@ -76,7 +77,7 @@ class SousCategorieManager
 			if ($id)
 			{
 				$avis = $this->findById($id);
-				return $categorie;
+				return $sous_categorie;
 			}
 			else
 				throw new Exception ("Internal server error");

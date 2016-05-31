@@ -26,12 +26,12 @@ else
 			}
 		}
 
-		if ($action == "sous_categorie_add")
+		else if ($action == "sous_categorie_add")
 		{
-			$manager = new CategorieManager($link);
+			$manager = new SousCategorieManager($link);
 			try
 			{
-				$categorie = $manager->create($_POST);
+				$sous_categorie = $manager->create($_POST);
 				header('Location: index.php?page=admin');
 				exit;
 			}
