@@ -1,0 +1,12 @@
+<div class="col-md-3 product-left">
+	<div class="p-one simpleCart_shelfItem">
+		<a href="index.php?page=produit&id=<?=$produit->getId();?>">
+			<img src="public/images/<?=$produit->getPhoto();?>" alt="" />
+			<div class="mask">
+				<span>Quick View</span>
+			</div>
+		</a>
+		<h4><?=$produit->getNom();?></h4>
+		<p><a class="item_add" href="#"><i></i> <span class=" item_price"><?=$produit->getPrix();?> €</span></a></p>
+	</div>
+</div>
