@@ -3,7 +3,7 @@
 			<div class="breadcrumbs-main">
 				<ol class="breadcrumb">
 					<li><a href="index.html">Home</a></li>
-					<li class="active">NOM DU PRODUIT</li>
+					<li class="active"><?=htmlentities($produit->getNom()); ?></li>
 				</ol>
 			</div>
 		</div>
@@ -12,17 +12,17 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-5 single-top-left img-product">	
-				<a href=""><img src="public/images/velo.jpg" /></a>
+				<a href=""><img src="public/images/<?=$produit->getPhoto(); ?>" /></a>
 			</div>
 			<div class="col-md-7 single-top-right">
 				<div class="details-left-info simpleCart_shelfItem">
-					<h3>Nom du produit</h3>
-					<p class="availability">Disponibilité : <span class="color">In stock</span></p>
+					<h3><?=htmlentities($produit->getNom()); ?></h3>
+					<p class="availability">Disponibilité : <span class="color">En stock</span></p>
 					<div class="price_single">
-						<span class="actual item_price">xxx €</span>
+						<span class="actual item_price"><?=$produit->getPrix(); ?> €</span>
 					</div>
 					<h2 class="quick">Description :</h2>
-					<p class="quick_desc"> Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; es</p>
+					<p class="quick_desc"> <?=htmlentities($produit->getDescription()); ?></p>
 					<div class="quantity_box">
 						<ul class="product-qty">
 							<span>Quantité :</span>
