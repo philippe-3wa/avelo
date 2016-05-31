@@ -1871,7 +1871,7 @@ ul.product-categories li a {
 /*---- admin -----*/
 #main_container{
 margin:0 auto;
-width:900px;
+width:100%;
 padding:0px 0 0px 0;
 }
 .main_content{
