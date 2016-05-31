@@ -18,6 +18,16 @@ class ProduitManager
 			$list[] = $produit;
 		return $list;
 	}
+
+		public function findAllActif()
+	{
+		$list = [];
+		$request = "SELECT * FROM produit WHERE actif=1";
+		$res = mysqli_query($this->link, $request);
+		while ($produit = mysqli_fetch_object($res, "Produit", [$this->link]))
+			$list[] = $produit;
+		return $list;
+	}
 	
 	public function findByPanier(Panier $panier)
 	{
