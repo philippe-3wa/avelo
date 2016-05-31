@@ -20,7 +20,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="id_categorie">Catégorie</label>
             <div class="col-sm-3">
-                <select class="col-sm-2 form-control">
+                <select name="id_categorie" class="col-sm-2 form-control">
                     <?php require('apps/sous_categorie_add.php'); ?>
                 </select>
             </div>    
@@ -31,7 +31,7 @@
             <div class="col-sm-10">
               <div class="radio">
                 <label>
-                  <input type="radio" name="gridActif" id="gridActif1" value="1" checked>
+                  <input type="radio" name="actif" id="gridActif1" value="1" checked>
                  Oui
                 </label>
               </div>
@@ -47,8 +47,8 @@
     <input type="hidden" name="action" value="sous_categorie_add">
     <div class="footer">
          <div class="user-info-box">
-        <a class="btn btn-info btn-edit" href="index.php?page=admin&bloc=categorie&option=add_categorie" data-toggle="modal" data-target="#addCategorie">
-        Envoyer
+            <input type="submit" class="btn btn-info btn-edit" />
+     
         </a>                    
     </div>
     </div>

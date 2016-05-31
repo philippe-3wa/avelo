@@ -59,6 +59,12 @@ class SousCategorie
 			throw new Exception ("description trop long (> 127)");
 		$this->description = $description;
 	}
+	public function setIdCategorie($id_categorie)
+	{
+		$id_categorie = intval($id_categorie);
+		$this->id_categorie = $id_categorie;
+	}
+
 	public function setActif($actif)
 	{
 		$actif = intval($actif);

@@ -57,7 +57,7 @@ class SousCategorieManager
 
 		$this->verifVariables($data);
 
-		$categorie = new SousCategorie($this->link);
+		$sous_categorie = new SousCategorie($this->link);
 
 		$sous_categorie->setNom($data['nom']);
 		$sous_categorie->setDescription($data['description']);

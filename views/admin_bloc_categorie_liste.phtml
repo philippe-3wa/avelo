@@ -5,7 +5,7 @@
     <td><?=htmlentities($categorie->getDescription()); ?></td>
     <td><?=$categorie->getActif(); ?></td>
 
-    <td><a href="index.php?page=admin&action=edit_categorie&id=<?=$categorie->getId(); ?>"><img src="public/images/user_edit.png" alt="" title="" border="0" /></a></td>
-    <td><a href="index.php?page=admin&action=delete_categorie&id=<?=$categorie->getId(); ?>" class="ask"><img src="public/images/trash.png" alt="" title="" border="0" /></a></td>
+    <td><a href="index.php?page=admin&bloc=categorie&option=edit_categorie&id=<?=$categorie->getId(); ?>"><img src="public/images/user_edit.png" alt="" title="" border="0" /></a></td>
+    <td><a href="index.php?page=admin&bloc=categorie&option=delete_categorie&id=<?=$categorie->getId(); ?>" class="ask"><img src="public/images/trash.png" alt="" title="" border="0" /></a></td>
 </tr>
 </tbody>
