@@ -25,6 +25,21 @@ else
 				$error = $exception->getMessage();
 			}
 		}
+
+		if ($action == "sous_categorie_add")
+		{
+			$manager = new CategorieManager($link);
+			try
+			{
+				$categorie = $manager->create($_POST);
+				header('Location: index.php?page=admin');
+				exit;
+			}
+			catch (Exception $exception)
+			{
+				$error = $exception->getMessage();
+			}
+		}
 	}
 }
 ?>
