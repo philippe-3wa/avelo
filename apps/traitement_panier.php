@@ -18,7 +18,7 @@ if (isset($_POST['action']))
 }
 else if ($_POST['action'] == 'update')
 	{
-		if (isset($_SESSION['admin']))
+		if (isset($_SESSION['user']))
 		{
 			$manager = new ProduitManager($link);
 			try
@@ -41,7 +41,7 @@ else if ($_POST['action'] == 'update')
 	}
 	else if ($_POST['action'] == 'remove')
 	{
-		if (isset($_SESSION['admin']))
+		if (isset($_SESSION['user']))
 		{
 			$manager = new produitManager($link);
 			try
@@ -57,5 +57,4 @@ else if ($_POST['action'] == 'update')
 			}
 		}
 	}
-}
 ?>
