@@ -2,7 +2,7 @@
 {margin:0;padding:0;width:100%;list-style:none;display:inline-block;position:relative;font-family:Calibri,Arial;font-size:15px}
 .memenu li{display:inline-block;}
 ul.memenu.skyblue {text-align: center;}
-.memenu>li>a{font-family: 'Alegreya Sans SC', sans-serif;float:left;padding: 5px 30px 5px 30px;color:#555;font-weight:600;text-decoration:none;text-transform:uppercase;transition:color .4s ease-in-out;-moz-transition:color .4s ease-in-out;-webkit-transition:color .4s ease-in-out;-o-transition:color .4s ease-in-out}
+.memenu>li>a{font-family: 'Alegreya Sans SC', sans-serif; display: block;padding: 5px 20px 5px 20px;color:#555;font-weight:600;text-decoration:none;text-transform:uppercase;transition:color .4s ease-in-out;-moz-transition:color .4s ease-in-out;-webkit-transition:color .4s ease-in-out;-o-transition:color .4s ease-in-out}
 .memenu>li>.mepanel {
 	position: absolute;
 	display: none;
@@ -67,7 +67,7 @@ skyblue .mepanel img:hover,.skyblue form.contact input[type="text"]:focus,.skybl
 @media(max-width:768px){
 	.memenu>li{display:block;width:100%;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
 	.memenu>li:hover,.memenu>li.active{border-top:0}
-	.memenu>li>a{padding:15px 25px}
+	.memenu>li>a{padding:15px 25px; background-color: #00C8CF;}
 	.memenu>li:hover>a,.memenu>li.active>a{padding:15px 25px}
 	.memenu a{width:100%;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
 	.memenu .dropdown,.memenu .dropdown li .dropdown{width:100%;display:none;left:0;border-left:0;position:static;border:0;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
@@ -89,3 +89,4 @@ skyblue .mepanel img:hover,.skyblue form.contact input[type="text"]:focus,.skybl
 	.mepanel .row:first-child [class*="col"]:first-child{margin-top:0}
 	.mepanel .row{margin-top:0}.black{background:#222}
 	}
+
