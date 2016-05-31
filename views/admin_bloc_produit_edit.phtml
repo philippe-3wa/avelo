@@ -1,0 +1,107 @@
+<form class="form-horizontal" role="form">
+    <div class="header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="false"></span></button>
+    </div>
+    <br>
+
+    <div class="body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="reference">Référence</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="reference" name="reference" placeholder="Reference">
+            </div>
+        </div>
+
+    <div class="body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="nom">Nom</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="description"> Description</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="description" name="description" placeholder=" Description" required>
+            </div>
+        </div>
+
+        <div class="body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="prix">Prix</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="prix" name="prix" placeholder="prix" required>
+            </div>
+        </div>
+
+        <div class="body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="TVA">TVA</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="TVA" name="TVA" placeholder="TVA" required>
+            </div>
+        </div>
+
+        <div class="body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="TVA">Photo</label>
+            <div class="col-sm-10">
+                <input type="file" class="filestyle" data-buttonText="Find file">
+            </div>    
+        </div>
+
+        <div class="body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="poids">Poids</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="poids" name="poids" placeholder="poids" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2 control-label" for="id_categorie">Id de la sous-catégorie</label>
+            <div class="col-sm-10">
+                <select class="col-sm-2 control-label">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+            </div>    
+         </div>
+
+         <div class="body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="stock">Stock</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="stock" name="stock" placeholder="stock" required>
+            </div>
+        </div>
+
+    <div class="form-group">
+        <label class="col-xs-2 control-label" for="actif">Actif</label>
+            <div class="col-sm-10">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="gridActif" id="gridActif1" value="1" checked>
+                 Oui
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="gridActif" id="gridActif2" value="0">
+                 Non
+                </label>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+
+        <div class="address new">
+            <input type="submit" value="submit">
+        </div>
+    </div>
+    <input type="hidden" name="action" value="produit_edit">
+</form>
+
