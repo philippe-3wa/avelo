@@ -7,8 +7,10 @@ $manager = new CategorieManager($link);
 		$max = sizeof($categories);
 		while ($count < $max)
 		{
-			$categorie = getSousCategories();
-			$categorie = $categories[$count];
+			$variable = $categories[$count];
+
+			$sous_categorie = $categorie->getSousCategories(1);
+
 			require('views/admin_bloc_produit_add_liste_sous_categorie.phtml');
 			$count++;
 		}
