@@ -121,7 +121,7 @@ class ProduitManager
 		$stock = $produit->getStock();
 		$id_sous_categorie = $produit->getIdSousCategorie();
 
-		$request = "INSERT INTO categorie (nom, description, actif) VALUES('".$nom."', '".$description."', '".$actif."')";
+		$request = "INSERT INTO produit (reference, nom, description, prix, tva, photo, poids, actif, stock) VALUES('".$reference."','".$nom."', '".$description."','".$prix."','".$tva."','".$photo."','".$poids."', '".$actif."','".$stock."')";
 		$res = mysqli_query($this->link, $request);
 		if ($res)
 		{
@@ -129,7 +129,7 @@ class ProduitManager
 			if ($id)
 			{
 				$avis = $this->findById($id);
-				return $categorie;
+				return $produit;
 			}
 			else
 				throw new Exception ("Internal server error");
