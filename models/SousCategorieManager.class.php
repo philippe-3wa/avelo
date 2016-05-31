@@ -18,6 +18,17 @@ class SousCategorieManager
 		return $list;
 	}
 
+	public function findAllGroup()
+	{
+		$list = [];
+		$request = "SELECT * FROM sous_categorie GROUP BY nom";
+		$res = mysqli_query($this->link, $request);
+		while ($sous_categorie = mysqli_fetch_object($res, "SousCategorie", [$this->link]))
+			$list[] = $sous_categorie;
+		return $list;
+	}
+	
+
 	public function findByCategorie(Categorie $categorie)
 	{
 		$list = [];

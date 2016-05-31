@@ -61,8 +61,8 @@ class Categorie
 	public function getSousCategories()
 	{
 		$sous_categorieManager = new SousCategorieManager($this->link);
-		$sous_categories = $sous_categorieManager->findByCategorie($this);
-		return $sous_categories;
+		$sous_categorie = $sous_categorieManager->findByCategorie($this);
+		return $sous_categorie;
 	}
 
 	public function getProduits()
