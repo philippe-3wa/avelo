@@ -7,6 +7,9 @@ if (isset($_POST['action']))
 		try
 		{
 			$panier = $manager->create($_POST);
+			$panier->setIdProduit($_POST['id_produit']);
+			$panier->setQuantite($_POST['quantite']);
+
 			header('Location: index.php');
 			exit;
 		}
@@ -15,7 +18,5 @@ if (isset($_POST['action']))
 			$error = $exception->getMessage();
 		}
 	}
-
-
 }
 ?>
