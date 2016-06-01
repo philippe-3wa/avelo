@@ -102,15 +102,15 @@ class SousCategorieManager
 		if (!isset($_SESSION['admin']))
 			throw new Exception ("Vous devez être connecté");
 
-		$this->verifVariables($sous_categorie);
-
+		
 		$id = $sous_categorie->getId();
 		if ($id)
 		{
 			$nom = mysqli_real_escape_string($this->link, $sous_categorie->getNom());
 			$description = mysqli_real_escape_string($this->link, $sous_categorie->getDescription());
+			$id_categorie = $sous_categorie->getIdCategorie();
 			$actif = $sous_categorie->getActif();
-			$request = "UPDATE sous_categorie SET nom='".$nom."', description='".$description."', actif='".$actif."' WHERE id=".$id;
+			$request = "UPDATE sous_categorie SET nom='".$nom."', description='".$description."', id_categorie='".$id_categorie."', actif='".$actif."' WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 				return $this->findById($id);

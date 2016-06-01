@@ -45,8 +45,8 @@ class SousCategorie
 
 	public function setNom($nom)
 	{
-		if (strlen($nom) < 4)
-			throw new Exception ("Nom trop court (< 4)");
+		if (strlen($nom) < 3)
+			throw new Exception ("Nom trop court (< 3)");
 		else if (strlen($nom) > 63)
 			throw new Exception ("Nom trop long (> 63)");
 		$this->nom = $nom;

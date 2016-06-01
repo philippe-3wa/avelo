@@ -63,6 +63,30 @@ else
 				$error = $exception->getMessage();
 			}
 		}
+		else if ($action == "sous_categorie_edit")
+		{
+			$manager = new SousCategorieManager($link);
+			try
+			{
+				$sous_categorie = $manager->findById($_POST['id']);
+				if ($sous_categorie)
+				{
+					$sous_categorie->setNom($_POST['nom']);
+					$sous_categorie->setDescription($_POST['description']);
+					$sous_categorie->setIdCategorie($_POST['id_categorie']);
+					$sous_categorie->setActif($_POST['actif']);
+					$manager->update($sous_categorie);
+					header('Location: index.php?page=admin');
+					exit;
+				}
+				else
+					$error = 'Sous Categorie invalide';
+			}
+			catch (Exception $exception)
+			{
+				$error = $exception->getMessage();
+			}
+		}
 
 		else if ($action == "produit_add")
 		{
