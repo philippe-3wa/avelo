@@ -12,7 +12,7 @@ class Adresse
 	private $type;
 	private $id_user;
 
-	private $link
+	private $link;
 
 	public function __construct($link)
 	{
@@ -62,18 +62,20 @@ class Adresse
 
 	public function setTelephone($telephone)
 	{
-		if (preg_match(''[0-9]{8,12}'',$telephone)
-			$this->telephone = $telephone;
+		if (!preg_match ( " \^(\d\d\s){4}(\d\d)$\ " , $telephone)) 
+		throw new Exception("Numéro invalide");
 		else
-			throw new Exception("Numéro invalide");
+			$this->telephone = $telephone;
+			
 	}
 	public function setCp($cp)
 	{
-		if (preg_match(''[0-9]{5}'',$cp)
+		if (preg_match('#^[0-9]{5}$#',$cp))
 			$this->cp = $cp;
 		else
 			throw new Exception("Numéro invalide");
 	}
+	/*
 	if (empty($_POST['numero']))
 		throw new Exception("Le numéro de rue n'a pas été renseigné");
 	else
@@ -90,6 +92,6 @@ class Adresse
 		throw new Exception("le pays n'a pas été renseigné");
 	else
 		$pays=$_POST['pays'];
-
+*/
 }
 ?>

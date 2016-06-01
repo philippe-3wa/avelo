@@ -1,1 +1,4 @@
-<option value="<?=$categorie->getId();?>"><?=$categorie->getNom();?></option>
+<option value="<?=$categorie->getId();?>" 
+	<?php if ($toto == $categorie->getId()) {echo "selected";} ?>>
+	<?=$categorie->getNom();?>
+</option>
