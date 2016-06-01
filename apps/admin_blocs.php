@@ -30,7 +30,19 @@ else
 		else if ($option == "add_sous_categorie")
 			require('views/admin_bloc_sous_categorie_add.phtml');
 		else if ($option == "edit_sous_categorie")
-			require('views/admin_bloc_sous_categorie_edit.phtml');
+			{
+				$manager = new SousCategorieManager($link);
+				try
+				{
+					$id = $_GET['id'];
+					$sous_categorie = $manager->findById($id);	
+				}
+				catch (Exception $exception)
+				{
+					$error = $exception->getMessage();
+				}
+				require('views/admin_bloc_sous_categorie_edit.phtml');
+			}
 		else if ($option == "add_produit")
 			require('views/admin_bloc_produit_add.phtml');
 		else if ($option == "edit_produit")
