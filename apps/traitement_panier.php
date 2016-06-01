@@ -15,9 +15,10 @@ if (isset($_POST['action']))
 				$produit = $produit->findById($_POST['id_produit']);
 
 				
-				// creer objet produit avec produit manager puis ajouter l'objet produit + quantite
+			//faire boucle x nb produits demandés
 			$panier->AddProduit($produit);
-			$panier->setNbrProduits($_POST['quantite']);
+
+			$manager->update($panier);
 
 			header('Location: index.php');
 			exit;
