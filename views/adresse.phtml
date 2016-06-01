@@ -1,0 +1,40 @@
+	<div class="breadcrumbs">
+		<div class="container">
+			<div class="breadcrumbs-main">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Home</a></li>
+					<li class="active">Adresses</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+
+	<div>   
+    <h3>Gestion des ADRESSES</h3>                                  
+    <table id="rounded-corner">
+        <thead>
+        <tr>
+            <th scope="col" class="rounded">Id</th>
+            <th scope="col" class="rounded">Nom</th>
+            <th scope="col" class="rounded">N°</th>
+            <th scope="col" class="rounded">Rue</th>
+			<th scope="col" class="rounded">CP</th>
+			<th scope="col" class="rounded">Ville</th>
+			<th scope="col" class="rounded">Pays</th>
+			<th scope="col" class="rounded">Tél.</th>
+			<th scope="col" class="rounded">Type</th>
+			<th scope="col" class="rounded">Active</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <?php require('apps/admin_adresse.php'); ?>
+    </table>
+    <br>
+    <div class="user-info-box">
+        <a class="btn btn-info btn-edit" href="index.php?page=admin&bloc=adresse&option=add_adresse" data-target="#addAdresse">
+        Ajouter une adresse
+        </a>                    
+    </div>
+    <br>
+</div>
