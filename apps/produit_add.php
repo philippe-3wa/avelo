@@ -1,13 +1,13 @@
 <?php
-$manager = new SousCategorieManager($link);
+$manager = new CategorieManager($link);
 	try
 	{
-		$sous_categories = $manager->findAll();
+		$categories = $manager->findAll();
 		$count = 0;
-		$max = sizeof($sous_categories);
+		$max = sizeof($categories);
 		while ($count < $max)
 		{
-			$sous_categorie = $sous_categories[$count];
+			$categorie = $categories[$count];
 
 
 			require('views/admin_bloc_produit_add_liste_sous_categorie.phtml');
