@@ -47,6 +47,7 @@ class AdresseManager
 	{
 		if (!isset($_SESSION['id']))
 			throw new Exception("Vous devez être connecté");
+		
 		$adresse = new Adresse();
 
 		if (!isset($data['nom']))
@@ -100,12 +101,13 @@ class AdresseManager
 			}
 			else// Sinon
 				throw new Exception("Internal server error");
-		}
+		
 	}
 	public function getById($id)
 	{
 		return $this->findById($id);
 	}
+
 	public function update(Adresse $adresse)// type-hinting
 	{
 		$id = $adresse->getId();
