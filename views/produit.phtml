@@ -1,3 +1,4 @@
+	<form method="POST" action="index.php?page=panier">
 	<div class="breadcrumbs">
 		<div class="container">
 			<div class="breadcrumbs-main">
@@ -26,19 +27,21 @@
 					<div class="quantity_box">
 						<ul class="product-qty">
 							<span>Quantité :</span>
-							<select>
+							<select name="quantite">
 								<option>1</option>
 								<option>2</option>
 								<option>3</option>
 								<option>4</option>
 								<option>5</option>
-								<option>6</option>
 							</select>
 						</ul>
 					</div>
 					<div class="clearfix"></div>
 					<div class="single-but">
+						<input type="hidden" name="id_produit" value="<?=$produit->getId(); ?>">
+							<input type="hidden" name="action" value="ajout_panier">
 						<input type="submit" value="ajouter"/>
+					</form>
 					</div>
 				</div>
 			</div>
@@ -46,4 +49,4 @@
 		</div>
 		<div class="clearfix"> </div>
 	</div>
-	<br>
+	<br />
