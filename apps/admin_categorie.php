@@ -1,6 +1,6 @@
 <?php
 
-if (!isset($_GET['action']))
+if (!isset($_GET['option']))
 {
 	$manager = new CategorieManager($link);
 	try
@@ -22,11 +22,29 @@ if (!isset($_GET['action']))
 }
 else
 	{
-		$action = $_GET['action'];
+		$option = $_GET['option'];
 
-		if ($action == "ajout_categorie")
+		$manager = new CategorieManager($link);
+		try
+		{
+			$categories = $manager->findAll();
+			$count = 0;
+			$max = sizeof($categories);
+			while ($count < $max)
+			{
+				$categorie = $categories[$count];
+				require('views/admin_bloc_categorie_liste.phtml');
+				$count++;
+			}
+		}
+		catch (Exception $exception)
+		{
+			$error = $exception->getMessage();
+		}
+
+		if ($option == "ajout_categorie")
 			require('views/admin_bloc_categorie_add.phtml');
-		else if ($action == "edit_categorie")
+		else if ($option == "edit_categorie")
 			require('views/admin_bloc_categorie_edit.phtml');
 
 	}

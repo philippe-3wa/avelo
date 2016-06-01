@@ -58,7 +58,7 @@ class Categorie
 		$this->actif = $actif;
 	}
 
-	public function getSousCategories($id)
+	public function getSousCategories()
 	{
 		$sous_categorieManager = new SousCategorieManager($this->link);
 		$sous_categorie = $sous_categorieManager->findByCategorie($this);
