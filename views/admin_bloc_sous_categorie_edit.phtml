@@ -23,7 +23,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="id_categorie">Catégorie</label>
             <div class="col-sm-3">
-                <select name="id_categorie" class="col-sm-2 form-control">
+                <select name="id_categorie" class="col-sm-2 form-control">  <?php $toto = $sous_categorie->getIdCategorie(); ?>
                     <?php require('apps/sous_categorie_add.php'); ?>
                 </select>
             </div>    
@@ -47,7 +47,8 @@
                 </div>
         </div>
     </div>
-    <input type="hidden" name="action" value="sous_categorie_add">
+    <input type="hidden" name="action" value="sous_categorie_edit">
+    <input type="hidden" name="id" value="<?=$sous_categorie->getId();?>">
     <div class="footer">
          <div class="user-info-box">
             <input type="submit" class="btn btn-info btn-edit" />                
