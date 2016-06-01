@@ -42,8 +42,16 @@ class PanierManager
 	}
 	public function findByIdUser($id_user)
 	{
-		$id_user = mysqli_real_escape_string($this->link, $id_user);
+		$id_user = intval($this->link, $id_user);
 		$request = "SELECT * FROM panier WHERE id_user='".$id_user."'";
+		$res = mysqli_query($this->link, $request);
+		$panier = mysqli_fetch_object($res, "Panier", [$this->link]);
+		return $panier;
+	}
+	public function findByIdUserActif($id_user)
+	{
+		$id_user = intval($id_user);
+		$request = "SELECT * FROM panier WHERE actif=1 AND id_user='".$id_user;
 		$res = mysqli_query($this->link, $request);
 		$panier = mysqli_fetch_object($res, "Panier", [$this->link]);
 		return $panier;
@@ -72,34 +80,32 @@ class PanierManager
 		$panier = new Panier($this->link);
 		
 		$this->verifVariables($data);
-		$panier->setDate($data['date']);
 		$panier->setNbrProduits($data['nbr_produits']);
 		$panier->setStatut($data['statut']);
 		$panier->setPrix($data['prix']);
 		$panier->setPoids($data['poids']);
-		$panier->setIdUser($data['id_user']);
+		$panier->setIdUser();
 	
-			$date = $panier->getDate();
-			$nbr_produits = $panier->getNbrProduits();
-			$statut = $panier->getStatut();
-			$prix = $panier->getPrix();
-			$poids = $panier->getPoids();
-			$id_user = $panier->getIdUser();
-			$request = "INSERT INTO panier (date, nbr_produits, statut, prix, poids, id_user) VALUES('".$date."', '".$nbr_produits."', '".$statut."', '".$prix."', '".$poids."', '".$id_user."')";
-			$res = mysqli_query($this->link, $request);
-			if ($res)
+		$nbr_produits = $panier->getNbrProduits();
+		$statut = $panier->getStatut();
+		$prix = $panier->getPrix();
+		$poids = $panier->getPoids();
+		$id_user = $panier->getIdUser();
+		$request = "INSERT INTO panier (nbr_produits, statut, prix, poids, id_user) VALUES('".$nbr_produits."', '".$statut."', '".$prix."', '".$poids."', '".$id_user."')";
+		$res = mysqli_query($this->link, $request);
+		if ($res)
+		{
+			$id = mysqli_insert_id($this->link);
+			if ($id)
 			{
-				$id = mysqli_insert_id($this->link);
-				if ($id)
-				{
-					$panier = $this->findById($id);
-					return $panier;
-				}
-				else
-					throw new Exception ("Internal server error");
+				$panier = $this->findById($id);
+				return $panier;
 			}
 			else
 				throw new Exception ("Internal server error");
+		}
+		else
+			throw new Exception ("Internal server error");
 	}
 	public function getById($id)
 	{

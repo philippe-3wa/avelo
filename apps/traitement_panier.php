@@ -5,9 +5,16 @@ if (isset($_POST['action']))
 	{
 		$manager = new PanierManager($link);
 		try
-		{
-			$panier = $manager->create($_POST);
-			$panier->setIdProduit($_POST['id_produit']);
+		{	
+			$panier = $manager->findByIdUserActif($_SESSION['id']);
+			if (!$panier)
+			{
+				$panier = $manager->create($_POST);
+			}
+				
+				
+				// creer objet produit avec produit manager puis ajouter l'objet produit + quantite
+			$panier->AddProduit($_POST['id_produit']);
 			$panier->setQuantite($_POST['quantite']);
 
 			header('Location: index.php');
