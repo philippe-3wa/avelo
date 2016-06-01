@@ -42,7 +42,5 @@ else
 			$error = $exception->getMessage();
 		}
 
-		if ($option == "ajout_categorie")
-			require('views/admin_bloc_categorie_add.phtml');
 	}
 ?>
