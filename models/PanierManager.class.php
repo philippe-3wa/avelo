@@ -65,8 +65,6 @@ class PanierManager
 		}
 	}
 
-	
-
 	public function create($data)
 	{
 		if (!isset($_SESSION['id']))
