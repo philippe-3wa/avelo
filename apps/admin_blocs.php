@@ -37,5 +37,4 @@ else
 			require('views/admin_bloc_produit_edit.phtml');
 	}
 } 
-// testtt
 ?>

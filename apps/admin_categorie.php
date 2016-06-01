@@ -44,9 +44,5 @@ else
 
 		if ($option == "ajout_categorie")
 			require('views/admin_bloc_categorie_add.phtml');
-		else if ($option == "edit_categorie")
-			require('views/admin_bloc_categorie_edit.phtml');
-
 	}
-	// test
 ?>
