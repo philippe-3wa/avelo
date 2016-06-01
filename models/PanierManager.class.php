@@ -85,7 +85,6 @@ class PanierManager
 			$prix = $panier->getPrix();
 			$poids = $panier->getPoids();
 			$id_user = $panier->getIdUser();
-			$id = $_SESSION['user'];
 			$request = "INSERT INTO panier (date, nbr_produits, statut, prix, poids, id_user) VALUES('".$date."', '".$nbr_produits."', '".$statut."', '".$prix."', '".$poids."', '".$id_user."')";
 			$res = mysqli_query($this->link, $request);
 			if ($res)
@@ -108,7 +107,11 @@ class PanierManager
 	}
 	public function update(Panier $panier)
 	{
+<<<<<<< HEAD
 		if (!isset($_SESSION['login']))
+=======
+		if (!isset($_SESSION['id']))
+>>>>>>> 0be2c584937ffebb9762621bf59221e4b6462c0f
 			throw new Exception ("Vous devez être connecté");
 		$panier = new Panier($this->link);
 		$this->verifVariables($data);
@@ -139,7 +142,7 @@ class PanierManager
 	}
 	public function remove(Panier $panier)
 	{
-		if (!isset($_SESSION['user']))
+		if (!isset($_SESSION['id']))
 			throw new Exception ("Vous devez être connecté");
 		$panier = new Panier($this->link);
 		$this->verifVariables($data);
