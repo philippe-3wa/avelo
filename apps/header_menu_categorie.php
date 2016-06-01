@@ -4,7 +4,7 @@ $manager = new CategorieManager($link);
 	try
 	{
 		$categories = $manager->findAll();
-		$count = 0;
+		$count = 0;	
 		$max = sizeof($categories);
 		while ($count < $max)
 		{
@@ -18,7 +18,7 @@ $manager = new CategorieManager($link);
 		$error = $exception->getMessage();
 	}
 
-
+/*
 	$manager = new SousCategorieManager($link);
 	try
 	{
@@ -36,4 +36,5 @@ $manager = new CategorieManager($link);
 	{
 		$error = $exception->getMessage();
 	}
+*/
 ?>

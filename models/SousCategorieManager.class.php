@@ -29,7 +29,7 @@ class SousCategorieManager
 	}
 	
 
-	public function findByCategorie(SousCategorie $sous_categorie)
+	public function findByCategorie(Categorie $categorie)
 	{
 		$list = [];
 		$id_categorie = $categorie->getId();
