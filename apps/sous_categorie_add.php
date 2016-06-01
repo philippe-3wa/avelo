@@ -9,6 +9,7 @@ $manager = new CategorieManager($link);
 		while ($count < $max)
 		{
 			$categorie = $categories[$count];
+			$toto = "";
 			require('views/admin_bloc_sous_categorie_add_liste_categorie.phtml');
 
 			$count++;
