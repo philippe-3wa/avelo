@@ -51,27 +51,21 @@ class PanierManager
 	public function findByIdUserActif($id_user)
 	{
 		$id_user = intval($id_user);
-		$request = "SELECT * FROM panier WHERE actif=1 AND id_user='".$id_user;
+		$request = "SELECT * FROM panier WHERE actif='1' AND id_user='".$id_user;
 		$res = mysqli_query($this->link, $request);
-		$panier = mysqli_fetch_object($res, "Panier", [$this->link]);
-		return $panier;
+		if ($res)
+		{
+			$panier = mysqli_fetch_object($res, "Panier", [$this->link]);
+			return $panier;
+		}
+		else
+		{
+			$panier = false;
+			return $panier;
+		}
 	}
 
-	public function verifVariables($date)
-	{
-	if (!isset($data['date']))
-		throw new Exception ("Missing paramater : date");
-	if (!isset($data['nbr_produits']))
-		throw new Exception ("Missing paramater : nbr_produits");
-	if (!isset($data['statut']))
-		throw new Exception ("Missing paramater : statut");
-	if (!isset($data['prix']))
-		throw new Exception ("Missing paramater : prix");
-	if (!isset($data['poids']))
-		throw new Exception ("Missing paramater : poids");
-	if (!isset($data['id_user']))
-		throw new Exception ("Missing paramater : id_user");
-	}
+	
 
 	public function create($data)
 	{
@@ -79,19 +73,11 @@ class PanierManager
 			throw new Exception ("Vous devez être connecté");
 		$panier = new Panier($this->link);
 		
-		$this->verifVariables($data);
-		$panier->setNbrProduits($data['nbr_produits']);
-		$panier->setStatut($data['statut']);
-		$panier->setPrix($data['prix']);
-		$panier->setPoids($data['poids']);
 		$panier->setIdUser();
 	
 		$nbr_produits = $panier->getNbrProduits();
-		$statut = $panier->getStatut();
-		$prix = $panier->getPrix();
-		$poids = $panier->getPoids();
 		$id_user = $panier->getIdUser();
-		$request = "INSERT INTO panier (nbr_produits, statut, prix, poids, id_user) VALUES('".$nbr_produits."', '".$statut."', '".$prix."', '".$poids."', '".$id_user."')";
+		$request = "INSERT INTO panier (id_user) VALUES('".$id_user."')";
 		$res = mysqli_query($this->link, $request);
 		if ($res)
 		{

@@ -17,7 +17,7 @@ if (isset($_POST['action']))
 				
 				// creer objet produit avec produit manager puis ajouter l'objet produit + quantite
 			$panier->AddProduit($produit);
-			$panier->setQuantite($_POST['quantite']);
+			$panier->setNbrProduits($_POST['quantite']);
 
 			header('Location: index.php');
 			exit;
