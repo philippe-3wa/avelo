@@ -85,7 +85,6 @@ class PanierManager
 			$prix = $panier->getPrix();
 			$poids = $panier->getPoids();
 			$id_user = $panier->getIdUser();
-			$id = $_SESSION['user'];
 			$request = "INSERT INTO panier (date, nbr_produits, statut, prix, poids, id_user) VALUES('".$date."', '".$nbr_produits."', '".$statut."', '".$prix."', '".$poids."', '".$id_user."')";
 			$res = mysqli_query($this->link, $request);
 			if ($res)
