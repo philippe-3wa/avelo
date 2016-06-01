@@ -107,11 +107,7 @@ class PanierManager
 	}
 	public function update(Panier $panier)
 	{
-<<<<<<< HEAD
 		if (!isset($_SESSION['login']))
-=======
-		if (!isset($_SESSION['id']))
->>>>>>> 0be2c584937ffebb9762621bf59221e4b6462c0f
 			throw new Exception ("Vous devez être connecté");
 		$panier = new Panier($this->link);
 		$this->verifVariables($data);
@@ -142,7 +138,7 @@ class PanierManager
 	}
 	public function remove(Panier $panier)
 	{
-		if (!isset($_SESSION['id']))
+		if (!isset($_SESSION['user']))
 			throw new Exception ("Vous devez être connecté");
 		$panier = new Panier($this->link);
 		$this->verifVariables($data);
