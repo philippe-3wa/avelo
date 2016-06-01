@@ -1,5 +1,5 @@
 <?php
-class Panier
+class PanierManager
 {
 	private $link;
 	public function __construct($link)
