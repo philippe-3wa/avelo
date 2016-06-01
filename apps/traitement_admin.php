@@ -6,7 +6,6 @@ if (!isset($_SESSION['admin']))
 }
 else
 {
-
 	if (isset($_POST['action']))
 	{
 		$action = $_POST['action'];
@@ -19,6 +18,30 @@ else
 				$categorie = $manager->create($_POST);
 				header('Location: index.php?page=admin');
 				exit;
+			}
+			catch (Exception $exception)
+			{
+				$error = $exception->getMessage();
+			}
+		}
+
+		else if ($action == "categorie_edit")
+		{
+			$manager = new CategorieManager($link);
+			try
+			{
+				$categorie = $manager->findById($_POST['id']);
+				if ($categorie)
+				{
+					$categorie->setNom($_POST['nom']);
+					$categorie->setDescription($_POST['description']);
+					$categorie->setActif($_POST['actif']);
+					$manager->update($categorie);
+					header('Location: index.php?page=admin');
+					exit;
+				}
+				else
+					$error = 'Categorie invalide';
 			}
 			catch (Exception $exception)
 			{

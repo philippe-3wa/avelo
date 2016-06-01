@@ -26,7 +26,19 @@ else
 		if ($option == "add_categorie")
 			require('views/admin_bloc_categorie_add.phtml');
 		if ($option == "edit_categorie")
-			require('views/admin_bloc_categorie_edit.phtml');
+			{
+				$manager = new CategorieManager($link);
+				try
+				{
+					$id = $_GET['id'];
+					$categorie = $manager->findById($id);
+				}
+				catch (Exception $exception)
+				{
+					$error = $exception->getMessage();
+				}
+				require('views/admin_bloc_categorie_edit.phtml');
+			}
 		else if ($option == "add_sous_categorie")
 			require('views/admin_bloc_sous_categorie_add.phtml');
 		else if ($option == "edit_sous_categorie")

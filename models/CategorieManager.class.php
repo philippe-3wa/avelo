@@ -70,13 +70,12 @@ class CategorieManager
 			throw new Exception ("Internal server error");
 	}
 
-	public function update(Categorie $categorie)
+	public function update($categorie)
 	{
 		if (!isset($_SESSION['admin']))
 			throw new Exception ("Vous devez être connecté");
-
-		$this->verifVariables($categorie);
-
+			
+		
 		$id = $categorie->getId();
 		if ($id)
 		{
