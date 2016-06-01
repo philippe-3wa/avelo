@@ -67,7 +67,7 @@ class PanierManager
 
 	public function create($data)
 	{
-		if (!isset($_SESSION['user']))
+		if (!isset($_SESSION['id']))
 			throw new Exception ("Vous devez être connecté");
 		$panier = new Panier($this->link);
 		
@@ -108,7 +108,7 @@ class PanierManager
 	}
 	public function update(Panier $panier)
 	{
-		if (!isset($_SESSION['user']))
+		if (!isset($_SESSION['login']))
 			throw new Exception ("Vous devez être connecté");
 		$panier = new Panier($this->link);
 		$this->verifVariables($data);
