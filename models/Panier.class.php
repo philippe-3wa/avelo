@@ -62,6 +62,9 @@ class Panier
 		if ($this->produits === null)
 			$this->getProduits();
 		$this->produits[] = $produit;
+		$this->nbr_produits++;
+		$this->poids += $produit->getPoids();
+		$this->prix += $produit->getPrix();
 		// $this->produits[] = ["produit"=>$produit, "quantite"=>$quantite];
 	}
 	public function removeProduit(Produit $produit)

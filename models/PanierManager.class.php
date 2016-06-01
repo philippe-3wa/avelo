@@ -51,7 +51,7 @@ class PanierManager
 	public function findByIdUserActif($id_user)
 	{
 		$id_user = intval($id_user);
-		$request = "SELECT * FROM panier WHERE actif='1' AND id_user='".$id_user;
+		$request = "SELECT * FROM panier WHERE statut='1' AND id_user='".$id_user."'";
 		$res = mysqli_query($this->link, $request);
 		if ($res)
 		{
@@ -97,10 +97,9 @@ class PanierManager
 	}
 	public function update(Panier $panier)
 	{
-		if (!isset($_SESSION['login']))
+		if (!isset($_SESSION['id']))
 			throw new Exception ("Vous devez être connecté");
-		$panier = new Panier($this->link);
-		$this->verifVariables($data);
+
 		$id = $panier->getId();
 		if ($id)
 		{
@@ -109,16 +108,18 @@ class PanierManager
 			$statut = mysqli_real_escape_string($this->link, $panier->getStatut());
 			$prix = mysqli_real_escape_string($this->link, $panier->getPrix());
 			$poids = mysqli_real_escape_string($this->link, $panier->getPoids());
-			$id_panier = mysqli_real_escape_string($this->link, $panier->getIdUser());;
+			$id_user = mysqli_real_escape_string($this->link, $panier->getIdUser());
 			$request = "UPDATE panier SET date='".$date."', nbr_produits='".$nbr_produits."', statut='".$statut."', prix='".$prix."', poids='".$poids."', id_user='".$id_user."' WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 			{
 				mysqli_query($this->link, "DELETE FROM link_panier_produit WHERE id_panier=".$id);
-				$panier->getProducts();
+				$panier->getProduits();
 				$i = 0;
 				while ($i < count($panier)) {
-					mysqli_query("INSERT INTO link_panier_produit () VALUES()");
+					mysqli_query("INSERT INTO link_panier_produit (id_panier, id_produit, quantite) VALUES('".$id."', '".$id_produit."', 1)");
+					$i++;
+				
 				}
 				return $this->findById($id);
 			}
