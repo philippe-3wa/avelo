@@ -21,6 +21,8 @@ else
 				require('views/avis.phtml');
 				$count++;
 			}
+			if (isset($_SESSION['id']))
+				require('views/avis_add.phtml');
 			
 		}
 		catch (Exception $exception)
