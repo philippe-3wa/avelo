@@ -15,8 +15,12 @@ if (isset($_POST['action']))
 				$produit = $produit->findById($_POST['id_produit']);
 
 				
-			//faire boucle x nb produits demandés
-			$panier->AddProduit($produit);
+				$compteur = 0;
+				$max = intval($_POST['quantite']);
+				while ($compteur < $max) {
+					$panier->addProduit($produit);
+					$compteur++;
+				}
 
 			$manager->update($panier);
 
