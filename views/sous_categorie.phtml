@@ -2,8 +2,9 @@
 		<div class="container">
 			<div class="breadcrumbs-main">
 				<ol class="breadcrumb">
-					<li><a href="index.html">Home</a></li>
-					<li class="active"><?=$categorie->getNom()?></li>
+					<li><a href="index.php?page=home">Home</a></li>
+					<li><a href="">categorie</a></li>
+					<li class="active"><?=$sous_categorie->getNom()?></li>
 				</ol>
 			</div>
 		</div>
@@ -14,7 +15,7 @@
 				<div class="col-md-9 p-left">
 				<div class="product-one">
 				
-				<?php require('apps/categorie_produits.php'); ?>
+				<?php require('apps/sous_categorie_produits.php'); ?>
 				
 				<div class="clearfix"> </div>
 			</div>

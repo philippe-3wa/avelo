@@ -6,11 +6,11 @@ if (!isset($_GET['id']))
 }
 else
 {	$id = intval($_GET['id']);
-	$manager = new CategorieManager($link);
+	$manager = new SousCategorieManager($link);
 	try
 	{
-		$categorie = $manager->findById($id);
-		require('views/categorie.phtml');
+		$sous_categorie = $manager->findById($id);
+		require('views/sous_categorie.phtml');
 	}
 	catch (Exception $exception)
 	{

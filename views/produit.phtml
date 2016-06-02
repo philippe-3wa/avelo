@@ -28,11 +28,18 @@
 						<ul class="product-qty">
 							<span>Quantité :</span>
 							<select name="quantite">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
+								
+
+					<?php
+					if ($produit->getStock() != 0)
+						require('apps/produit_quantite.php'); 
+					else
+						echo "<option>plus de stock</option>";
+					 
+					 ?>
+
+
+
 							</select>
 						</ul>
 					</div>
