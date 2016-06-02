@@ -9,12 +9,7 @@
 					<h3><a href="index.php?page=user">Mon compte</a></h3>
 					<h3><a href="index.php?page=user&action=logout">Logout</a></h3>
 					<br>
-					<a href="index.php?page=panier">
-						<div class="total">
-							<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
-						</div>
-						<img src="public/images/cart-1.png" alt="" />
-					</a>
+					<?php require ('apps/home_panier.php'); ?>
 					
 					<div class="clearfix"> </div>
 				</div>
