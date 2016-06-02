@@ -23,7 +23,6 @@ class AvisManager
 	{
 		$id = intval($id);
 		$request = "SELECT * FROM avis WHERE id=".$id;
-		// SELECT * FROM avis WHERE id=1
 		$res = mysqli_query($this->link, $request);
 		$avis = mysqli_fetch_object($res, "Avis", [$this->link]);
 		return $avis;

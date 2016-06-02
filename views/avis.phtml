@@ -7,8 +7,9 @@
 			<ul>
 				<li><span class="left-at"><?=$avis->getIdUser()?></span></li>
 				<li><span class="right-at"><?=$avis->getDate()?></span></li>
+				<li><span class="right-at"><?=$avis->getNote()?>/5</span></li>
 			</ul>
-			<p><?=$avis->getContenu()?></p>
+			<p><?=htmlentities($avis->getContenu())?></p>
 		</div>
 		<div class="clearfix"> </div>
 	</div>
