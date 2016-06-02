@@ -59,39 +59,39 @@ class AvisManager
 	{
 		if (!isset($_SESSION['id']))
 			throw new Exception ("Vous devez être connecté");
+		
 		$avis = new Avis($this->link);
 
 		if (!isset($data['contenu']))
 			throw new Exception ("Missing paramater : contenu");
 		if (!isset($data['note']))
 			throw new Exception ("Missing paramater : note");
-		// 
-		$error = $avis->setnote($data['note']);
-		$error = $avis->setContenu($data['contenu']);
-		// 
-		if ($error)
-			return $error;
-		else
+		if (!isset($data['id_produit']))
+			throw new Exception ("Missing paramater : id_produit");
+
+		$note = $avis->setNote($data['note']);
+		$contenu = $avis->setContenu($data['contenu']);
+		$id_user = $_SESSION['id'];
+		$id_produit = $avis->setIdProduit($data['id_produit']);
+
+		$request = "INSERT INTO avis (contenu, note, id_user, id_produit) VALUES('".$contenu."', '".$note."', '".$id_user."', '".$id_produit."')";
+		$res = mysqli_query($this->link, $request);
+
+		if ($res)// Si la requete s'est bien passée
 		{
-			$note = $avis->getNote();
-			$contenu = $avis->getContenu();
-			$id_author = $_SESSION['id'];
-			$request = "INSERT INTO avis (note, contenu, id_author) VALUES('".$note."', '".$contenu."', '".$id_author."')";
-			$res = mysqli_query($this->link, $request);
-			if ($res)// Si la requete s'est bien passée
+
+			$id = mysqli_insert_id($this->link);
+			if ($id)// si c'est bon id > 0
 			{
-				$id = mysqli_insert_id($this->link);
-				if ($id)// si c'est bon id > 0
-				{
-					$avis = $this->findById($id);
-					return $avis;
-				}
-				else // Sinon
-					throw new Exception ("Internal server error");
+				$avis = $this->findById($id);
+				return $avis;
 			}
 			else // Sinon
 				throw new Exception ("Internal server error");
 		}
+		else // Sinon
+			throw new Exception ("Internal server error");
+		
 	}
 	public function getById($id)
 	{
