@@ -23,8 +23,11 @@ class Panier
 	// Getter/Setter | Accesseur/Mutateur | Accessor/Mutator
 	public function getProduits()
 	{
-		$pm = new ProduitManager($this->link);
-		$this->produits = $pm->findByPanier($this);
+		if ($this->produits === null)
+		{
+			$pm = new ProduitManager($this->link);
+			$this->produits = $pm->findByPanier($this);
+		}
 		return $this->produits;
 	}
 	public function getId()
