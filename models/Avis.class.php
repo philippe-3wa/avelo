@@ -47,9 +47,18 @@ class avis
 
 	public function setNote($note)
 	{
-		
-		return $this->Note;
+		$note = intval($note);
+		if (($note < 0) || ($note > 5) || ($note==""))
+			throw new Exception("Note de 0 à 5)");
+		return $this->note = $note;
 	}
+
+	public function setIdProduit($id_produit)
+	{
+		
+		return $this->id_produit = $id_produit;
+	}
+
 
 	public function setContenu($contenu)
 	{
@@ -57,7 +66,7 @@ class avis
 			throw new Exception("Contenu trop court (< 20)");
 		else if (strlen($contenu) > 2023)
 			throw new Exception("Contenu trop long (> 2023)");
-		$this->contenu = $contenu;
+		return $this->contenu = $contenu;
 	}
 
 	// Méthodes spécifiques

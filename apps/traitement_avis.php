@@ -8,7 +8,8 @@ if (isset($_POST['action']))
 			$manager = new AvisManager($link);// $link => $this->link
 			try
 			{
-				$avis = $manager->findById($_POST['id_avis']);
+				$id = intval($_POST['id_avis']);
+				$avis = $manager->findById($id);
 				$avis->setNote($_POST['note']);
 				$avis->setContenu($_POST['contenu']);
 				$manager->update($avis);
@@ -25,7 +26,7 @@ if (isset($_POST['action']))
 	{
 		if (isset($_SESSION['id']))
 		{
-			$manager = new AvisManager($link);// $link => $this->link
+			$manager = new AvisManager($link);
 			try
 			{
 				$avis = $manager->create($_POST);

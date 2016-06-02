@@ -5,12 +5,15 @@
 <br>
 <br>
 <br> <!-- si alex n'est pas là, les br dansent -->
-<form method="POST">
+<form method="POST" action="index.php?page=avis">
 		<div class="form-group">
-			<div class="my-rating jq-stars"></div>
-			<label for="content">Commentaire</label>
-			<textarea name="content" class="form-control" id="content" placeholder="Votre commentaire"></textarea>
+			note
+			<input type="text" id="note" name="note" /><br />
+			<label for="contenu">Commentaire</label>
+			<textarea name="contenu" class="form-control" id="content" placeholder="Votre commentaire"></textarea>
 		</div>
+		<input type="hidden" name="action" value="create">
+		<input type="hidden" name="id_produit" value="<?=$produit->getId()?>">
 		<button type="submit" class="btn btn-default">Envoyer</button>
 	</div>
 </form>
