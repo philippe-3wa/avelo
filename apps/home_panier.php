@@ -8,15 +8,13 @@ $manager = new PanierManager($link);
 		{
 			$prix = $panier->getPrix();
 			$nombre_produits = $panier->getNbrProduits();
-			$poids = $panier->getPoids();
 		}
 		else
 		{
 			$prix = 0;
 			$nombre_produits = 0;
-			$poids = 0;
 		}
-		require('views/panier.phtml');
+		require('views/home_panier.phtml');
 
 	}
 	catch (Exception $exception)
