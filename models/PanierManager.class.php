@@ -114,10 +114,12 @@ class PanierManager
 			if ($res)
 			{
 				mysqli_query($this->link, "DELETE FROM link_panier_produit WHERE id_panier=".$id);
-				$panier->getProduits();
+				$list = $panier->getProduits();
 				$i = 0;
-				while ($i < count($panier)) {
-					mysqli_query("INSERT INTO link_panier_produit (id_panier, id_produit, quantite) VALUES('".$id."', '".$id_produit."', 1)");
+				while ($i < count($list)) {
+					$produit = $list[$i];
+					$id_produit = $produit->getId();
+					mysqli_query($this->link, "INSERT INTO link_panier_produit (id_panier, id_produit, quantite) VALUES('".$id."', '".$id_produit."', 1)");
 					$i++;
 				
 				}
