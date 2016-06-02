@@ -1,25 +1,15 @@
-<form method="POST">
-	<div class="my-rating jq-stars"></div>
-		<div class="form-group">
-			<label for="content">Commentaire</label>
-			<textarea name="content" class="form-control" id="content" placeholder="Votre commentaire"></textarea>
+<div class="avis-grid-top"> 
+
+	<div class="avis-top-top" id="">
+		<div class="top-avis-left">
 		</div>
-		<button type="submit" class="btn btn-default">Envoyer</button>
+		<div class="top-avis-right">
+			<ul>
+				<li><span class="left-at"><?=$avis->getIdUser()?></span></li>
+				<li><span class="right-at"><?=$avis->getDate()?></span></li>
+			</ul>
+			<p><?=$avis->getContenu()?></p>
+		</div>
+		<div class="clearfix"> </div>
 	</div>
-</form>
-
-<hr>
-
-<script>
-	$(function() 
-	{
-
-	  $(".my-rating").starRating({
-	  initialRating: 4,
-	  starSize: 25
-	});
-
-
-	});
-</script>
-<script src="public/js/jquery.star-rating-svg.js"></script>
+</div>
