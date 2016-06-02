@@ -1,25 +1,25 @@
-<div class="my-rating jq-stars"></div>
-	<form method="POST">
+<form method="POST">
+	<div class="my-rating jq-stars"></div>
 		<div class="form-group">
 			<label for="content">Commentaire</label>
 			<textarea name="content" class="form-control" id="content" placeholder="Votre commentaire"></textarea>
 		</div>
 		<button type="submit" class="btn btn-default">Envoyer</button>
-	</form>
-</div>
+	</div>
+</form>
 
 <hr>
 
 <script>
-$(function() 
-{
+	$(function() 
+	{
 
-  $(".my-rating").starRating({
-  initialRating: 4,
-  starSize: 25
-});
+	  $(".my-rating").starRating({
+	  initialRating: 4,
+	  starSize: 25
+	});
 
 
-});
+	});
 </script>
 <script src="public/js/jquery.star-rating-svg.js"></script>
