@@ -29,7 +29,7 @@ class avis
 	}
 	public function getNote()
 	{
-		return $this->idnote;
+		return $this->note;
 	}
 	public function getDate()
 	{
