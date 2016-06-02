@@ -2046,7 +2046,7 @@ a.bt_red span.bt_red_lft{width:10px;height:31px;display:block; float:left;backgr
 a.bt_red span.bt_red_r{width:10px;height:31px;display:block; float:left;background:url(images/bt_red_r.gif) no-repeat center right;}
 a:hover.bt_red{ text-decoration:underline;}
 
-.tfooter {
+#rounded-corner.tfooter td{
 	background-color: #33333F;
 	color: white;
 	font-style: bold;
