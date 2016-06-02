@@ -1,16 +1,13 @@
-<div class="avis-grid-top"> 
-
-	<div class="avis-top-top" id="">
-		<div class="top-avis-left">
+<div class="col-sm-5">
+	<div class="panel panel-default">
+		<div class="panel-heading">			
+			<?=$avis->getIdUser()?>
+			<?=$avis->getDate()?>
+			<?=$avis->getNote()?>			
 		</div>
-		<div class="top-avis-right">
-			<ul>
-				<li><span class="left-at"><?=$avis->getIdUser()?></span></li>
-				<li><span class="right-at"><?=$avis->getDate()?></span></li>
-				<li><span class="right-at"><?=$avis->getNote()?>/5</span></li>
-			</ul>
+		
+		<div class="panel-body">
 			<p><?=htmlentities($avis->getContenu())?></p>
 		</div>
-		<div class="clearfix"> </div>
 	</div>
 </div>
