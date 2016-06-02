@@ -20,9 +20,9 @@
 			<tr class="unit">
 				<th scope="col" class="rounded"><span>Item</span></th>
 				<th class="rounded"><span>Produit</span></th>
-				<th class="rounded"><span>Référence</span></th>
 				<th class="rounded"><span>Qté</span></th>
 				<th class="rounded"><span>Prix Unit TTC</span></th>
+				<th class="rounded"><span>TOTAL Prix TTC</span></th>
 				<th class="rounded"><span>Description</span></th>
 				<th class="rounded">EDIT</th>
 				<th class="rounded">SUPPR</th>
@@ -31,9 +31,9 @@
 			<tbody>
 			<tr class="cart-header">
 				<td class="ring-in rounded"><a href="" ><img src="public/images/velo.jpg" class="img-responsive" alt="Photo du produit"></a></td>
-				<td class="rounded"><span>$id</span></td>
-				<td class="rounded"><span>$reference</span></td>
-				<td class="rounded"><span>$prix</span></td>
+				<td class="rounded"><span>$nom</span></td>
+				<td class="rounded"><span>$nbr</span></td>
+				<td class="rounded"><span>$prix €</span></td>
 				<td class="rounded"><span>$prixX$nbr</span></td>
 				<td class="rounded"><span>$description</span></td>
 				<td><a href=""><img src="public/images/user_edit.png" alt="" title="" border="0" /></a></td>
@@ -41,20 +41,20 @@
 			</tr>
 			</tbody>
 		</table>
-		<br>
-	<table id="rounded-corner">
-      <tr>
-        <th>Nombre de vélos</th>
-        <th>Nombre de produits</th>
-        <th>Prix total</th>
-      </tr>
-<br>
-      <tr>
-        <td><?=$nombre_produits?></td>
-        <td><?=$poids?></td>
-        <td><?=$prix?> €</td>
-      </tr>
-  </table>
+				<br>
+			<table id="rounded-corner">
+		      <tr>
+		        <th>Nombre de vélos</th>
+		        <th>Poids total</th>
+		        <th>Prix total</th>
+		      </tr>
+
+		      <tr>
+		        <td><?=$nombre_produits?></td>
+		        <td><?=$poids?></td>
+		        <td><?=$prix?> €</td>
+		      </tr>
+		  </table>
 		</div>  
 		</div>
 	</div>
