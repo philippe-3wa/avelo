@@ -9,6 +9,7 @@ $manager = new PanierManager($link);
 			$prix = $panier->getPrix();
 			$nombre_produits = $panier->getNbrProduits();
 			$poids = $panier->getPoids();
+			
 		}
 		else
 		{

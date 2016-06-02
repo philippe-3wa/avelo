@@ -74,7 +74,7 @@ class Panier
 	{
 		if ($this->produits === null)
 			$this->getProduits();
-		// while à faire je sais pas comment
+		// while à faire je sais pas encore comment
 		$this->produits[] = $produit;
 	}
 	public function setNbrProduits($nbr_produits)
