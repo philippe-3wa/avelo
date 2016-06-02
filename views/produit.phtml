@@ -18,7 +18,7 @@
 			<div class="col-md-7 single-top-right">
 				<div class="details-left-info simpleCart_shelfItem">
 					<h3><?=htmlentities($produit->getNom()); ?></h3>
-					<p class="availability">Disponibilité : <span class="color">En stock</span></p>
+					<p class="availability">Disponibilité : <span class="color"><?=$produit->getStock()?> vélo(s) en stock</span></p>
 					<div class="price_single">
 						<span class="actual item_price"><?=$produit->getPrix(); ?> €</span>
 					</div>
@@ -40,7 +40,14 @@
 					<div class="single-but">
 						<input type="hidden" name="id_produit" value="<?=$produit->getId(); ?>">
 							<input type="hidden" name="action" value="ajout_panier">
-						<input type="submit" value="ajouter"/>
+							<?php if ($produit->getStock() != 0) 
+							{
+								echo "<input type=\"submit\" value=\"ajouter\"/>";
+							}
+							else
+								echo "plus en stock, désolé";
+							?>
+						
 					</form>
 					</div>
 				</div>
