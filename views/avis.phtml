@@ -1,13 +1,15 @@
-<div class="col-sm-5">
-	<div class="panel panel-default">
-		<div class="panel-heading">			
-			<?=$avis->getIdUser()?>
-			<?=$avis->getDate()?>
-			<?=$avis->getNote()?>			
-		</div>
+<div class="container">
+	<div class="col-sm-5">
+		<div class="panel panel-default">
+			<div class="panel-heading">			
+				<?=$avis->getIdUser()?>
+				<?=$avis->getDate()?>
+				<?=$avis->getNote()?>			
+			</div>
 
-		<div class="panel-body">
-			<p><?=htmlentities($avis->getContenu())?></p>
+			<div class="panel-body">
+				<p><?=htmlentities($avis->getContenu())?></p>
+			</div>
 		</div>
 	</div>
 </div>
