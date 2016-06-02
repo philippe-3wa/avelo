@@ -8,32 +8,48 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="ckeckout">
 		<div class="container">
 			<div class="ckeckout-top">
 			<div class=" cart-items heading">
 				<h3>Mon panier (Qté)</h3>
-				
-				
-			<div class="in-check" >
-				<ul class="unit">
-					<li class="tab1"><span>Item</span></li>
-					<li class="tab2"><span>Nom du Produit</span></li>		
-					<li class="tab3"><span>Prix Unitaire (TTC)</span></li>
-					<li class="tab4"><span>Qté</span></li>
-					<li class="tab5"> </li>
-					<div class="clearfix"> </div>
-				</ul>
-				<ul class="cart-header">
-					<li class="ring-in tab1"><a href="" ><img src="public/images/velo.jpg" class="img-responsive" alt="Photo du produit"></a>
-					</li>
-					<li class="tab2"><span>Nom du produit</span></li>
-					<li class="tab3"><span>Prix unitaire TTC</span></li>
-					<li class="tab4"><span>Qté en panier</span></li>
-					<li class="tab5"> <a href="" class="add-cart cart-check">MODIFIER</a></li>
-				<div class="clearfix"> </div>
-				</ul>
-			</div>
+			<table id="rounded-corner" >
+				<thead>
+				<tr class="unit">
+					<th scope="col" class="rounded"><span>Item</span></th>
+					<th class="rounded"><span>Produit</span></th>
+					<th class="rounded"><span>Qté</span></th>
+					<th class="rounded"><span>Prix Unit TTC</span></th>
+					<th class="rounded"><span>TOTAL Poids</span></th>
+					<th class="rounded"><span>TOTAL Prix TTC</span></th>
+					<th class="rounded">EDIT</th>
+					<th class="rounded">SUPPR</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="cart-header">
+					<td class="ring-in rounded"><a href="" ><img src="public/images/velo.jpg" class="img-responsive" alt="Photo du produit"></a></td>
+					<td class="rounded"><span>$id</span></td>
+					<td class="rounded"><span>$nbr_produit</span></td>
+					<td class="rounded"><span>$prix</span></td>
+					<td class="rounded"><span>$poidsX$nbr</span></td>
+					<td class="rounded"><span>$prixX$nbr</span></td>
+					<td><a href=""><img src="public/images/user_edit.png" alt="" title="" border="0" /></a></td>
+    				<td><a href="" class="ask"><img src="public/images/trash.png" alt="" title="" border="0" /></a></td>
+				</tr>
+				<tr class="unit tfooter">
+					<td class="ring-in rounded"></td>
+					<td class="rounded"><span></span></td>
+					<td class="rounded"><span>TOT$nbr_produit</span></td>
+					<td class="rounded"></td>
+					<td class="rounded"><span>TOT$poids</span></td>
+					<td class="rounded"><span>TOT$prix</span></td>
+					<td class="rounded"></td>
+					<td class="rounded"></td>
+				</tr>
+				</tbody>
+			</table>
 			
 			</div>  
 			</div>

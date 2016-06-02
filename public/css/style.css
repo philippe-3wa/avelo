@@ -735,24 +735,23 @@ a.add-cart:hover {
 	width:100%;
 	margin: 2em 0 2em;
 }
-ul.unit{
+.unit{
 	background:#181b2a;
-	padding:1em;
+	padding:5px;
 	text-align: center;
-	height: 4em;
 }
-ul.unit li {
+.unit li {
 	display:inline-block;
 	text-align: center;
 	vertical-align: middle;
 }
- ul.unit li span{
+.unit li span{
 	display:inline-block;
 	color:#fff;
 	font-size:1.2em;
 	text-align:center;
 }
-ul.cart-header,ul.cart-header1{
+.cart-header,.cart-header1{
 	padding:1em;
 	background:#f8f8f8;
 	border-bottom: 1px solid #181b2a;
@@ -772,8 +771,10 @@ ul.cart-header li span,ul.cart-header1 li span,ul.cart-header2 li span{
 	font-size:1.2em;
 	text-align:center;
 }
-li.ring-in img{
+.ring-in {
 	margin: 0 auto;
+	max-width: 100px;
+	min-width: 70px;
 }
 .in-check {
 	margin-top: 2%;
@@ -1335,7 +1336,7 @@ a.add-cart {
 	font-size: 1em;
 	margin-top: 2.6em;
 }
-ul.unit li span {
+.unit li span {
 	font-size: 1em;
 }
 .contact-bottom {
@@ -1469,16 +1470,16 @@ ul.unit li span {
 	left: 0px;
 	top: 65px;
 }
-ul.unit li {
+.unit li {
 	margin-right: 4px;
 }
 ul.cart-header li span, ul.cart-header1 li span, ul.cart-header2 li span {
 	font-size: 1em;
 }
-ul.unit li span {
+.unit li span {
 	font-size: 11px;
 }
-ul.unit {
+.unit {
 	padding: 10px 1em;
 }
 a.add-cart {
@@ -1798,7 +1799,7 @@ a.add-cart {
 	font-size: 7px;
 	margin-top: 3.3em;
 }
-ul.unit {
+.unit {
 	padding: 7px 1em;
 }
 .mask {
@@ -2045,3 +2046,8 @@ a.bt_red span.bt_red_lft{width:10px;height:31px;display:block; float:left;backgr
 a.bt_red span.bt_red_r{width:10px;height:31px;display:block; float:left;background:url(images/bt_red_r.gif) no-repeat center right;}
 a:hover.bt_red{ text-decoration:underline;}
 
+.tfooter {
+	background-color: #33333F;
+	color: white;
+	font-style: bold;
+}
