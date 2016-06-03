@@ -7,9 +7,8 @@ ul.memenu.skyblue {text-align: center;}
 	position: absolute;
 	display: none;
 	background: #fff;
-	width: 80%;
+	width: 20%;
 	top: 47px;
-	left: 10.7%;
 	z-index: 99;
 	padding: 20px 30px 20px;
 	border: solid 1px #ccc;
