@@ -9,6 +9,9 @@ else
 	$id = intval($_GET['id']);
 	$manager = new CategorieManager($link);
 	$categorie = $manager->findById($id);
-	require('views/categorie.phtml');
+	if ($categorie)
+		require('views/categorie.phtml');
+	else
+		require('views/error.phtml');
 }
 ?>
