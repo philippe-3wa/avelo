@@ -1,4 +1,4 @@
-<li class="grid"><a href="index.php?page=categorie&id=<?=$categorie->getId();?>"><?=$categorie->getNom();?></a>
+<li class="grid"><a href="index.php?page=categorie&id=<?=$categorie->getId();?>"><?=htmlentities($categorie->getNom());?></a>
 	<div class="mepanel">
 		<div>
 			<div class="col1 me-one col-lg-4">

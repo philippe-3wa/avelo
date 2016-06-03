@@ -6,7 +6,7 @@
 				<span>Détails</span>
 			</div>
 		</a>
-		<h4><?=$produit->getNom()?></h4>
+		<h4><?=htmlentities($produit->getNom())?></h4>
 		<p><a class="item_add" href="index.php?page=produit&id=<?=$produit->getId()?>"><i></i> 
 			<span class=" item_price"><?=$produit->getPrix()?> €</span>
 		</a></p>
