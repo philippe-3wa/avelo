@@ -33,8 +33,12 @@ if (isset($access_traitement[$page]))
 
 if (isset($_GET['ajax']))
 {
-	$accessAjax = ['admin_produit'];
-	$pageAjax = 'admin_categorie';
+	$accessAjax = ['sous_categorieAjax'];
+	if (isset($_GET['page']))
+	{
+		if (in_array($_GET['page'], $accessAjax))
+			$pageAjax = $_GET['page'];
+	}
 	require('apps/'.$pageAjax.'.php');
 }
 else
