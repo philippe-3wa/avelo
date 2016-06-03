@@ -8,16 +8,7 @@ else
 {
 	$id = intval($_GET['id']);
 	$manager = new CategorieManager($link);
-	try
-	{
-		$categorie = $manager->findById($id);
-		require('views/categorie.phtml');
-	}
-	catch (Exception $exception)
-	{
-		$error = $exception->getMessage();
-	}
+	$categorie = $manager->findById($id);
+	require('views/categorie.phtml');
 }
-
-
 ?>

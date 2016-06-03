@@ -2,8 +2,7 @@
 if (!isset($_GET['option']))
 {
 	$manager = new ProduitManager($link);
-	try
-	{
+
 		$produits = $manager->findAll();
 		$count = 0;
 		$max = sizeof($produits);
@@ -13,19 +12,13 @@ if (!isset($_GET['option']))
 			require('views/admin_bloc_produit_liste.phtml');
 			$count++;
 		}
-	}
-	catch (Exception $exception)
-	{
-		$error = $exception->getMessage();
-	}
 }
 else
 	{
 		$option = $_GET['option'];
 
 		$manager = new ProduitManager($link);
-		try
-		{
+
 			$produits = $manager->findAll();
 			$count = 0;
 			$max = sizeof($produits);
@@ -35,11 +28,6 @@ else
 				require('views/admin_bloc_produit_liste.phtml');
 				$count++;
 			}
-		}
-		catch (Exception $exception)
-		{
-			$error = $exception->getMessage();
-		}
 
 		if ($option == "ajout_produit")
 			require('views/admin_bloc_produit_add.phtml');

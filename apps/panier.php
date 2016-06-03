@@ -1,5 +1,4 @@
 <?php
-
 $manager = new UserManager($link);
 
 $id = $_SESSION['id'];
@@ -12,7 +11,6 @@ if ($panier)
 	$prix = $panier->getPrix();
 	$nombre_produits = $panier->getNbrProduits();
 	$poids = $panier->getPoids();
-	
 }
 else
 {
@@ -21,7 +19,4 @@ else
 	$poids = 0;
 }
 require('views/panier.phtml');
-
-
-
 ?>

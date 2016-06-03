@@ -8,7 +8,6 @@ class ProduitManager
 		$this->link = $link;
 	}
 	
-
 	public function findAll()
 	{
 		$list = [];
@@ -176,7 +175,6 @@ class ProduitManager
 				throw new Exception ("Internal server error");
 		}
 	}
-
 	public function getById($id)
 	{
 		return $this->findById($id);

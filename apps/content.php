@@ -1,3 +1,3 @@
 <?php
-	require('views/content.phtml');
+require('views/content.phtml');
 ?>

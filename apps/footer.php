@@ -1,3 +1,3 @@
 <?php
-	require('views/footer.phtml');
+require('views/footer.phtml');
 ?>

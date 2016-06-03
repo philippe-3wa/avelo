@@ -6,7 +6,6 @@ class PanierManager
 	{
 		$this->link = $link;
 	}
-
 	public function findAll()
 	{
 		$list = [];
@@ -122,7 +121,6 @@ class PanierManager
 					$id_produit = $produit->getId();
 					mysqli_query($this->link, "INSERT INTO link_panier_produit (id_panier, id_produit, quantite) VALUES('".$id."', '".$id_produit."', 1)");
 					$i++;
-				
 				}
 				return $this->findById($id);
 			}
