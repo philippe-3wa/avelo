@@ -37,17 +37,17 @@
 
         <div class="body">
         <div class="form-group">
-            <label class="col-sm-2 control-label" for="TVA">TVA</label>
+            <label class="col-sm-2 control-label" for="tva">TVA</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="TVA" name="TVA" placeholder="TVA" required>
+                <input type="text" class="form-control" id="tva" name="tva" placeholder="tva" required>
             </div>
         </div>
 
         <div class="body">
         <div class="form-group">
-            <label class="col-sm-2 control-label" for="TVA">Photo</label>
+            <label class="col-sm-2 control-label" for="photo">Photo</label>
             <div class="col-sm-10">
-                <input type="file" class="filestyle" data-buttonText="Find file">
+                <input type="file" class="filestyle" id="photo" name="photo" data-buttonText="Find file">
             </div>    
         </div>
 
@@ -60,16 +60,23 @@
         </div>
 
         <div class="form-group">
-            <label class="col-xs-2 control-label" for="id_categorie">Id de la sous-catégorie</label>
-            <div class="col-sm-10">
-                <select class="col-sm-2 control-label">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
+            <label class="col-sm-2 control-label" for="id_categorie" id="id_categorie" name="id_categorie">Catégorie</label>
+            <div class="col-sm-3">
+                <select id="change_category" class="col-sm-2 form-control">
+                    <?php require('apps/sous_categorie_add.php'); ?>
                 </select>
+                                <script>
+                   $('#change_category').change(function()
+                    {
+                      $.get('index.php?page=sous_categorieAjax&ajax&id='+$(this).val(), function(data)
+                      {
+                          $('#subcat').html(data);
+                      });
+                    });
+                </script>
             </div>    
-         </div>
-
+        </div>  
+<div id="subcat"><?php require('apps/sous_categorieAjax.php'); ?></div>
          <div class="body">
         <div class="form-group">
             <label class="col-sm-2 control-label" for="stock">Stock</label>
@@ -79,11 +86,11 @@
         </div>
 
     <div class="form-group">
-        <label class="col-xs-2 control-label" for="actif">Actif</label>
+        <label class="col-xs-2 control-label" for="actif" id="actif" name="actif">Actif</label>
             <div class="col-sm-10">
               <div class="radio">
                 <label>
-                  <input type="radio" name="gridActif" id="gridActif1" value="1" checked>
+                  <input type="radio" name="actif" id="gridActif1" value="1" checked>
                  Oui
                 </label>
               </div>
@@ -96,11 +103,13 @@
             </div>
         </div>
     </div>
+
     <div class="footer">
 
+        <input type="hidden" name="action" value="produit_add" />
         <div class="address new">
             <input type="submit" value="submit">
         </div>
     </div>
-    <input type="hidden" name="action" value="produit_edit">
 </form>
+
