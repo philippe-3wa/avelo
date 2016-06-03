@@ -130,7 +130,7 @@ class ProduitManager
 		$stock = $produit->getStock();
 		$id_sous_categorie = $produit->getIdSousCategorie();
 
-		$request = "INSERT INTO produit (reference, nom, description, prix, tva, photo, poids, actif, stock) VALUES('".$reference."','".$nom."', '".$description."','".$prix."','".$tva."','".$photo."','".$poids."', '".$actif."','".$stock."')";
+		$request = "INSERT INTO produit (reference, nom, description, prix, tva, photo, poids, actif, stock, id_sous_categorie) VALUES('".$reference."','".$nom."', '".$description."','".$prix."','".$tva."','".$photo."','".$poids."', '".$actif."','".$stock."','".$id_sous_categorie."')";
 		$res = mysqli_query($this->link, $request);
 		if ($res)
 		{
@@ -141,10 +141,10 @@ class ProduitManager
 				return $produit;
 			}
 			else
-				throw new Exception ("Internal server error");
+				throw new Exception ("aInternal server error");
 		}
 		else
-			throw new Exception ("Internal server error");
+			throw new Exception ("bInternal server error");
 		
 	}
 

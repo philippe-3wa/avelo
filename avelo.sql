@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 03 Juin 2016 à 14:42
+-- Généré le: Ven 03 Juin 2016 à 16:22
 -- Version du serveur: 5.5.47-0ubuntu0.14.04.1
 -- Version de PHP: 5.5.9-1ubuntu4.14
 
@@ -110,26 +110,14 @@ CREATE TABLE IF NOT EXISTS `link_panier_produit` (
   PRIMARY KEY (`id`),
   KEY `id_panier` (`id_panier`),
   KEY `id_produit` (`id_produit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=212 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=214 ;
 
 --
 -- Contenu de la table `link_panier_produit`
 --
 
 INSERT INTO `link_panier_produit` (`id`, `id_panier`, `id_produit`, `quantite`) VALUES
-(199, 8, 1, 1),
-(200, 8, 1, 1),
-(201, 8, 1, 1),
-(202, 8, 1, 1),
-(203, 8, 2, 1),
-(204, 8, 2, 1),
-(205, 8, 2, 1),
-(206, 8, 2, 1),
-(207, 8, 2, 1),
-(208, 8, 2, 1),
-(209, 8, 2, 1),
-(210, 8, 2, 1),
-(211, 8, 1, 1);
+(213, 10, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -147,14 +135,14 @@ CREATE TABLE IF NOT EXISTS `panier` (
   `id_user` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Contenu de la table `panier`
 --
 
 INSERT INTO `panier` (`id`, `date`, `nbr_produits`, `statut`, `prix`, `poids`, `id_user`) VALUES
-(8, '2016-06-03 12:23:18', 13, 1, 25815, 510, 3);
+(10, '2016-06-03 13:10:49', 1, 1, 500, 10, 3);
 
 -- --------------------------------------------------------
 
@@ -169,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `produit` (
   `description` varchar(511) NOT NULL,
   `prix` float NOT NULL,
   `tva` float NOT NULL,
-  `photo` varchar(63) NOT NULL DEFAULT 'velo.jpg',
+  `photo` varchar(127) NOT NULL DEFAULT 'http://localhost/avelo/public/images/velo.jpg',
   `poids` float NOT NULL,
   `actif` tinyint(1) NOT NULL,
   `stock` int(3) NOT NULL,
@@ -177,16 +165,17 @@ CREATE TABLE IF NOT EXISTS `produit` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `reference` (`reference`,`nom`),
   KEY `id_sous_categorie` (`id_sous_categorie`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Contenu de la table `produit`
 --
 
 INSERT INTO `produit` (`id`, `reference`, `nom`, `description`, `prix`, `tva`, `photo`, `poids`, `actif`, `stock`, `id_sous_categorie`) VALUES
-(1, 'velo-001', 'Velo champetre', 'le parfait velo pour partir en picnic', 500, 5.5, 'velo.jpg', 10, 1, 12, 3),
-(2, 'velo-002', 'Speed 2000', '0 a 30 en 5 secondes', 621, 5.5, 'velo.jpg', 12, 1, 7, 2),
-(3, 'velo-003', 'maxi velo', 'un bon velo pour les gros', 432, 5.5, 'velo.jpg', 23, 1, 0, 4);
+(1, 'velo-001', 'Velo champetre', 'le parfait velo pour partir en picnic', 500, 5.5, 'http://localhost/avelo/public/images/velo.jpg', 10, 1, 12, 3),
+(2, 'velo-002', 'Speed 2000', '0 a 30 en 5 secondes', 621, 5.5, 'http://localhost/avelo/public/images/velo.jpg', 12, 1, 7, 2),
+(3, 'velo-003', 'maxi velo', 'un bon velo pour les gros', 432, 5.5, 'http://localhost/avelo/public/images/velo.jpg', 23, 1, 0, 4),
+(6, 'velo-enfant-01', 'VÃ©lo enfant toutmoche', 'le vÃ©lo parfait pour les enfants moches', 99, 5.5, 'http://i10.twenga.com/sports/velo-enfant/velo-enfant-disney-mickey-tp_1522878201268545611f.jpg', 5, 1, 10, 7);
 
 -- --------------------------------------------------------
 
@@ -202,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `sous_categorie` (
   `actif` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `id_categorie` (`id_categorie`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Contenu de la table `sous_categorie`
@@ -217,7 +206,8 @@ INSERT INTO `sous_categorie` (`id`, `nom`, `description`, `id_categorie`, `actif
 (6, 'ville', 'velos de ville hommes', 2, 1),
 (7, 'vtt', 'vtt enfants', 3, 1),
 (8, 'course', 'velos de course enfants', 3, 1),
-(9, 'ville', 'velos de ville enfants', 3, 1);
+(9, 'ville', 'velos de ville enfants', 3, 1),
+(11, 'toto', 'je suis toto la sous cat', 3, 1);
 
 -- --------------------------------------------------------
 
