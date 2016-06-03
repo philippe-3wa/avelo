@@ -12,12 +12,22 @@ class Panier
 	private $id_user;
 
 	private $produits;// NULL
+	private $user;
 
 	private $link;
 
 	public function __construct($link)
 	{
 		$this->link = $link;
+	}
+	public function getUser()
+	{
+		if ($this->user === null)
+		{
+			$manager = new UserManager($this->link);
+			$this->user = $manager->findById($this->id_user);
+		}
+		return $this->user;
 	}
 
 	// Getter/Setter | Accesseur/Mutateur | Accessor/Mutator

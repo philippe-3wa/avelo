@@ -5,7 +5,8 @@ if (!isset($_GET['id']))
 	exit;
 }
 else
-{	$id = intval($_GET['id']);
+{
+	$id = intval($_GET['id']);
 	$manager = new CategorieManager($link);
 	try
 	{

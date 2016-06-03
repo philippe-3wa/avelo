@@ -30,7 +30,15 @@ $access_traitement = array('user'=>'user', 'logout'=>'user', 'avis'=>'avis', 'pa
 
 if (isset($access_traitement[$page]))
 	require('apps/traitement_'.$access_traitement[$page].'.php');
-require('apps/skel.php');
+
+if (isset($_GET['ajax']))
+{
+	$accessAjax = ['admin_produit'];
+	$pageAjax = 'admin_categorie';
+	require('apps/'.$pageAjax.'.php');
+}
+else
+	require('apps/skel.php');
 
 mysqli_close($link);
 ?>

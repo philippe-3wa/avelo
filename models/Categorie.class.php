@@ -8,6 +8,9 @@ class Categorie
 	private $description;
 	private $actif;
 
+	private $sous_categories;
+	private $produits;
+
 	private $link;
 
 	public function __construct($link)
@@ -60,16 +63,22 @@ class Categorie
 
 	public function getSousCategories()
 	{
-		$sous_categorieManager = new SousCategorieManager($this->link);
-		$sous_categorie = $sous_categorieManager->findByCategorie($this);
-		return $sous_categorie;
+		if ($this->sous_categories === null)
+		{
+			$sous_categorieManager = new SousCategorieManager($this->link);
+			$this->sous_categories = $sous_categorieManager->findByCategorie($this);
+		}
+		return $this->sous_categories;
 	}
 
 	public function getProduits()
 	{
-		$produitManager = new ProduitManager($this->link);
-		$produits = $produitManager->findByCategorie($this);
-		return $produits;
+		if ($this->produits === null)
+		{
+			$produitManager = new ProduitManager($this->link);
+			$this->produits = $produitManager->findByCategorie($this);
+		}
+		return $this->produits;
 	}
 
 }

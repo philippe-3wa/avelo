@@ -32,6 +32,15 @@ class UserManager
 		$user = mysqli_fetch_object($res, "User", [$this->link]);
 		return $user;
 	}
+	public function findByCredentials($email, $login)
+	{
+		$email = mysqli_real_escape_string($this->link, $email);
+		$login = mysqli_real_escape_string($this->link, $login);
+		$request = "SELECT * FROM user WHERE email='".$email."' OR login='".$login."'";
+		$res = mysqli_query($this->link, $request);
+		$user = mysqli_fetch_object($res, "User", [$this->link]);
+		return $user;
+	}
 	public function findByLogin($login)
 	{
 		$login = mysqli_real_escape_string($this->link, $login);

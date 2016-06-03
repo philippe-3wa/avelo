@@ -2,7 +2,7 @@
 	<div class="col-sm-5">
 		<div class="panel panel-default">
 			<div class="panel-heading">			
-				<?=$avis->getIdUser()?>
+				<?=htmlentities($avis->getUser()->getLogin())?>
 				<?=$avis->getDate()?>
 				<?=$avis->getNote()?>			
 			</div>
