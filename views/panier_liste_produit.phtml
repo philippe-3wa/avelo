@@ -1,10 +1,10 @@
 <tr class="cart-header">
 	<td class="ring-in rounded"><a href="" ><img src="public/images/velo.jpg" class="img-responsive" alt="Photo du produit"></a></td>
-	<td class="rounded"><span>$nom</span></td>
-	<td class="rounded"><span>$nbr</span></td>
-	<td class="rounded"><span>$prix €</span></td>
-	<td class="rounded"><span>$prixX$nbr</span></td>
-	<td class="rounded"><span>$description</span></td>
+	<td class="rounded"><span><?=htmlentities($produit->getNom())?></span></td>
+	<td class="rounded"><span></span></td>
+	<td class="rounded"><span><?=$produit->getPrix()?> €</span></td>
+	<td class="rounded"><span></span></td>
+	<td class="rounded"><span><?=htmlentities($produit->getDescription())?></span></td>
 	<td><a href=""><img src="public/images/user_edit.png" alt="" title="" border="0" /></a></td>
 	<td><a href="" class="ask"><img src="public/images/trash.png" alt="" title="" border="0" /></a></td>
 </tr>

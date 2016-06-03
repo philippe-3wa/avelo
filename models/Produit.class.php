@@ -85,6 +85,16 @@ class Produit
 	{
 		return $this->id_sous_categorie;
 	}
+
+	public function getListeAvis()
+	{
+		if ($this->avis === null)
+		{
+			$avisManager = new AvisManager($this->link);
+			$this->avis = $avisManager->findByProduit($this);
+		}
+		return $this->avis;
+	}
 	
 	public function setReference($reference)
 	{
@@ -157,14 +167,5 @@ class Produit
 		$this->id_sous_categorie = $id_sous_categorie;
 	}
 
-	public function getListeAvis()
-	{
-		if ($this->avis === null)
-		{
-			$avisManager = new AvisManager($this->link);
-			$this->avis = $avisManager->findByProduit($this);
-		}
-		return $this->avis;
-	}
 }
 ?>
