@@ -11,6 +11,8 @@ class avis
 	private $id_produit;
 
 	private $link;
+	private $user;
+	private $produit;
 
 	// Ctor
 	public function __construct($link)
@@ -19,6 +21,24 @@ class avis
 	}
 
 	// Getter/Setter | Accesseur/Mutateur | Accessor/Mutator
+	public function getUser()
+	{
+		if ($this->user === null)
+		{
+			$manager = new UserManager($this->link);
+			$this->user = $manager->findById($this->id_user);
+		}
+		return $this->user;
+	}
+	public function getProduit()
+	{
+		if ($this->produit === null)
+		{
+			$manager = new ProduitManager($this->link);
+			$this->produit = $manager->findById($this->id_produit);
+		}
+		return $this->produit;
+	}
 	public function getId()
 	{
 		return $this->id;

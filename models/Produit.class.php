@@ -17,9 +17,28 @@ class Produit
 	
 	private $link;
 
+	private $avis;
+	private $sous_categorie;
+	private $categorie;
+
 	public function __construct($link)
 	{
 		$this->link = $link;
+	}
+	public function getCategorie()
+	{
+		if ($this->categorie === null)
+			$this->categorie = $this->getSousCategorie()->getCategorie();
+		return $this->categorie;
+	}
+	public function getSousCategorie()
+	{
+		if ($this->sous_categorie === null)
+		{
+			$sous_categorieManager = new SousCategorieManager($this->link);
+			$this->sous_categorie = $sous_categorieManager->findId($this->id_sous_categorie);
+		}
+		return $this->sous_categorie;
 	}
 
 	// Getter/Setter | Accesseur/Mutateur | Accessor/Mutator
@@ -142,9 +161,12 @@ class Produit
 
 	public function getListeAvis()
 	{
-		$avisManager = new AvisManager($this->link);
-		$liste_avis = $avisManager->findByProduit($this);
-		return $liste_avis;
+		if ($this->avis === null)
+		{
+			$avisManager = new AvisManager($this->link);
+			$this->avis = $avisManager->findByProduit($this);
+		}
+		return $this->avis;
 	}
 
 }

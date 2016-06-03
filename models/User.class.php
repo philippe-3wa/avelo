@@ -13,6 +13,11 @@ class User
 	private $actif;
 	private $admin;
 
+	private $avis;
+	private $panier;
+	private $adresses;
+	private $adresseLivraison;
+	private $adresseFacturation;
 	private $link;
 
 	public function __construct($link)
@@ -20,6 +25,15 @@ class User
 		$this->link = $link;
 	}
 
+	public function getPanier()
+	{
+		if ($this->panier === null)
+		{
+			$manager = new PanierManager($this->link);
+			$panier = $manager->findByUserActif($this);
+		}
+		return $panier;
+	}
 	public function getId()
 	{
 		return $this->id;

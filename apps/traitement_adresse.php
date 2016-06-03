@@ -47,7 +47,7 @@ if (isset($_POST['action']))
 	}
 	else if ($_POST['action'] == 'remove')
 	{
-		if (isset($_SESSION['id']))
+		if (isset($_SESSION['id'], $_POST['id']))
 		{
 			$manager = new AdresseManager($link);
 			try

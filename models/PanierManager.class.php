@@ -40,17 +40,18 @@ class PanierManager
 		$panier = mysqli_fetch_object($res, "Panier", [$this->link]);
 		return $panier;
 	}
-	public function findByIdUser($id_user)
+	// public function findByIdUser($id_user)
+	public function findByUser(User $user)
 	{
-		$id_user = intval($this->link, $id_user);
+		$id_user = $user->getId();
 		$request = "SELECT * FROM panier WHERE id_user='".$id_user."'";
 		$res = mysqli_query($this->link, $request);
 		$panier = mysqli_fetch_object($res, "Panier", [$this->link]);
 		return $panier;
 	}
-	public function findByIdUserActif($id_user)
+	public function findByUserActif(User $user)
 	{
-		$id_user = intval($id_user);
+		$id_user = $user->getId();
 		$request = "SELECT * FROM panier WHERE statut='1' AND id_user='".$id_user."'";
 		$res = mysqli_query($this->link, $request);
 		if ($res)
