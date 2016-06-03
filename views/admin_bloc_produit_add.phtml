@@ -59,14 +59,23 @@
             </div>
         </div>
 
-         <div class="form-group">
-                    <label class="col-sm-2 control-label" for="id_categorie">Catégorie</label>
-                    <div class="col-sm-3">
-                        <select name="id_categorie" class="col-sm-2 form-control">
-                            <?php require('apps/sous_categorie_add.php'); ?>
-                        </select>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="id_categorie" id="id_categorie" name="id_categorie">Catégorie</label>
+            <div class="col-sm-3">
+                <select name="change_category" class="col-sm-2 form-control">
+                    <?php require('apps/sous_categorie_add.php'); ?>
+                </select>
+            </div>    
+        </div>  
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="id_sous_categorie" id="id_sous_categorie" name="id_sous_categorie">Sous-Catégorie</label>
+            <div class="col-sm-3">
+                <select id="change_sous_category" class="col-sm-2 form-control">
+                    <?php require('apps/produit_add.php'); ?>
+                </select>
                 <script>
-                    $('#change_category').change(function()
+                   $('#change_sous_category').change(function()
                         {
                     $.get('index.php?page=admin_categorie&ajax', function(data)
                     {
@@ -74,14 +83,6 @@
                     });
                 })
                 </script>
-                    </div>    
-                 </div>  
-        <div class="form-group">
-            <label class="col-sm-2 control-label" for="id_sous_categorie">Sous-Catégorie</label>
-            <div class="col-sm-3">
-                <select name="id_categorie" class="col-sm-2 form-control">
-                    <?php require('apps/produit_add.php'); ?>
-                </select>
             </div>    
          </div>
 
