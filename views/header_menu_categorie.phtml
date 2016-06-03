@@ -1,14 +1,7 @@
 <li class="grid"><a href="index.php?page=categorie&id=<?=$categorie->getId();?>"><?=$categorie->getNom();?></a>
 	<div class="mepanel">
-		<div class="row">
-			<div class="col1 me-one">
-				<h4>Shop</h4>
-				<ul>
-					<li><a href="index.php?page=categorie">Nouveautés</a></li>
-					<li><a href="index.php?page=categorie">Promotions</a></li>
-				</ul>
-			</div>
-			<div class="col1 me-one">
+		<div>
+			<div class="col1 me-one col-lg-4">
 				<h4>Vélos</h4>
 				<ul>
 					<?php require('apps/header_menu_sous_categorie.php'); ?>

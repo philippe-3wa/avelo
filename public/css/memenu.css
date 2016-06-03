@@ -47,7 +47,7 @@ ul.memenu.skyblue {text-align: center;}
 .mepanel .row:first-child{margin-top:0}
 .mepanel .row:before,.mepanel .row:after{display:table;content:"";line-height:0}
 .mepanel .row:after{clear:both}
-.mepanel .row .col1,.mepanel .row .col2,.mepanel .row .col3,.mepanel .row .col4,.mepanel .row .col5,.mepanel .row .col6{display:block;width:100%;min-height:20px;float:left;margin-left:2.127659574468085%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+.mepanel .row .col1,{display:block;width:100%;min-height:20px;float:left;margin-left:2.127659574468085%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 .mepanel .row [class*="col"]:first-child{margin-left:0}
 .mepanel .row .col1 {
   width: 31.91%;
