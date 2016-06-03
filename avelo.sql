@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 01 Juin 2016 à 16:03
+-- Généré le: Ven 03 Juin 2016 à 14:42
 -- Version du serveur: 5.5.47-0ubuntu0.14.04.1
 -- Version de PHP: 5.5.9-1ubuntu4.14
 
@@ -57,7 +57,20 @@ CREATE TABLE IF NOT EXISTS `avis` (
   PRIMARY KEY (`id`),
   KEY `id_user` (`id_user`),
   KEY `id_produit` (`id_produit`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+
+--
+-- Contenu de la table `avis`
+--
+
+INSERT INTO `avis` (`id`, `contenu`, `note`, `date`, `id_user`, `id_produit`) VALUES
+(1, 'je suis un gentil avis ', 5, '2016-06-02 12:02:23', 1, 1),
+(2, 'je suis un mechant avis', 1, '2016-06-02 12:02:23', 1, 2),
+(13, 'je suis moyennement content de ce velo, peut mieux faire', 5, '2016-06-02 13:23:18', 3, 1),
+(14, 'ton velo est moche comme ta gueule', 1, '2016-06-02 13:41:08', 3, 1),
+(15, 'test commentairtsdfsd sd', 4, '2016-06-03 09:06:51', 3, 2),
+(16, 's nvjnijfdn gdf gdf fg df ggfdfddf gdfs dfgs', 4, '2016-06-03 09:07:04', 3, 1),
+(17, 'beurk pas beau !!!!!!!!!', 4, '2016-06-03 11:47:04', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -72,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `categorie` (
   `actif` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `nom` (`nom`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Contenu de la table `categorie`
@@ -97,7 +110,26 @@ CREATE TABLE IF NOT EXISTS `link_panier_produit` (
   PRIMARY KEY (`id`),
   KEY `id_panier` (`id_panier`),
   KEY `id_produit` (`id_produit`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=212 ;
+
+--
+-- Contenu de la table `link_panier_produit`
+--
+
+INSERT INTO `link_panier_produit` (`id`, `id_panier`, `id_produit`, `quantite`) VALUES
+(199, 8, 1, 1),
+(200, 8, 1, 1),
+(201, 8, 1, 1),
+(202, 8, 1, 1),
+(203, 8, 2, 1),
+(204, 8, 2, 1),
+(205, 8, 2, 1),
+(206, 8, 2, 1),
+(207, 8, 2, 1),
+(208, 8, 2, 1),
+(209, 8, 2, 1),
+(210, 8, 2, 1),
+(211, 8, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -116,6 +148,13 @@ CREATE TABLE IF NOT EXISTS `panier` (
   PRIMARY KEY (`id`),
   KEY `id_user` (`id_user`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Contenu de la table `panier`
+--
+
+INSERT INTO `panier` (`id`, `date`, `nbr_produits`, `statut`, `prix`, `poids`, `id_user`) VALUES
+(8, '2016-06-03 12:23:18', 13, 1, 25815, 510, 3);
 
 -- --------------------------------------------------------
 
@@ -138,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `produit` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `reference` (`reference`,`nom`),
   KEY `id_sous_categorie` (`id_sous_categorie`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `produit`
@@ -146,7 +185,8 @@ CREATE TABLE IF NOT EXISTS `produit` (
 
 INSERT INTO `produit` (`id`, `reference`, `nom`, `description`, `prix`, `tva`, `photo`, `poids`, `actif`, `stock`, `id_sous_categorie`) VALUES
 (1, 'velo-001', 'Velo champetre', 'le parfait velo pour partir en picnic', 500, 5.5, 'velo.jpg', 10, 1, 12, 3),
-(2, 'velo-002', 'Speed 2000', '0 a 30 en 5 secondes', 621, 5.5, 'velo.jpg', 12, 1, 12, 2);
+(2, 'velo-002', 'Speed 2000', '0 a 30 en 5 secondes', 621, 5.5, 'velo.jpg', 12, 1, 7, 2),
+(3, 'velo-003', 'maxi velo', 'un bon velo pour les gros', 432, 5.5, 'velo.jpg', 23, 1, 0, 4);
 
 -- --------------------------------------------------------
 
@@ -200,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `user`
@@ -209,7 +249,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`id`, `email`, `login`, `password`, `prenom`, `nom`, `sexe`, `date_naissance`, `date_inscription`, `actif`, `admin`) VALUES
 (1, 'admin@admin.com', 'admin', '$2y$08$lx4mx4gGVlp9ByfKHOy79e3v9Mv2GaZ03rcX4uqr.dvGiKz0.9wrC', 'philippe', 'dos santos', 1, '2000-10-01', '2016-05-27 13:47:02', 1, 0),
 (2, 'germany@country.com', 'john', '$2y$08$psgkji7RojAaNabEjlpMT.eF5RCtawj6MlAizqKAW6.ygse74w.tm', 'John', 'Thegerman', 1, '1998-01-01', '2016-05-27 13:48:21', 1, 0),
-(3, 'toto@toto.com', 'toto', '$2y$08$WFweU6bqC.ExSqAso80vw.CidTWm7pAtdzOM.JOHsHPSR20mQMkRi', 'toto', 'monsieurtoto', 1, '2000-01-01', '2016-05-27 14:10:40', 1, 1);
+(3, 'toto@toto.com', 'toto', '$2y$08$WFweU6bqC.ExSqAso80vw.CidTWm7pAtdzOM.JOHsHPSR20mQMkRi', 'toto', 'monsieurtoto', 1, '2000-01-01', '2016-05-27 14:10:40', 1, 1),
+(4, 'client@yahoo.fr', 'client', '$2y$08$s2C9hh2n.6TBizrgppjC8eSRAAnp7IZdW8EKeychuxjeQT49.1Fxi', 'newclient', 'nomclient', 1, '2000-01-10', '2016-06-02 11:23:19', 1, 0);
 
 --
 -- Contraintes pour les tables exportées

@@ -10,7 +10,12 @@ $manager = new ProduitManager($link);
 
 		$id = intval($_GET['id']);
 		$produit = $manager->findById($id);
-		require('views/produit.phtml');
+		if ($produit)
+			require('views/produit.phtml');
+		else
+			require('views/error.phtml');
+			exit;
+
 		$liste_avis = $produit->getListeAvis();
 		$count = 0;
 		$max = sizeof($liste_avis);
