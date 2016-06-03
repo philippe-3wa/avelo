@@ -65,9 +65,17 @@
                         <select name="id_categorie" class="col-sm-2 form-control">
                             <?php require('apps/sous_categorie_add.php'); ?>
                         </select>
+                <script>
+                    $('#change_category').change(function()
+                        {
+                    $.get('index.php?page=admin_categorie&ajax', function(data)
+                    {
+                        alert(data);
+                    });
+                })
+                </script>
                     </div>    
-                 </div>
-
+                 </div>  
         <div class="form-group">
             <label class="col-sm-2 control-label" for="id_sous_categorie">Sous-Catégorie</label>
             <div class="col-sm-3">
