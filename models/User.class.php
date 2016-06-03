@@ -30,9 +30,9 @@ class User
 		if ($this->panier === null)
 		{
 			$manager = new PanierManager($this->link);
-			$panier = $manager->findByUserActif($this);
+			$this->panier = $manager->findByUserActif($this);
 		}
-		return $panier;
+		return $this->panier;
 	}
 	public function getId()
 	{
