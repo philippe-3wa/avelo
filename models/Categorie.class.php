@@ -1,5 +1,4 @@
 <?php
-
 class Categorie
 {
 	// Déclaration des propriétés privées
@@ -35,7 +34,6 @@ class Categorie
 	{
 		return $this->actif;
 	}
-	
 	
 	public function setNom($nom)
 	{
@@ -80,6 +78,5 @@ class Categorie
 		}
 		return $this->produits;
 	}
-
 }
 ?>

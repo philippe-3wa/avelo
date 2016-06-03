@@ -64,7 +64,6 @@ class avis
 		return $this->id_produit;
 	}
 
-
 	public function setNote($note)
 	{
 		$note = intval($note);
@@ -79,7 +78,6 @@ class avis
 		return $this->id_produit = $id_produit;
 	}
 
-
 	public function setContenu($contenu)
 	{
 		if (strlen($contenu) < 20)
@@ -91,6 +89,5 @@ class avis
 
 	// Méthodes spécifiques
 	// public function getListComment / getCommentList / getComments / getList
-	
 }
 ?>

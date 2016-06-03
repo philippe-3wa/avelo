@@ -7,16 +7,7 @@ if (!isset($_GET['id']))
 else
 {	$id = intval($_GET['id']);
 	$manager = new SousCategorieManager($link);
-	try
-	{
-		$sous_categorie = $manager->findById($id);
-		require('views/sous_categorie.phtml');
-	}
-	catch (Exception $exception)
-	{
-		$error = $exception->getMessage();
-	}
+	$sous_categorie = $manager->findById($id);
+	require('views/sous_categorie.phtml');
 }
-
-
 ?>

@@ -1,5 +1,4 @@
 <?php
-
 class Produit
 {
 	// Déclaration des propriétés privées
@@ -87,7 +86,6 @@ class Produit
 		return $this->id_sous_categorie;
 	}
 	
-
 	public function setReference($reference)
 	{
 		if (strlen($reference) < 4)
@@ -168,6 +166,5 @@ class Produit
 		}
 		return $this->avis;
 	}
-
 }
 ?>

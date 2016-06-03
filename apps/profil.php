@@ -1,3 +1,3 @@
 <?php
-	require('views/profil.phtml');
+require('views/profil.phtml');
 ?>

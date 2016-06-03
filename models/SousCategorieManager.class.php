@@ -28,7 +28,6 @@ class SousCategorieManager
 		return $list;
 	}
 	
-
 	public function findByCategorie(Categorie $categorie)
 	{
 		$list = [];

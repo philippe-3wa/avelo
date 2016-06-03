@@ -1,5 +1,4 @@
 <?php
-
 class Panier
 {
 	// Déclaration des propriétés privées
@@ -69,7 +68,6 @@ class Panier
 		return $this->id_user;
 	}
 	
-	
 	public function addProduit(Produit $produit)
 	{
 		if ($this->produits === null)
@@ -123,7 +121,6 @@ class Panier
 	{
 		$this->id_user = $_SESSION['id'];
 	}
-
 }
 /*
 $panier = $panierM->findByIdUser($_SESSION['id]']);

@@ -3,8 +3,7 @@
 if (!isset($_GET['option']))
 {
 	$manager = new CategorieManager($link);
-	try
-	{
+
 		$categories = $manager->findAll();
 		$count = 0;
 		$max = sizeof($categories);
@@ -14,19 +13,13 @@ if (!isset($_GET['option']))
 			require('views/admin_bloc_categorie_liste.phtml');
 			$count++;
 		}
-	}
-	catch (Exception $exception)
-	{
-		$error = $exception->getMessage();
-	}
 }
 else
 {
 	$option = $_GET['option'];
 
 	$manager = new CategorieManager($link);
-	try
-	{
+
 		$categories = $manager->findAll();
 		$count = 0;
 		$max = sizeof($categories);
@@ -36,11 +29,5 @@ else
 			require('views/admin_bloc_categorie_liste.phtml');
 			$count++;
 		}
-	}
-	catch (Exception $exception)
-	{
-		$error = $exception->getMessage();
-	}
-
 }
 ?>

@@ -6,5 +6,4 @@ while ($i<$max)
 	require('views/produit_quantite.phtml');
 	$i++;
 }
-
 ?>

@@ -1,3 +1,3 @@
 <?php
-	require('views/adresse.phtml');
+require('views/adresse.phtml');
 ?>

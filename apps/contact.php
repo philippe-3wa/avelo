@@ -1,3 +1,3 @@
 <?php
-	require('views/contact.phtml');
+require('views/contact.phtml');
 ?>

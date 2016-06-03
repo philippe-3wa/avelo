@@ -1,5 +1,4 @@
 <?php
-
 $manager = new CategorieManager($link);
 $categories = $manager->findAll();
 $count = 0;	
@@ -10,24 +9,4 @@ while ($count < $max)
 	require('views/header_menu_categorie.phtml');
 	$count++;
 }
-
-/*
-	$manager = new SousCategorieManager($link);
-	try
-	{
-		$sous_categories = $manager->findAllGroup();
-		$count = 0;
-		$max = sizeof($sous_categories);
-		while ($count < $max)
-		{
-			$sous_categorie = $sous_categories[$count];
-			require('views/header_menu_sous_categorie.phtml');
-			$count++;
-		}
-	}
-	catch (Exception $exception)
-	{
-		$error = $exception->getMessage();
-	}
-*/
 ?>

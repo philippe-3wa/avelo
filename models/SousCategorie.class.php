@@ -1,5 +1,4 @@
 <?php
-
 class SousCategorie
 {
 	// Déclaration des propriétés privées
@@ -18,8 +17,6 @@ class SousCategorie
 	{
 		$this->link = $link;
 	}
-
-
 	// Getter/Setter | Accesseur/Mutateur | Accessor/Mutator
 	public function getId()
 	{
@@ -42,9 +39,6 @@ class SousCategorie
 		return $this->actif;
 	}
 	
-	
-	
-
 	public function getCategorie()
 	{
 		if ($this->categorie === null)
@@ -93,6 +87,5 @@ class SousCategorie
 		}
 		return $this->produits;
 	}
-
 }
 ?>

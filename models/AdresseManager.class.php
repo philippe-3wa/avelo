@@ -74,7 +74,6 @@ class AdresseManager
 		$adresse->setPays($data['pays']);
 		$adresse->setTelephone($data['telephone']);
 		$adresse->setType($data['type']);
-		//
 		
 		$nom = $adresse->getNom();
 		$numero = $adresse->getNumero();
