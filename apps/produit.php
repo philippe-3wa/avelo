@@ -23,6 +23,5 @@ $manager = new ProduitManager($link);
 		if (isset($_SESSION['id']))
 			require('views/avis_add.phtml');
 		
-	}
 }
 ?>
