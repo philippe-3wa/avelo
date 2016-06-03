@@ -11,12 +11,14 @@ if ($panier)
 	$prix = $panier->getPrix();
 	$nombre_produits = $panier->getNbrProduits();
 	$poids = $panier->getPoids();
+	require('views/panier.phtml');
 }
 else
 {
 	$prix = 0;
 	$nombre_produits = 0;
 	$poids = 0;
+	require('views/panier_vide.phtml');
 }
-require('views/panier.phtml');
+
 ?>
