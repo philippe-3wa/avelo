@@ -62,9 +62,18 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="id_categorie" id="id_categorie" name="id_categorie">Catégorie</label>
             <div class="col-sm-3">
-                <select name="change_category" class="col-sm-2 form-control">
+                <select id="change_category" class="col-sm-2 form-control">
                     <?php require('apps/sous_categorie_add.php'); ?>
                 </select>
+                                <script>
+                   $('#change_category').change(function()
+                        {
+                    $.get('index.php?page=admin_categorie&ajax', function(data)
+                    {
+                        alert(data);
+                    });
+                })
+                </script>
             </div>    
         </div>  
 
@@ -74,15 +83,6 @@
                 <select id="change_sous_category" class="col-sm-2 form-control">
                     <?php require('apps/produit_add.php'); ?>
                 </select>
-                <script>
-                   $('#change_sous_category').change(function()
-                        {
-                    $.get('index.php?page=admin_categorie&ajax', function(data)
-                    {
-                        alert(data);
-                    });
-                })
-                </script>
             </div>    
          </div>
 
