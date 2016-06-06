@@ -1,5 +1,5 @@
 <tr class="cart-header">
-	<td class="ring-in rounded"><a href="" ><img src="public/images/velo.jpg" class="img-responsive" alt="Photo du produit"></a></td>
+	<td class="ring-in rounded"><a href="" ><img src="<?=htmlentities($produit->getPhoto())?>" class="img-responsive" alt="Photo du produit"></a></td>
 	<td class="rounded"><span><?=htmlentities($produit->getNom())?></span></td>
 	<td class="rounded"><span></span></td>
 	<td class="rounded"><span><?=$produit->getPrix()?> €</span></td>

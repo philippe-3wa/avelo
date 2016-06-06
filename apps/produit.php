@@ -6,27 +6,27 @@ if (!isset($_GET['id']))
 }
 else
 {	
-$manager = new ProduitManager($link);
+	$manager = new ProduitManager($link);
 
-		$id = intval($_GET['id']);
-		$produit = $manager->findById($id);
-		if ($produit)
-			require('views/produit.phtml');
-		else
-			require('views/error.phtml');
-			exit;
+	$id = intval($_GET['id']);
+	$produit = $manager->findById($id);
+	
+	if ($produit)
+		require('views/produit.phtml');
+	else
+		require('views/error.phtml');
 
-		$liste_avis = $produit->getListeAvis();
-		$count = 0;
-		$max = sizeof($liste_avis);
-		while ($count < $max)
-		{
-			$avis = $liste_avis[$count];
-			require('views/avis.phtml');
-			$count++;
-		}
-		if (isset($_SESSION['id']))
-			require('views/avis_add.phtml');
+	$liste_avis = $produit->getListeAvis();
+	$count = 0;
+	$max = sizeof($liste_avis);
+	while ($count < $max)
+	{
+		$avis = $liste_avis[$count];
+		require('views/avis.phtml');
+		$count++;
+	}
+	if (isset($_SESSION['id']))
+		require('views/avis_add.phtml');
 		
 }
 ?>
