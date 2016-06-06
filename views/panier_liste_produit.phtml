@@ -1,9 +1,9 @@
 <tr class="cart-header">
 	<td class="ring-in rounded"><a href="" ><img src="<?=htmlentities($produit->getPhoto())?>" class="img-responsive" alt="Photo du produit"></a></td>
 	<td class="rounded"><span><?=htmlentities($produit->getNom())?></span></td>
-	<td class="rounded"><span></span></td>
+	<td class="rounded"><span><?=$quantite?></span></td>
 	<td class="rounded"><span><?=$produit->getPrix()?> €</span></td>
-	<td class="rounded"><span></span></td>
+	<td class="rounded"><span><?=$prixTotal?> €</span></td>
 	<td class="rounded"><span><?=htmlentities($produit->getDescription())?></span></td>
 	<td><a href=""><img src="public/images/user_edit.png" alt="" title="" border="0" /></a></td>
 	<td><a href="" class="ask"><img src="public/images/trash.png" alt="" title="" border="0" /></a></td>
