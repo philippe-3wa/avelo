@@ -135,6 +135,28 @@ else
 				$error = $exception->getMessage();
 			}
 		}
+
+		else if ($option == "update")
+		{
+			$manager = new UserManager($link);
+			try
+			{
+				$user = $manager->findById('id');
+				if ($user)
+				{
+					$user->setActif($_POST['actif']);
+					$manager->remove($user);
+					header('Location: index.php?page=admin');
+					exit;
+				}
+				else
+					$error = 'User inconnu';
+			}
+			catch (Exception $exception)
+			{
+				$error = $exception->getMessage();
+			}
+		}
 	}
 }
 ?>

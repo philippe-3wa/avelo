@@ -131,48 +131,25 @@ class UserManager
 	}
 	public function update(User $user)
 	{
-		if (!isset($_SESSION['id']))
+		if (!isset($_SESSION['admin']))
 			throw new Exception ("Vous devez être connecté");
-		$user = new User($this->link);
-		$this->verifVariables($data);
+		
 		$id = $user->getId();
 		if ($id)
 		{
-			$email = mysqli_real_escape_string($this->link, $user->getEmail());
-			$login = mysqli_real_escape_string($this->link, $user->getLogin());
-			$password = mysqli_real_escape_string($this->link, $user->getPassword());
-			$prenom = mysqli_real_escape_string($this->link, $user->getPrenom());
-			$nom = mysqli_real_escape_string($this->link, $user->getNom());
-			$sexe = mysqli_real_escape_string($this->link, $user->getSexe());
-			$date_naissance = mysqli_real_escape_string($this->link, $user->getDateNaissance());
-			$date_inscription = mysqli_real_escape_string($this->link, $user->getDateInscription());
-			$actif = mysqli_real_escape_string($this->link, $user->getActif());
-			$admin = mysqli_real_escape_string($this->link, $user->getAdmin());
-			$request = "UPDATE user SET email='".$email."', password='".$password."' WHERE id=".$id;
+			$actif = $user->getActif();
+			$request = "UPDATE user SET actif='".$actif."' WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 				return $this->findById($id);
 			else
 				throw new Exception ("Internal server error");
-		}
+		}else
+			throw new Exception ("Internal server error2");
+
 	}
-	public function remove(User $user)
-	{
-		if (!isset($_SESSION['admin']))
-			throw new Exception ("Vous devez être connecté");
-		$user = new User($this->link);
-		$this->verifVariables($data);
-		$id = $user->getId();
-		if ($id)
-		{
-			$request = "DELETE FROM user WHERE id=".$id;
-			$res = mysqli_query($this->link, $request);
-			if ($res)
-				return $user;
-			else
-				throw new Exception ("Internal server error");
-		}
-	}
+
+
 	public function login($data)
 	{
 		if (!isset($data['login']) || empty($data['login']))

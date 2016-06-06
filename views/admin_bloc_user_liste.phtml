@@ -6,6 +6,6 @@
 	    <td><?=$user->getActif(); ?></td>
 	    <td><?=$user->getAdmin(); ?></td>
 
-	    <td><a href="#" class="ask"><img src="public/images/trash.png" alt="" title="" border="0" /></a></td>
+	    <td><a href="index.php?page=user&option=update&id=<?=$user->getId(); ?>" class="ask"><img src="public/images/trash.png" alt="" title="" border="0" /></a></td>
 	</tr>
 </tbody>

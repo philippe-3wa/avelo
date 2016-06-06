@@ -30,8 +30,8 @@ if (isset($_POST['action']))
 			$error = $exception->getMessage();
 		}
 	}
-
 }
+
 if (isset($_GET['action']))
 {
 	if ($_GET['action'] == 'logout')
@@ -42,52 +42,31 @@ if (isset($_GET['action']))
 	}
 }
 
+if ($_GET['option'] == 'update')
+{
+	$manager = new UserManager($link);
+	try
+	{
+		$id = intval($_GET['id']);
+		$user = $manager->findById($id);
+	
 
-/*else if ($_POST['action'] == 'update')
-	{
-		if (isset($_SESSION['admin']))
-		{
-			$manager = new UserManager($link);
-			try
-			{
-				$user = $manager->findById($_POST['id']);
-				$user->setEmail($_POST['email']);
-				$user->setLogin($_POST['login']);
-				$user->setPassword($_POST['password']);
-				$user->setPrenom($_POST['prenom']);
-				$user->setNom($_POST['nom']);
-				$user->setSexe($_POST['sexe']);
-				$user->setDateNaissance($_POST['date_naissance']);
-				$user->setDateInscription($_POST['date_inscription']);
-				$user->setActif($_POST['actif']);
-				$user->setAdmin($_POST['admin']);
-				$manager->update($user);
-				header('Location: index.php');
-				exit;
-			}
-			catch (Exception $exception)
-			{
-				$error = $exception->getMessage();
-			}
-		}
+		$actif = $user->getActif();
+		if ($actif == 0)
+			$actif = 1;
+		else
+			$actif = 0;
+
+		$user->setActif($actif);
+
+		$manager->update($user);
+
+		header('Location: index.php?page=admin&bloc=user');
+		exit;
 	}
-	else if ($_POST['action'] == 'remove')
+	catch (Exception $exception)
 	{
-		if (isset($_SESSION['admin']))
-		{
-			$manager = new UserManager($link);
-			try
-			{
-				$user = $manager->findById($_POST['id']);
-				$manager->remove($user);
-				header('Location: index.php');
-				exit;
-			}
-			catch (Exception $exception)
-			{
-				$error = $exception->getMessage();
-			}
-		}
+		$error = $exception->getMessage();
 	}
-*/
+}
 ?>

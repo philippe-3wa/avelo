@@ -15,5 +15,4 @@ if (isset($_GET['action']))
 			require('views/admin_bloc_user_liste.phtml');
 			$count++;
 		}
-
 ?>
