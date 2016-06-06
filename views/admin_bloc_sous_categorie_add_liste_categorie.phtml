@@ -1,4 +1,4 @@
 <option value="<?=$categorie->getId();?>" 
-	<?php if ($idCategory == $categorie->getId()) {echo "selected";} ?>>
+	<?php if (isset($idCategory)&&($idCategory == $categorie->getId())) {echo "selected";} ?>>
 	<?=$categorie->getNom();?>
 </option>
