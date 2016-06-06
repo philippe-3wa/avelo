@@ -2770,6 +2770,7 @@ select[multiple].form-group-lg .form-control {
   font-size: 18px;
   line-height: 1.3333333;
 }
+
 .has-feedback {
   position: relative;
 }
@@ -6582,3 +6583,4 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
