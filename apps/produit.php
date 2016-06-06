@@ -12,9 +12,9 @@ else
 	$produit = $manager->findById($id);
 	
 	if ($produit)
+	{
 		require('views/produit.phtml');
-	else
-		require('views/error.phtml');
+	
 
 	$liste_avis = $produit->getListeAvis();
 	$count = 0;
@@ -27,6 +27,9 @@ else
 	}
 	if (isset($_SESSION['id']))
 		require('views/avis_add.phtml');
-		
+	
+	}
+	else
+		require('views/error.phtml');	
 }
 ?>

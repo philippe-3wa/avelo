@@ -6,7 +6,6 @@ $manager = new CategorieManager($link);
 	$max = sizeof($categories);
 	while ($count < $max)
 	{
-		//$toto = "";
 		$categorie = $categories[$count];
 		if ($firstCategorie === null)
 			$firstCategorie = $categorie;
