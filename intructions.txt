@@ -1,0 +1,3 @@
+page admin => rajouter table des commentaires
+gérer la page adresse
+pouvoir supprimer dans la page admin

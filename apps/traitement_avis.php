@@ -1,6 +1,8 @@
 <?php
 if (isset($_POST['action']))
 {
+	var_dump($_POST);
+
 	if ($_POST['action'] == 'update')
 	{
 		if (isset($_SESSION['id'], $_POST['id_avis']))
@@ -39,4 +41,6 @@ if (isset($_POST['action']))
 		}
 	}
 }
+
+
 ?>
