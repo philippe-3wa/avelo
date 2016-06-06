@@ -18,6 +18,16 @@ class CategorieManager
 		return $list;
 	}
 
+	public function findAllActif()
+	{
+		$list = [];
+		$request = "SELECT * FROM categorie WHERE actif=1";
+		$res = mysqli_query($this->link, $request);
+		while ($categorie = mysqli_fetch_object($res, "Categorie", [$this->link]))
+			$list[] = $categorie;
+		return $list;
+	}
+
 	public function findById($id)
 	{
 		$id = intval($id);

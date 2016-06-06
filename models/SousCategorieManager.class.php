@@ -18,6 +18,16 @@ class SousCategorieManager
 		return $list;
 	}
 
+	public function findAllActif()
+	{
+		$list = [];
+		$request = "SELECT * FROM sous_categorie WHERE actif=1";
+		$res = mysqli_query($this->link, $request);
+		while ($sous_categorie = mysqli_fetch_object($res, "SousCategorie", [$this->link]))
+			$list[] = $sous_categorie;
+		return $list;
+	}
+
 	public function findAllGroup()
 	{
 		$list = [];

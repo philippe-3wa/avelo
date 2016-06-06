@@ -1,6 +1,6 @@
 <?php
 $manager = new CategorieManager($link);
-$categories = $manager->findAll();
+$categories = $manager->findAllActif();
 $count = 0;	
 $max = sizeof($categories);
 while ($count < $max)
