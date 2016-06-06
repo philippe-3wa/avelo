@@ -102,6 +102,39 @@ else
 				$error = $exception->getMessage();
 			}
 		}
+		else if ($action == "produit_edit")
+		{
+			$manager = new ProduitManager($link);
+			try
+			{
+				$produit = $manager->findById($_POST['id']);
+				if ($produit)
+				{
+					$produit->setId($_POST['id']);
+					$produit->setReference($_POST['reference']);
+					$produit->setNom($_POST['nom']);
+					$produit->setDescription($_POST['description']);
+					$produit->setPrix($_POST['prix']);
+					$produit->setTva($_POST['tva']);
+					$produit->setPhoto($_POST['photo']);
+					$produit->setPoids($_POST['poids']);
+					$produit->setActif($_POST['actif']);
+					$produit->setStock($_POST['stock']);
+					$produit->setIdSousCategorie($_POST['id_sous_categorie']);
+					//$produit->setIdCategorie($_POST['id_categorie']);
+					//$produit->setAvis($_POST['avis']);
+					$manager->update($produit);
+					header('Location: index.php?page=admin');
+					exit;
+				}
+				else
+					$error = 'Produit invalide';
+			}
+			catch (Exception $exception)
+			{
+				$error = $exception->getMessage();
+			}
+		}
 	}
 }
 ?>
