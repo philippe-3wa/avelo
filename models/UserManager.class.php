@@ -159,7 +159,7 @@ class UserManager
 
 		$login = mysqli_real_escape_string($this->link, $data['login']);
 		$password = mysqli_real_escape_string($this->link, $data['password']);
-		$request = "SELECT * FROM user WHERE login='".$login."' LIMIT 1";
+		$request = "SELECT * FROM user WHERE login='".$login."' AND actif=1 LIMIT 1";
 		$res = mysqli_query($this->link, $request);
 		$user = mysqli_fetch_object($res, "User", [$this->link]);
 		if ($user)

@@ -4,7 +4,9 @@
 			<div class="panel-heading">			
 				Avis de : <span style="color: #00C8CF"><?=htmlentities($avis->getUser()->getLogin())?></span>
 				| Laissé le : <span style="color: #00C8CF"><?=$avis->getDate()?></span>
-				<div style="color: #00C8CF">Note : <?=$avis->getNote()?> / 5
+				<div style="color: #00C8CF">
+					
+				 <?=$avis->getNote()?> / 5
 				</div>		
 			</div>
 

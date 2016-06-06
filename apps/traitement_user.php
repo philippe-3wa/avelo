@@ -41,32 +41,34 @@ if (isset($_GET['action']))
 		exit;
 	}
 }
-
-if ($_GET['option'] == 'update')
+if (isset($_GET['action']))
 {
-	$manager = new UserManager($link);
-	try
+	if ($_GET['option'] == 'update')
 	{
-		$id = intval($_GET['id']);
-		$user = $manager->findById($id);
-	
+		$manager = new UserManager($link);
+		try
+		{
+			$id = intval($_GET['id']);
+			$user = $manager->findById($id);
+		
 
-		$actif = $user->getActif();
-		if ($actif == 0)
-			$actif = 1;
-		else
-			$actif = 0;
+			$actif = $user->getActif();
+			if ($actif == 0)
+				$actif = 1;
+			else
+				$actif = 0;
 
-		$user->setActif($actif);
+			$user->setActif($actif);
 
-		$manager->update($user);
+			$manager->update($user);
 
-		header('Location: index.php?page=admin&bloc=user');
-		exit;
-	}
-	catch (Exception $exception)
-	{
-		$error = $exception->getMessage();
+			header('Location: index.php?page=admin&bloc=user');
+			exit;
+		}
+		catch (Exception $exception)
+		{
+			$error = $exception->getMessage();
+		}
 	}
 }
 ?>
