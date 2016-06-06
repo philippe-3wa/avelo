@@ -1,3 +1,6 @@
+<br>
+<h4 class="add">MODIFIER UN PRODUIT :</h4>
+
 <form class="form-horizontal" role="form" method="POST">
     <div class="header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="false"></span></button>
@@ -8,7 +11,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="reference">Référence</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="reference" name="reference" placeholder="Reference">
+                <input type="text" class="form-control" id="reference" name="reference" placeholder="Reference" value="<?=$produit->getReference();?>">
             </div>
         </div>
 
@@ -16,14 +19,14 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="nom">Nom</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
+                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" value="<?=$produit->getNom();?>" required>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-2 control-label" for="description"> Description</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="description" name="description" placeholder=" Description" required>
+                <input type="text" class="form-control" id="description" name="description" placeholder=" Description" value="<?=$produit->getDescription();?>" required>
             </div>
         </div>
 
@@ -31,7 +34,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="prix">Prix</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="prix" name="prix" placeholder="prix" required>
+                <input type="text" class="form-control" id="prix" name="prix" placeholder="prix" value="<?=$produit->getPrix();?>" required>
             </div>
         </div>
 
@@ -39,7 +42,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="tva">TVA</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="tva" name="tva" placeholder="tva" required>
+                <input type="text" class="form-control" id="tva" name="tva" placeholder="tva" value="<?=$produit->getTva();?>" required>
             </div>
         </div>
 
@@ -47,7 +50,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="photo">Photo</label>
             <div class="col-sm-10">
-                <input type="file" class="filestyle" id="photo" name="photo" data-buttonText="Find file">
+                <input type="text" class="form-control" id="photo" name="photo" placeholder="photo" value="<?=$produit->getPhoto();?>">
             </div>    
         </div>
 
@@ -55,7 +58,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="poids">Poids</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="poids" name="poids" placeholder="poids" required>
+                <input type="text" class="form-control" id="poids" name="poids" placeholder="poids" value="<?=$produit->getPoids();?>" required>
             </div>
         </div>
 
@@ -63,9 +66,9 @@
             <label class="col-sm-2 control-label" for="id_categorie" id="id_categorie" name="id_categorie">Catégorie</label>
             <div class="col-sm-3">
                 <select id="change_category" class="col-sm-2 form-control">
-                    <?php require('apps/sous_categorie_add.php'); ?>
+                    <?php require('apps/produit_add.php'); ?>
                 </select>
-                                <script>
+                <script>
                    $('#change_category').change(function()
                     {
                       $.get('index.php?page=sous_categorieAjax&ajax&id='+$(this).val(), function(data)
@@ -76,8 +79,9 @@
                 </script>
             </div>    
         </div>  
-<div id="subcat"><?php require('apps/sous_categorieAjax.php'); ?></div>
-         <div class="body">
+        <div id="subcat"><?php require('apps/sous_categorieAjax.php'); ?></div>
+        <div class="body">
+            
         <div class="form-group">
             <label class="col-sm-2 control-label" for="stock">Stock</label>
             <div class="col-sm-10">
@@ -90,13 +94,13 @@
             <div class="col-sm-10">
               <div class="radio">
                 <label>
-                  <input type="radio" name="actif" id="gridActif1" value="1" checked>
+                  <input type="radio" name="actif" id="gridActif1" value="1" <?php if ($produit->getActif() == 1) { echo "checked";} ?>>
                  Oui
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input type="radio" name="actif" id="gridActif2" value="0">
+                  <input type="radio" name="actif" id="gridActif2" value="0" <?php if ($sous_categorie->getActif() == 0) { echo "checked";} ?>>
                  Non
                 </label>
               </div>
@@ -104,12 +108,13 @@
         </div>
     </div>
 
+    <input type="hidden" name="action" value="produit_edit">
+    <input type="hidden" name="id" value="<?=$produit->getId();?>">
     <div class="footer">
-
-        <input type="hidden" name="action" value="produit_edit" />
-        <div class="address new">
-            <input type="submit" value="submit">
+         <div class="user-info-box">
+            <input type="submit" class="btn btn-info btn-edit" />                
         </div>
     </div>
+
 </form>
 
