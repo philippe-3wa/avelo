@@ -18,11 +18,12 @@ if (isset($_POST['action'], $_SESSION['id']))
 			}
 		}
 	} 
-	
+
 	else if ($_POST['action'] == 'update')
 	{
-		if (isset($_SESSION['id']))
-		{
+		if (!isset($_POST['id']))
+			require('views/error.phtml');
+
 			$manager = new AdresseManager($link);
 			try
 			{
@@ -35,16 +36,14 @@ if (isset($_POST['action'], $_SESSION['id']))
 				$adresse->setPays($_POST['pays']);
 				$adresse->setTelephone($_POST['telephone']);
 				$adresse->setType($_POST['type']);
-				$adresse->setIdUser($_POST['id_user']);
 				$manager->update($adresse);
-				header('Location: index.php');
+				header('Location: index.php?page=adresse');
 				exit;
 			}
 			catch (Exception $exception)
 			{
 				$error = $exception->getMessage();
 			}
-		}
 	}
 
 }

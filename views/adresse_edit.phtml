@@ -7,62 +7,64 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="nom">Nom</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
+                <input type="text" class="form-control" id="nom" name="nom" value="<?=$adresse->getNom()?>" required>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label" for="numero">N°</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" id="numero" name="numero" placeholder="N°" required>
+                <input type="number" class="form-control" id="numero" name="numero" value="<?=$adresse->getNumero()?>" required>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label" for="rue">Rue</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="rue" name="rue" placeholder="Rue" required>
+                <input type="text" class="form-control" id="rue" name="rue" value="<?=$adresse->getRue()?>" required>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label" for="numero">CP</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" id="cp" name="cp" placeholder="CP" required>
+                <input type="number" class="form-control" id="cp" name="cp" value="<?=$adresse->getCp()?>" required>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label" for="ville">Ville</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="ville" name="ville" placeholder="Ville" required>
+                <input type="text" class="form-control" id="ville" name="ville" value="<?=$adresse->getVille()?>" required>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label" for="pays">Pays</label>
             <div class="col-sm-10">
                 <select name="pays"> 
-                    <option value="france" selected="selected">France </option>
-                     <option value="allemagne">Allemagne </option>
-                     <option value="luxembourg">Luxembourg </option>
-                     <option value="suisse">Suisse </option>
+                    <option value="france" <?php if ($adresse->getPays() == "france") { echo "selected=selected"; } ?>>France </option>
+                     <option value="allemagne" <?php if ($adresse->getPays() == "allemagne") { echo "selected=selected"; } ?>>Allemagne </option>
+                     <option value="luxembourg" <?php if ($adresse->getPays() == "luxembourg") { echo "selected=selected"; } ?>>Luxembourg </option>
+                     <option value="suisse" <?php if ($adresse->getPays() == "suisse") { echo "selected=selected"; } ?>>Suisse </option>
                 </select>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label" for="telephone">Téléphone</label>
             <div class="col-sm-10">
-                <input type="tel" class="form-control" id="telephone" name="telephone" placeholder="Tél." required>
+                <input type="tel" class="form-control" id="telephone" name="telephone" value="<?=$adresse->getTelephone()?>" required>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label" for="type">Type</label>
                 <div class="col-sm-10">
                     <select name="type"> 
-                        <option value="1" selected="selected">Livraison</option>
-                        <option value="2">Facturation</option>
+                        <option value="1" <?php if ($adresse->getType() == 1) { echo "selected=selected"; } ?>>Livraison</option>
+                        <option value="2" <?php if ($adresse->getType() == 2) { echo "selected=selected"; } ?>>Facturation</option>
                     </select>
                 </div>
         </div>
 
     </div>
-    <input type="hidden" name="action" value="create">
+    <input type="hidden" name="action" value="update">
+    <input type="hidden" name="id" value="<?=$adresse->getId()?>">
+    <input type="hidden" name="id_user" value="<?=$adresse->getIdUser()?>">
     <div class="footer">
          <div class="user-info-box">
             <input type="submit" class="btn btn-info btn-edit" />                
