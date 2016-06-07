@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 03 Juin 2016 à 16:22
+-- Généré le: Mar 07 Juin 2016 à 11:42
 -- Version du serveur: 5.5.47-0ubuntu0.14.04.1
 -- Version de PHP: 5.5.9-1ubuntu4.14
 
@@ -39,7 +39,14 @@ CREATE TABLE IF NOT EXISTS `adresse` (
   `id_user` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `adresse`
+--
+
+INSERT INTO `adresse` (`id`, `nom`, `numero`, `rue`, `cp`, `ville`, `pays`, `telephone`, `type`, `id_user`) VALUES
+(1, 'adresse1', '1', 'rue 1', '67000', 'strasbourg', 'Fr', '0102030405', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -165,17 +172,21 @@ CREATE TABLE IF NOT EXISTS `produit` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `reference` (`reference`,`nom`),
   KEY `id_sous_categorie` (`id_sous_categorie`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Contenu de la table `produit`
 --
 
 INSERT INTO `produit` (`id`, `reference`, `nom`, `description`, `prix`, `tva`, `photo`, `poids`, `actif`, `stock`, `id_sous_categorie`) VALUES
-(1, 'velo-001', 'Velo champetre', 'le parfait velo pour partir en picnic', 500, 5.5, 'http://localhost/avelo/public/images/velo.jpg', 10, 1, 12, 3),
-(2, 'velo-002', 'Speed 2000', '0 a 30 en 5 secondes', 621, 5.5, 'http://localhost/avelo/public/images/velo.jpg', 12, 1, 7, 2),
-(3, 'velo-003', 'maxi velo', 'un bon velo pour les gros', 432, 5.5, 'http://localhost/avelo/public/images/velo.jpg', 23, 1, 0, 4),
-(6, 'velo-enfant-01', 'VÃ©lo enfant toutmoche', 'le vÃ©lo parfait pour les enfants moches', 99, 5.5, 'http://i10.twenga.com/sports/velo-enfant/velo-enfant-disney-mickey-tp_1522878201268545611f.jpg', 5, 1, 10, 7);
+(1, 'velo-001', 'Velo champetre', 'le parfait velo pour partir en picnic', 500, 5.5, 'http://localhost/avelo/public/images/velo_ville_homme3.jpg', 10, 1, 12, 3),
+(2, 'velo-002', 'Speed 2000', '0 a 30 en 5 secondes', 621, 5.5, 'http://localhost/avelo/public/images/vtt_homme2.jpg', 12, 1, 7, 2),
+(3, 'velo-003', 'maxi velo', 'un bon velo pour les gros', 432, 5.5, 'http://localhost/avelo/public/images/velo_ville_homme1.jpg', 23, 1, 0, 4),
+(6, 'velo-enfant-01', 'VÃ©lo enfant toutmoche', 'le vÃ©lo parfait pour les enfants moches', 99, 5.5, 'http://localhost/avelo/public/images/velo_garcon1.jpg', 5, 1, 10, 7),
+(7, '00001', 'VÃ©lo Reine des neiges', 'Un vÃ©lo bleue pour fille', 120, 20, 'http://i2.cdscdn.com/pdt2/6/0/1/1/300x300/vevefr1601/rw/reine-des-neiges-velo-5-8-ans-16-fille.jpg', 6, 1, 3, 9),
+(8, '00002', 'VÃ©lo petit biker', 'VÃ©lo noir et rouge pour garÃ§on', 110, 20, 'http://i2.cdscdn.com/pdt2/0/1/s/1/300x300/veveng1601s/rw/velo-enfant-16-5-8-ans-garcon.jpg', 7, 1, 5, 9),
+(9, '00003', 'VÃ©lo Minnie', 'VÃ©lo pour petite fan de Mickey', 125, 20, 'http://i2.cdscdn.com/pdt2/4/0/1/1/300x300/auc3663645002401/rw/velo-disney-minnie-20-pouces.jpg', 7, 1, 4, 9),
+(10, '00004', 'XR VTT Femme', 'Rigide tout terrain', 140, 20, 'http://i2.cdscdn.com/pdt2/2/5/8/1/300x300/cf12258/rw/xr-vtt-rigide-xr-femme.jpg', 11, 1, 5, 1);
 
 -- --------------------------------------------------------
 
