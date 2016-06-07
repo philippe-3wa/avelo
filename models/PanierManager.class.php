@@ -135,14 +135,14 @@ class PanierManager
 	}
 	public function remove(Panier $panier)
 	{
-		if (!isset($_SESSION['user']))
+		if (!isset($_SESSION['id']))
 			throw new Exception ("Vous devez être connecté");
-		$panier = new Panier($this->link);
-		$this->verifVariables($data);
+		
+
 		$id = $panier->getId();
 		if ($id)
 		{
-			$request = "DELETE FROM panier WHERE id=".$id;
+			$request = "UPDATE panier SET statut=2 WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 				return $panier;
