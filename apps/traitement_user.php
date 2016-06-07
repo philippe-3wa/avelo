@@ -41,7 +41,7 @@ if (isset($_GET['action']))
 		exit;
 	}
 }
-if (isset($_GET['action']))
+if (isset($_GET['option']))
 {
 	if ($_GET['option'] == 'update')
 	{
