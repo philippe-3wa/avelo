@@ -54,16 +54,18 @@ body a{
 }
 .btn-panier{
 	clear: both;
-	margin : 20px 0 20px;
+	margin : 30px auto 30px;
 	display: block;
 	text-align: center;
 }
 .flex{
 	display: flex;
-	justify-content: space-around;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	clear: both;
 }
-.flex1, .flex2{
-	margin: 2em auto;
+.flex-item{
+	margin: 1em 3em;
 }
 .adresses{
 	font-weight: bold;
