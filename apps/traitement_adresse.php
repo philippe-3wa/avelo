@@ -54,7 +54,7 @@ if (isset($_POST['action']))
 			{
 				$adresse = $manager->findById($_POST['id']);
 				$manager->remove($adresse);
-				header('Location: index.php');
+				header('Location: index.php?page=adresse');
 				exit;
 			}
 			catch (Exception $exception)
