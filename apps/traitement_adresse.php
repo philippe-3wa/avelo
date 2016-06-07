@@ -9,7 +9,7 @@ if (isset($_POST['action'], $_SESSION['id']))
 			try
 			{
 				$adresse = $manager->create($_POST);
-				header('Location: index.php');
+				header('Location: index.php?page=adresse');
 				exit;
 			}
 			catch (Exception $exception)
