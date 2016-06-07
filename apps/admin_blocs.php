@@ -5,6 +5,7 @@ if (!isset($_GET['bloc']))
 	require('views/admin_bloc_sous_categorie.phtml');
 	require('views/admin_bloc_user.phtml');
 	require('views/admin_bloc_produit.phtml');
+	require('views/admin_bloc_avis.phtml');
 }
 else
 {
@@ -18,6 +19,8 @@ else
 		require('views/admin_bloc_user.phtml');
 	else if ($bloc == "produit")
 		require('views/admin_bloc_produit.phtml');
+	else if ($bloc == "avis")
+		require('views/admin_bloc_avis.phtml');
 
 	if (isset($_GET['option']))
 	{
