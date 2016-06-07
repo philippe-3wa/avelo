@@ -66,8 +66,9 @@ class avis
 
 	public function setNote($note)
 	{
+		var_dump($note);
 		$note = intval($note);
-		if (($note < 0) || ($note > 5) || ($note==""))
+		if (($note < 0) || ($note > 5) || ($note===""))
 			throw new Exception("Note de 0 à 5)");
 		return $this->note = $note;
 	}
@@ -86,6 +87,8 @@ class avis
 			throw new Exception("Contenu trop long (> 2023)");
 		return $this->contenu = $contenu;
 	}
+
+
 
 	// Méthodes spécifiques
 	// public function getListComment / getCommentList / getComments / getList
