@@ -69,6 +69,14 @@ body a{
 	font-weight: bold;
 	color: #00C8CF;
 }
+.merci{
+	text-align: center;
+	color: #00C8CF;
+}
+.fin{
+	font-weight: bold;
+	text-align: center;
+}
 .search-bar input[type="text"] {
 	/*width: 100%;*/
 	padding: 8px 45px 8px 8px;
@@ -476,6 +484,10 @@ ul.callbacks_tabs.callbacks2_tabs {
   -moz-transition: 0.5s all ease;
   -o-transition: 0.5s all ease;
   -ms-transition: 0.5s all ease;
+}
+.footer.container{
+	padding-left: 15px;
+	padding-right: 15px;
 }
 /*--end-footer-text--*/
 #toTop {
