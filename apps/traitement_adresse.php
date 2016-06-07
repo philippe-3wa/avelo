@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['action']))
+if (isset($_POST['action'], $_SESSION['id']))
 {
 	if ($_POST['action'] == 'create')
 	{
@@ -47,10 +47,13 @@ if (isset($_POST['action']))
 	}
 
 }
-else if ($_GET['option'] == 'remove')
+else if (isset($_GET['option'], $_SESSION['id'], $_GET['id']))
+{
+	$option = $_GET['option'];
+
+ 	if ($option == 'remove')
 	{
-		if (isset($_SESSION['id'], $_GET['id']))
-		{
+		
 			$manager = new AdresseManager($link);
 			try
 			{
@@ -63,6 +66,7 @@ else if ($_GET['option'] == 'remove')
 			{
 				$error = $exception->getMessage();
 			}
-		}
+		
 	}
+}
 ?>
