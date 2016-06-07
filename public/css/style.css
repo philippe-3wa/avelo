@@ -290,12 +290,6 @@ a.simpleCart_empty {
   	.callbacks_nav {
     	top: 47%;
     }
-    .product-left {
-		width: 25%;
-		height: 188px;
-		float: left;
-		padding: 0 8px;
-	}
 }
 /*----*/
 .callbacks_tabs a{
@@ -637,7 +631,7 @@ ol.breadcrumb {
 }
 .p-one {
 	border: 1px solid rgba(24, 27, 42, 0.13);
-	padding: 40px 15px;
+	padding: 20px 15px;
 }
 .product-left:hover .p-one{
 	border: 1px solid #00C8CF;
@@ -1025,7 +1019,6 @@ ul.size li a:hover {
 }
 .product-left {
 		width: 25%;
-		height: 395px;
 		float: left;
 		padding: 0 8px;
 		margin-top: 10px;
@@ -1119,7 +1112,7 @@ ul.size {
 	padding: 20px 15px 18px 015px;
 }
 .p-one {
-	padding: 30px 15px;
+	padding: 20px 15px;
 }
 .shoes {
 	padding: 5em 0px;
@@ -1159,7 +1152,6 @@ ul.size {
 }
 .product-left {
 		width: 25%;
-		height: 395px;
 		float: left;
 		padding: 0 8px;
 		margin-top: 10px;
@@ -1501,7 +1493,6 @@ a.add-cart {
 }
 .product-left {
 	width: 50%;
-	height: 257px;
 	padding: 0 5px;
 }
 .single-right h3 {
