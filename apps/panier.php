@@ -8,6 +8,13 @@ if (!isset($_SESSION['id']))
 }
 else
 {
+	if ((isset($_GET['paiement'])) && ($_GET['paiement'] == "ok"))
+	{
+		require ('views/paiement_ok.phtml');
+
+	}
+	else
+	{
 	$id = $_SESSION['id'];
 	$user = $manager->findById($id);
 
@@ -20,11 +27,18 @@ else
 		$poids = $panier->getPoids();
 		require('views/panier.phtml');
 
-		if (isset($_GET['option'], $_GET['adresse']))
+		if (isset($_GET['option']))
 		{
+			if (isset($_GET['adresse']))
+			{
+			$getAdresse = intval($_GET['adresse']);
 			if ($_GET['option'] == "finaliser")
+				$adresse_manager = new AdresseManager($link);
+				$adresse = $adresse_manager->getById($getAdresse);
 				require('views/panier_finaliser.phtml');
+			}
 		}
+		
 	}
 	else
 	{
@@ -33,7 +47,7 @@ else
 		$poids = 0;
 		require('views/panier_vide.phtml');
 	}
-
+}
 }
 
 
