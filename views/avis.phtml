@@ -5,8 +5,21 @@
 				Avis de : <span style="color: #00C8CF"><?=htmlentities($avis->getUser()->getLogin())?></span>
 				| Laissé le : <span style="color: #00C8CF"><?=$avis->getDate()?></span>
 				<div style="color: #00C8CF">
-					
-				 <?=$avis->getNote()?> / 5
+
+				<?php 
+					for($i = 1; $i <= 5; $i++) :
+						$isChecked = false;
+						if($i <= $avis->getNote()){
+							$isChecked = true;
+						}
+				?>
+				    <input class="star" type="radio" name="note<?=$avis->getId()?>" value="<?= $i ?>" 
+<?= 
+	$isChecked ? "checked disabled" : ""; 
+?>/>
+
+				<?php endfor; ?>
+
 				</div>		
 			</div>
 
