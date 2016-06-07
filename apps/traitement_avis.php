@@ -40,4 +40,24 @@ if (isset($_POST['action']))
 		}
 	}
 }
+
+if (isset($_SESSION['admin']))
+{
+	if (isset($_GET['option'], $_GET['id']))
+	{
+		$option = $_GET['option'];
+		$id = $_GET['id'];
+		
+		if ($option == "update")
+		{
+			$manager = new AvisManager($link);
+			$avis = $manager->findById($id);
+			$manager->remove($avis);
+
+			header('Location: index.php?page=admin&bloc=avis');
+			exit;
+
+		}
+	}
+}
 ?>

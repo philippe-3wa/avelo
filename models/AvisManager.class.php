@@ -115,10 +115,9 @@ class AvisManager
 	public function remove(Avis $avis)
 	{
 		$id = $avis->getId();
-		// droit ? admin ? access ?
 		if ($id)// true si > 0
 		{
-			$request = "DELETE FROM avis WHERE id=".$id;
+			$request = "DELETE FROM avis WHERE id=".$id." LIMIT 1";
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 				return $avis;
