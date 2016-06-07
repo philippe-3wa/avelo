@@ -35,7 +35,6 @@ if (isset($_POST['action'], $_SESSION['id']))
 				$adresse->setVille($_POST['ville']);
 				$adresse->setPays($_POST['pays']);
 				$adresse->setTelephone($_POST['telephone']);
-				$adresse->setType($_POST['type']);
 				$manager->update($adresse);
 				header('Location: index.php?page=adresse');
 				exit;

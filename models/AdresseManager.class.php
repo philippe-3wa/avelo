@@ -64,6 +64,7 @@ class AdresseManager
 			throw new Exception("Remplir le champs : pays");
 		if (!isset($data['telephone']))
 			throw new Exception("Remplir le champs : téléphone");
+
 		
 		$adresse->setNom($data['nom']);
 		$adresse->setNumero($data['numero']);
@@ -82,7 +83,7 @@ class AdresseManager
 		$telephone = $adresse->gettelephone();
 		$id_user = $_SESSION['id'];	// à vérifier
 
-		$request = "INSERT INTO adresse (nom, numero, rue, cp, ville, pays, telephone, type, id_user) VALUES('".$nom."', '".$numero."', '".$rue."', '".$cp."', '".$ville."', '".$pays."', '".$telephone."', '".$type."', '".$id_user."')";
+		$request = "INSERT INTO adresse (nom, numero, rue, cp, ville, pays, telephone, id_user) VALUES('".$nom."', '".$numero."', '".$rue."', '".$cp."', '".$ville."', '".$pays."', '".$telephone."', '".$id_user."')";
 
 			$res = mysqli_query($this->link, $request);
 			if ($res)// Si la requete s'est bien passée
@@ -118,7 +119,7 @@ class AdresseManager
 			$pays = mysqli_real_escape_string($this->link, $adresse->getPays());
 			$telephone = mysqli_real_escape_string($this->link, $adresse->getTelephone());
 
-			$request = "UPDATE adresse SET nom='".$nom."', numero='".$numero."',rue='".$rue."',cp='".$cp."',ville='".$ville."',pays='".$pays."',telephone='".$telephone."',type='".$type."' WHERE id=".$id;
+			$request = "UPDATE adresse SET nom='".$nom."', numero='".$numero."',rue='".$rue."',cp='".$cp."',ville='".$ville."',pays='".$pays."',telephone='".$telephone."' WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 				return $this->findById($id);
