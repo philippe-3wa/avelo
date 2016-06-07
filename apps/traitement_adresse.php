@@ -45,14 +45,16 @@ if (isset($_POST['action']))
 			}
 		}
 	}
-	else if ($_POST['action'] == 'remove')
+
+}
+else if ($_GET['option'] == 'remove')
 	{
-		if (isset($_SESSION['id'], $_POST['id']))
+		if (isset($_SESSION['id'], $_GET['id']))
 		{
 			$manager = new AdresseManager($link);
 			try
 			{
-				$adresse = $manager->findById($_POST['id']);
+				$adresse = $manager->findById($_GET['id']);
 				$manager->remove($adresse);
 				header('Location: index.php?page=adresse');
 				exit;
@@ -63,5 +65,4 @@ if (isset($_POST['action']))
 			}
 		}
 	}
-}
 ?>

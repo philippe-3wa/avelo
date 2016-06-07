@@ -133,9 +133,9 @@ class AdresseManager
 	public function remove(Adresse $adresse)
 	{
 		$id = $adresse->getId();
-		if ($id)// true si > 0
+		if ($id)
 		{
-			$request = "DELETE FROM adresse WHERE id=".$id;
+			$request = "DELETE FROM adresse WHERE id='".$id."' LIMIT 1";
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 				return $adresse;
