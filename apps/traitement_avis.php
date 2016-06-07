@@ -29,7 +29,8 @@ if (isset($_POST['action']))
 			try
 			{
 				$avis = $manager->create($_POST);
-				header('Location: index.php');
+				$id_produit = $_POST['id_produit'];
+				header("Location: index.php?page=produit&id=".$id_produit);
 				exit;
 			}
 			catch (Exception $exception)
