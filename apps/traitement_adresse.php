@@ -17,7 +17,8 @@ if (isset($_POST['action'], $_SESSION['id']))
 				$error = $exception->getMessage();
 			}
 		}
-	}
+	} 
+	
 	else if ($_POST['action'] == 'update')
 	{
 		if (isset($_SESSION['id']))
