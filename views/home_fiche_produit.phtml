@@ -6,7 +6,15 @@
 				<span>Détails</span>
 			</div>
 		</a>
-		<h4><a href="index.php?page=produit&id=<?=$produit->getId();?>"><?=htmlentities($produit->getNom());?></a></h4>
-		<p><a href="index.php?page=produit&id=<?=$produit->getId();?>"> <span class=" item_price"><?=$produit->getPrix();?> €</span></a></p>
+		<h4>
+			<a href="index.php?page=produit&id=<?=$produit->getId();?>">
+				<?=htmlentities($produit->getNom());?>
+			</a>
+		</h4>
+		<p>
+			<a href="index.php?page=produit&id=<?=$produit->getId();?>">
+				<span class=" item_price"><?=$produit->getPrix();?> €</span>
+			</a>
+		</p>
 	</div>
 </div>
