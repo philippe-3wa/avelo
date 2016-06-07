@@ -10,5 +10,8 @@ if (isset($_GET['option']))
 
 	if ($option == "add_adresse")
 		require ('views/adresse_add.phtml');
+
+	if ($option == "edit_adresse")
+		require ('views/adresse_edit.phtml');
 }	
 ?>
