@@ -20,7 +20,7 @@
         <script>$(document).ready(function(){$(".memenu").memenu();});</script>             
     </head>
 	<body>
-        <?=$error?>
+        <?php if ($error != null) { require('views/error.phtml'); } ?>
 		<?php require('apps/header.php'); ?>
 		<?php require('apps/content.php'); ?>
 		<?php require('apps/footer.php'); ?>
