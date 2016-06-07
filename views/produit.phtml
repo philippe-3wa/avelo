@@ -25,47 +25,8 @@
 					<h2 class="quick">Description :</h2>
 					<p class="quick_desc"> <?=htmlentities($produit->getDescription()); ?></p>
 
-					<?php
-					if (isset($_SESSION['login']))
-							{
-					?>
-					<div class="quantity_box">
-						<ul class="product-qty">
-							<span>Quantité :</span>
-							<select name="quantite">
-								
+					<?php require('apps/produit_by_profile.php'); ?>
 
-					<?php
-							if ($produit->getStock() != 0)
-								require('apps/produit_quantite.php'); 
-							else
-								echo "<option>plus de stock</option>";			 
-					 ?>
-
-						</select>
-						</ul>
-					</div>
-					<?php } ?>
-					<div class="clearfix"></div>
-					<div class="single-but">
-						<input type="hidden" name="id_produit" value="<?=$produit->getId(); ?>">
-							<input type="hidden" name="action" value="ajout_panier">
-							<?php 
-							if (isset($_SESSION['login']))
-							{
-								if ($produit->getStock() != 0)
-								{
-									echo "<input type=\"submit\" value=\"ajouter\"/>";
-								}
-								else
-									echo "plus en stock, désolé";
-							}
-							else
-								echo "vous devez être connecté pour pouvoir commander";
-							
-							?>
-						
-					</form>
 					</div>
 				</div>
 			</div>

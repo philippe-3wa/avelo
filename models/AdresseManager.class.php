@@ -21,7 +21,7 @@ class AdresseManager
 	{
 		$list = [];
 		$id = $user->getId();
-		$request = "SELECT * FROM adresse WHERE id=".$id;
+		$request = "SELECT * FROM adresse WHERE id_user=".$id;
 		$res = mysqli_query($this->link, $request);
 		while ($adresse = mysqli_fetch_object($res, "Adresse", [$this->link]))
 			$list[] = $adresse;
@@ -48,7 +48,7 @@ class AdresseManager
 		if (!isset($_SESSION['id']))
 			throw new Exception("Vous devez être connecté");
 		
-		$adresse = new Adresse();
+		$adresse = new Adresse($this->link);
 
 		if (!isset($data['nom']))
 			throw new Exception("Remplir le champs : nom");
@@ -86,6 +86,7 @@ class AdresseManager
 		$id_user = $_SESSION['id'];	// à vérifier
 
 		$request = "INSERT INTO adresse (nom, numero, rue, cp, ville, pays, telephone, type, id_user) VALUES('".$nom."', '".$numero."', '".$rue."', '".$cp."', '".$ville."', '".$pays."', '".$telephone."', '".$type."', '".$id_user."')";
+
 			$res = mysqli_query($this->link, $request);
 			if ($res)// Si la requete s'est bien passée
 			{
