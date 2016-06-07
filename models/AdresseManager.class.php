@@ -64,8 +64,8 @@ class AdresseManager
 			throw new Exception("Remplir le champs : pays");
 		if (!isset($data['telephone']))
 			throw new Exception("Remplir le champs : téléphone");
-		if (!isset($data['type']))
-			throw new Exception("Remplir le champs : type d'adresse");
+
+		
 		$adresse->setNom($data['nom']);
 		$adresse->setNumero($data['numero']);
 		$adresse->setRue($data['rue']);
@@ -73,7 +73,6 @@ class AdresseManager
 		$adresse->setVille($data['ville']);
 		$adresse->setPays($data['pays']);
 		$adresse->setTelephone($data['telephone']);
-		$adresse->setType($data['type']);
 		
 		$nom = $adresse->getNom();
 		$numero = $adresse->getNumero();
@@ -82,10 +81,9 @@ class AdresseManager
 		$ville = $adresse->getVille();
 		$pays = $adresse->getPays();
 		$telephone = $adresse->gettelephone();
-		$type = $adresse->getType();
 		$id_user = $_SESSION['id'];	// à vérifier
 
-		$request = "INSERT INTO adresse (nom, numero, rue, cp, ville, pays, telephone, type, id_user) VALUES('".$nom."', '".$numero."', '".$rue."', '".$cp."', '".$ville."', '".$pays."', '".$telephone."', '".$type."', '".$id_user."')";
+		$request = "INSERT INTO adresse (nom, numero, rue, cp, ville, pays, telephone, id_user) VALUES('".$nom."', '".$numero."', '".$rue."', '".$cp."', '".$ville."', '".$pays."', '".$telephone."', '".$id_user."')";
 
 			$res = mysqli_query($this->link, $request);
 			if ($res)// Si la requete s'est bien passée
@@ -120,9 +118,8 @@ class AdresseManager
 			$ville = mysqli_real_escape_string($this->link, $adresse->getVille());
 			$pays = mysqli_real_escape_string($this->link, $adresse->getPays());
 			$telephone = mysqli_real_escape_string($this->link, $adresse->getTelephone());
-			$type = mysqli_real_escape_string($this->link, $adresse->getType());
 
-			$request = "UPDATE adresse SET nom='".$nom."', numero='".$numero."',rue='".$rue."',cp='".$cp."',ville='".$ville."',pays='".$pays."',telephone='".$telephone."',type='".$type."' WHERE id=".$id;
+			$request = "UPDATE adresse SET nom='".$nom."', numero='".$numero."',rue='".$rue."',cp='".$cp."',ville='".$ville."',pays='".$pays."',telephone='".$telephone."' WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
 				return $this->findById($id);
