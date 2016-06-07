@@ -1,14 +1,19 @@
-<div class="col-md-4 product-left single-left">
+<div class="col-md-3 product-left">
 	<div class="p-one simpleCart_shelfItem">
 		<a href="index.php?page=produit&id=<?=$produit->getId()?>">
 			<img src="<?=$produit->getPhoto()?>" alt="" />
-			<div class="mask mask1">
+			<div class="mask">
 				<span>Détails</span>
 			</div>
 		</a>
-		<h4><?=htmlentities($produit->getNom())?></h4>
-		<p><a class="item_add" href="index.php?page=produit&id=<?=$produit->getId()?>"><i></i> 
-			<span class=" item_price"><?=$produit->getPrix()?> €</span>
-		</a></p>
+		<h4>
+			<a href="index.php?page=produit&id=<?=$produit->getId()?>"><?=htmlentities($produit->getNom())?>
+			</a>
+		</h4>
+		<p>
+			<a href="index.php?page=produit&id=<?=$produit->getId()?>">
+				<span class=" item_price"><?=$produit->getPrix()?> €</span>
+			</a>
+		</p>
 	</div>
 </div>
