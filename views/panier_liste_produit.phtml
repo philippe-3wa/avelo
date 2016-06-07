@@ -5,6 +5,6 @@
 	<td class="rounded"><span><?=$produit->getPrix()?> €</span></td>
 	<td class="rounded"><span><?=$prixTotal?> €</span></td>
 	<td class="rounded"><span><?=htmlentities($produit->getDescription())?></span></td>
-	<td><a href=""><img src="public/images/user_edit.png" alt="" title="" border="0" /></a></td>
-	<td><a href="" class="ask"><img src="public/images/trash.png" alt="" title="" border="0" /></a></td>
+
+	<td><a href="index.php?page=panier&delete=<?=$panier->getId()?>" class="ask"><img src="public/images/trash.png" alt="" title="" border="0" /></a></td>
 </tr>
