@@ -19,6 +19,12 @@ else
 		$nombre_produits = $panier->getNbrProduits();
 		$poids = $panier->getPoids();
 		require('views/panier.phtml');
+
+		if (isset($_GET['option'], $_GET['adresse']))
+		{
+			if ($_GET['option'] == "finaliser")
+				require('views/panier_finaliser.phtml');
+		}
 	}
 	else
 	{
@@ -27,6 +33,7 @@ else
 		$poids = 0;
 		require('views/panier_vide.phtml');
 	}
+
 }
 
 

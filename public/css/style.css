@@ -54,7 +54,22 @@ body a{
 }
 .btn-panier{
 	clear: both;
-	margin : 20px 0 20px;
+	margin : 30px auto 30px;
+	display: block;
+	text-align: center;
+}
+.flex{
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	clear: both;
+}
+.flex-item{
+	margin: 1em 3em;
+}
+.adresses{
+	font-weight: bold;
+	color: #00C8CF;
 }
 .search-bar input[type="text"] {
 	/*width: 100%;*/
