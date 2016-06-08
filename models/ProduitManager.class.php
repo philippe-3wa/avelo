@@ -155,7 +155,7 @@ class ProduitManager
 		$id = $produit->getId();
 		if ($id)
 		{
-			$reference = $produit->getReference();
+			$reference = mysqli_real_escape_string($this->link, $produit->getReference());
 			$nom = mysqli_real_escape_string($this->link, $produit->getNom());
 			$description = mysqli_real_escape_string($this->link, $produit->getDescription());
 			$prix = $produit->getPrix();
