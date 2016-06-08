@@ -67,7 +67,13 @@ if (isset($_POST['action']))
 		$user_manager = new UserManager($link);
 		$user = $user_manager->findById($_SESSION['id']); 
 		$manager_panier = new PanierManager($link);
+
 		$panier = $manager_panier->findByUserActif($user);
+
+		//$produits = $panier->getProduits();
+		//var_dump($produits);
+
+
 		$manager_panier->remove($panier);
 
 		header('Location: index.php?page=panier&paiement=ok');
