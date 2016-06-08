@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 08 Juin 2016 à 14:13
+-- Généré le: Mer 08 Juin 2016 à 15:54
 -- Version du serveur: 5.5.47-0ubuntu0.14.04.1
 -- Version de PHP: 5.5.9-1ubuntu4.14
 
@@ -66,15 +66,7 @@ CREATE TABLE IF NOT EXISTS `avis` (
   PRIMARY KEY (`id`),
   KEY `id_user` (`id_user`),
   KEY `id_produit` (`id_produit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
-
---
--- Contenu de la table `avis`
---
-
-INSERT INTO `avis` (`id`, `contenu`, `note`, `date`, `id_user`, `id_produit`) VALUES
-(34, 'dgfdgdfgdfgfdhgfbn gfbgf ddgfdd fgd ', 1, '2016-06-07 10:00:23', 3, 2),
-(35, 'pas mal du tout ce vÃ©lo !', 3, '2016-06-07 14:40:17', 3, 1);
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
 
 -- --------------------------------------------------------
 
@@ -115,44 +107,14 @@ CREATE TABLE IF NOT EXISTS `link_panier_produit` (
   PRIMARY KEY (`id`),
   KEY `id_panier` (`id_panier`),
   KEY `id_produit` (`id_produit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=308 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=391 ;
 
 --
 -- Contenu de la table `link_panier_produit`
 --
 
 INSERT INTO `link_panier_produit` (`id`, `id_panier`, `id_produit`, `quantite`) VALUES
-(262, 14, 2, 1),
-(263, 14, 6, 1),
-(264, 14, 2, 1),
-(265, 15, 1, 1),
-(267, 16, 9, 1),
-(268, 16, 6, 1),
-(269, 17, 2, 1),
-(270, 18, 2, 1),
-(271, 19, 2, 1),
-(272, 20, 2, 1),
-(273, 20, 2, 1),
-(274, 20, 2, 1),
-(275, 21, 2, 1),
-(276, 22, 2, 1),
-(278, 23, 2, 1),
-(279, 23, 9, 1),
-(280, 23, 9, 1),
-(281, 24, 2, 1),
-(282, 25, 1, 1),
-(283, 26, 1, 1),
-(284, 27, 10, 1),
-(285, 28, 2, 1),
-(296, 29, 2, 1),
-(297, 29, 9, 1),
-(298, 29, 2, 1),
-(299, 29, 2, 1),
-(300, 29, 3, 1),
-(301, 29, 3, 1),
-(305, 30, 2, 1),
-(306, 30, 2, 1),
-(307, 30, 3, 1);
+(390, 42, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -170,30 +132,14 @@ CREATE TABLE IF NOT EXISTS `panier` (
   `id_user` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
 
 --
 -- Contenu de la table `panier`
 --
 
 INSERT INTO `panier` (`id`, `date`, `nbr_produits`, `statut`, `prix`, `poids`, `id_user`) VALUES
-(14, '2016-06-07 09:59:11', 3, 2, 1341, 29, 3),
-(15, '2016-06-07 12:49:40', 1, 2, 500, 10, 3),
-(16, '2016-06-07 12:52:37', 2, 2, 224, 12, 3),
-(17, '2016-06-07 13:04:10', 1, 2, 621, 12, 3),
-(18, '2016-06-07 13:04:50', 1, 2, 621, 12, 3),
-(19, '2016-06-07 13:12:20', 1, 2, 621, 12, 3),
-(20, '2016-06-07 13:12:52', 3, 2, 1863, 36, 3),
-(21, '2016-06-07 13:21:56', 1, 2, 621, 12, 3),
-(22, '2016-06-07 14:05:02', 1, 2, 621, 12, 3),
-(23, '2016-06-07 14:13:40', 3, 2, 871, 26, 3),
-(24, '2016-06-07 14:27:20', 1, 2, 621, 12, 5),
-(25, '2016-06-07 14:41:06', 1, 2, 500, 10, 3),
-(26, '2016-06-07 14:42:43', 1, 2, 500, 10, 3),
-(27, '2016-06-07 14:49:06', 1, 2, 140, 11, 3),
-(28, '2016-06-08 08:01:10', 1, 2, 621, 12, 3),
-(29, '2016-06-08 08:03:19', 6, 2, 2852, 89, 3),
-(30, '2016-06-08 11:20:42', 3, 1, 1674, 47, 3);
+(42, '2016-06-08 13:18:33', 1, 2, 621, 12, 3);
 
 -- --------------------------------------------------------
 
@@ -223,15 +169,15 @@ CREATE TABLE IF NOT EXISTS `produit` (
 --
 
 INSERT INTO `produit` (`id`, `reference`, `nom`, `description`, `prix`, `tva`, `photo`, `poids`, `actif`, `stock`, `id_sous_categorie`) VALUES
-(1, 'velo-001', 'Velo champetre', 'le parfait velo pour partir en picnic', 500, 5.5, 'http://localhost/avelo/public/images/velo_ville_homme3.jpg', 10, 1, 12, 3),
-(2, 'velo-002', 'Speed 2000', '0 a 30 en 5 secondes', 621, 5.5, 'http://localhost/avelo/public/images/vtt_homme2.jpg', 12, 1, 7, 5),
-(3, 'velo-003', 'Super maxi velo', 'Un bon velo pour les gros', 432, 5.5, 'http://localhost/avelo/public/images/velo_ville_homme1.jpg', 23, 1, 10, 6),
+(1, 'velo-001', 'Velo champetre', 'le parfait velo pour partir en picnic', 500, 5.5, 'public/images/velo_ville_homme3.jpg', 10, 1, 12, 3),
+(2, 'velo-002', 'Speed 2000', '0 a 30 en 5 secondes', 621, 5.5, 'public/images/vtt_homme2.jpg', 12, 1, 7, 5),
+(3, 'velo-003', 'Super maxi velo', 'Un bon velo pour les gros', 432, 5.5, 'public/images/velo_ville_homme1.jpg', 23, 1, 10, 6),
 (6, 'velo-enfant-01', 'VÃ©lo enfant toutmoche', 'le vÃ©lo parfait pour les enfants moches', 99, 5.5, 'http://i2.cdscdn.com/pdt2/2/6/3/1/300x300/mon25263/rw/les-minions-velo-12-pouces.jpg', 5, 1, 10, 7),
 (7, '00001', 'VÃ©lo Reine des neiges', 'Un vÃ©lo bleue pour fille', 120, 20, 'http://i2.cdscdn.com/pdt2/6/0/1/1/300x300/vevefr1601/rw/reine-des-neiges-velo-5-8-ans-16-fille.jpg', 6, 1, 3, 9),
 (8, '00002', 'VÃ©lo petit biker', 'VÃ©lo noir et rouge pour garÃ§on', 110, 20, 'http://i2.cdscdn.com/pdt2/0/1/s/1/300x300/veveng1601s/rw/velo-enfant-16-5-8-ans-garcon.jpg', 7, 1, 5, 9),
 (9, '00003', 'VÃ©lo Minnie', 'VÃ©lo pour petite fan de Mickey', 125, 20, 'http://i2.cdscdn.com/pdt2/4/0/1/1/300x300/auc3663645002401/rw/velo-disney-minnie-20-pouces.jpg', 7, 1, 4, 9),
 (10, '00004', 'XR VTT Femme', 'Rigide tout terrain', 140, 20, 'http://i2.cdscdn.com/pdt2/2/5/8/1/300x300/cf12258/rw/xr-vtt-rigide-xr-femme.jpg', 11, 1, 5, 1),
-(16, '01215145', 'Velo pour les tout petits', 'Mon tout premier vÃ©lo pour faire comme papa', 250, 5.5, 'http://localhost/avelo/public/images/velo_garcon3.jpg', 8, 1, 10, 8),
+(16, '01215145', 'Velo pour les tout petits', 'Mon tout premier vÃ©lo pour faire comme papa', 250, 5.5, 'public/images/velo_garcon3.jpg', 8, 1, 10, 8),
 (17, '00006', 'VÃ©lo fitness homme', 'VÃ©lo de course fitnessbike pour les gros qui veulent maigrir vite', 300, 20, 'http://i2.cdscdn.com/pdt2/8/6/8/1/300x300/ksc4250547520868/rw/velo-fitness-fixie-28-pegado-jaune-tc-53-cm.jpg', 20, 1, 3, 5),
 (18, '00007', 'VÃ©lo cross', 'VÃ©lo tout suspendu pour plonger dans l''aventure', 260, 20, 'http://i2.cdscdn.com/pdt2/5/8/9/1/300x300/ksc4250547522589/rw/vtt-tout-suspendu-26-bliss-noir-orange-tc-47-cm.jpg', 21, 1, 5, 4),
 (19, '00007', 'VÃ©lo VTT acier', 'vÃ©lo cross tout simple. Meilleur prix du marchÃ© !', 180, 20, 'http://i2.cdscdn.com/pdt2/0/k/0/1/300x300/y5a0k0/rw/micmo-vtt-26-acier-sword-i-homme.jpg', 19, 1, 10, 4),
