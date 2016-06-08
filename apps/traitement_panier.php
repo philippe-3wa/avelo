@@ -1,10 +1,11 @@
 <?php
 if (isset($_POST['action']))
 {
+	$userManager = new UserManager($link);
+
 	if ($_POST['action'] == 'ajout_panier')
 	{
-		$userManager = new UserManager($link);
-
+		
 		try
 		{
 			$user = $userManager->findById($_SESSION['id']);
@@ -37,6 +38,30 @@ if (isset($_POST['action']))
 		}
 	}
 
+	if ($_POST['action'] == 'delete_produit')
+	{
+		$user = $userManager->findById($_SESSION['id']);
+		$panier = $user->getPanier();
+
+		$panierManager = new PanierManager($link);
+
+		$produit = new ProduitManager($link);
+		$produit = $produit->findById($_POST['id_produit']);
+		$compteur = 0;
+		$max = intval($_POST['quantite']);
+		while ($compteur < $max) 
+		{
+			$panier->removeProduit($produit);
+			$compteur++;
+		}
+
+		$panierManager->update($panier);
+
+		header('Location: index.php?page=panier');
+		exit;
+
+	}
+
 	if ($_POST['action'] == "paiementok")
 	{
 		$user_manager = new UserManager($link);
@@ -49,4 +74,5 @@ if (isset($_POST['action']))
 		exit;
 	}
 }
+
 ?>

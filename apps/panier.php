@@ -1,6 +1,4 @@
 <?php
-$manager = new UserManager($link);
-
 if (!isset($_SESSION['id']))
 {
 	require('views/error.phtml');
@@ -15,39 +13,45 @@ else
 	}
 	else
 	{
-	$id = $_SESSION['id'];
-	$user = $manager->findById($id);
 
+	$id = $_SESSION['id'];
+
+	$manager = new UserManager($link);
+	$user = $manager->findById($id);
 	$panier = $user->getPanier();
 
-	if ($panier)
-	{
-		$prix = $panier->getPrix();
-		$nombre_produits = $panier->getNbrProduits();
-		$poids = $panier->getPoids();
-		require('views/panier.phtml');
-
-		if (isset($_GET['option']))
+		if ($panier)
 		{
-			if (isset($_GET['adresse']))
+			$prix = $panier->getPrix();
+			$nombre_produits = $panier->getNbrProduits();
+			$poids = $panier->getPoids();
+
+			require('views/panier.phtml');
+
+			if (isset($_GET['option']))
 			{
-			$getAdresse = intval($_GET['adresse']);
-			if ($_GET['option'] == "finaliser")
-				$adresse_manager = new AdresseManager($link);
-				$adresse = $adresse_manager->getById($getAdresse);
-				require('views/panier_finaliser.phtml');
+				if (isset($_GET['adresse']))
+				{
+				$getAdresse = intval($_GET['adresse']);
+				
+					if ($_GET['option'] == "finaliser")
+					{
+						$adresse_manager = new AdresseManager($link);
+						$adresse = $adresse_manager->getById($getAdresse);
+						require('views/panier_finaliser.phtml');
+					}
+				}
 			}
+			
 		}
-		
+		else
+		{
+			$prix = 0;
+			$nombre_produits = 0;
+			$poids = 0;
+			require('views/panier_vide.phtml');
+		}
 	}
-	else
-	{
-		$prix = 0;
-		$nombre_produits = 0;
-		$poids = 0;
-		require('views/panier_vide.phtml');
-	}
-}
 }
 
 

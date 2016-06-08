@@ -82,8 +82,20 @@ class Panier
 	{
 		if ($this->produits === null)
 			$this->getProduits();
-		// while 
-		$this->produits[] = $produit;
+		$count = 0;
+		while ($count < sizeof($this->produits))
+		{
+			if ($this->produits[$count]->getId() == $produit->getId())
+			{
+				array_splice($this->produits, $count, 1);
+				$this->nbr_produits--;
+				$this->poids -= $produit->getPoids();
+				$this->prix -= $produit->getPrix();
+				return;
+			}
+			$count++;
+		}
+		// $this->produits[] = $produit;
 	}
 	public function setNbrProduits($nbr_produits)
 	{
