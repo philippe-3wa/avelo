@@ -182,5 +182,25 @@ class UserManager
 		else
 			throw new Exception("User not found");
 	}
+
+	public function ProfileUpdate(User $user)
+	{
+		if (!isset($_SESSION['id']))
+			throw new Exception ("Vous devez être connecté");
+		
+		$id = $user->getId();
+		if ($id)
+		{
+			$actif = $user->getActif();
+			$request = "UPDATE user SET actif='".$actif."' WHERE id=".$id;
+			$res = mysqli_query($this->link, $request);
+			if ($res)
+				return $this->findById($id);
+			else
+				throw new Exception ("Internal server error");
+		}else
+			throw new Exception ("Internal server error2");
+
+	}
 }
 ?>
