@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 08 Juin 2016 à 13:25
+-- Généré le: Mer 08 Juin 2016 à 14:13
 -- Version du serveur: 5.5.47-0ubuntu0.14.04.1
 -- Version de PHP: 5.5.9-1ubuntu4.14
 
@@ -216,7 +216,7 @@ CREATE TABLE IF NOT EXISTS `produit` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `reference` (`reference`,`nom`),
   KEY `id_sous_categorie` (`id_sous_categorie`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
 
 --
 -- Contenu de la table `produit`
@@ -224,14 +224,29 @@ CREATE TABLE IF NOT EXISTS `produit` (
 
 INSERT INTO `produit` (`id`, `reference`, `nom`, `description`, `prix`, `tva`, `photo`, `poids`, `actif`, `stock`, `id_sous_categorie`) VALUES
 (1, 'velo-001', 'Velo champetre', 'le parfait velo pour partir en picnic', 500, 5.5, 'http://localhost/avelo/public/images/velo_ville_homme3.jpg', 10, 1, 12, 3),
-(2, 'velo-002', 'Speed 2000', '0 a 30 en 5 secondes', 621, 5.5, 'http://localhost/avelo/public/images/vtt_homme2.jpg', 12, 1, 7, 2),
-(3, 'velo-003', 'super maxi velo', 'un bon velo pour les gros', 432, 5.5, 'http://localhost/avelo/public/images/velo_ville_homme1.jpg', 23, 1, 10, 4),
-(6, 'velo-enfant-01', 'VÃ©lo enfant toutmoche', 'le vÃ©lo parfait pour les enfants moches', 99, 5.5, 'http://localhost/avelo/public/images/velo_garcon1.jpg', 5, 1, 10, 7),
+(2, 'velo-002', 'Speed 2000', '0 a 30 en 5 secondes', 621, 5.5, 'http://localhost/avelo/public/images/vtt_homme2.jpg', 12, 1, 7, 5),
+(3, 'velo-003', 'Super maxi velo', 'Un bon velo pour les gros', 432, 5.5, 'http://localhost/avelo/public/images/velo_ville_homme1.jpg', 23, 1, 10, 6),
+(6, 'velo-enfant-01', 'VÃ©lo enfant toutmoche', 'le vÃ©lo parfait pour les enfants moches', 99, 5.5, 'http://i2.cdscdn.com/pdt2/2/6/3/1/300x300/mon25263/rw/les-minions-velo-12-pouces.jpg', 5, 1, 10, 7),
 (7, '00001', 'VÃ©lo Reine des neiges', 'Un vÃ©lo bleue pour fille', 120, 20, 'http://i2.cdscdn.com/pdt2/6/0/1/1/300x300/vevefr1601/rw/reine-des-neiges-velo-5-8-ans-16-fille.jpg', 6, 1, 3, 9),
 (8, '00002', 'VÃ©lo petit biker', 'VÃ©lo noir et rouge pour garÃ§on', 110, 20, 'http://i2.cdscdn.com/pdt2/0/1/s/1/300x300/veveng1601s/rw/velo-enfant-16-5-8-ans-garcon.jpg', 7, 1, 5, 9),
 (9, '00003', 'VÃ©lo Minnie', 'VÃ©lo pour petite fan de Mickey', 125, 20, 'http://i2.cdscdn.com/pdt2/4/0/1/1/300x300/auc3663645002401/rw/velo-disney-minnie-20-pouces.jpg', 7, 1, 4, 9),
 (10, '00004', 'XR VTT Femme', 'Rigide tout terrain', 140, 20, 'http://i2.cdscdn.com/pdt2/2/5/8/1/300x300/cf12258/rw/xr-vtt-rigide-xr-femme.jpg', 11, 1, 5, 1),
-(16, '01215145', 'velo pour les tous petit x42', 'mon tout premier vÃ©lo pour faire comme papa', 250, 5.5, 'http://localhost/avelo/public/images/velo.jpg', 8, 1, 10, 8);
+(16, '01215145', 'Velo pour les tout petits', 'Mon tout premier vÃ©lo pour faire comme papa', 250, 5.5, 'http://localhost/avelo/public/images/velo_garcon3.jpg', 8, 1, 10, 8),
+(17, '00006', 'VÃ©lo fitness homme', 'VÃ©lo de course fitnessbike pour les gros qui veulent maigrir vite', 300, 20, 'http://i2.cdscdn.com/pdt2/8/6/8/1/300x300/ksc4250547520868/rw/velo-fitness-fixie-28-pegado-jaune-tc-53-cm.jpg', 20, 1, 3, 5),
+(18, '00007', 'VÃ©lo cross', 'VÃ©lo tout suspendu pour plonger dans l''aventure', 260, 20, 'http://i2.cdscdn.com/pdt2/5/8/9/1/300x300/ksc4250547522589/rw/vtt-tout-suspendu-26-bliss-noir-orange-tc-47-cm.jpg', 21, 1, 5, 4),
+(19, '00007', 'VÃ©lo VTT acier', 'vÃ©lo cross tout simple. Meilleur prix du marchÃ© !', 180, 20, 'http://i2.cdscdn.com/pdt2/0/k/0/1/300x300/y5a0k0/rw/micmo-vtt-26-acier-sword-i-homme.jpg', 19, 1, 10, 4),
+(20, '00008', 'VÃ©lo citadin', 'Le vÃ©lo pour les masculinistes. Le panier c''est pas que pour les femmes !', 189, 20, 'http://i2.cdscdn.com/pdt2/3/6/9/1/300x300/cf11369/rw/route-66-vtc-calipso-mixte-noir.jpg', 17, 1, 3, 6),
+(21, '00009', 'VÃ©lo ville-plage', 'Le vÃ©lo tout terrain pour femme trendy', 290, 20, 'http://i2.cdscdn.com/pdt2/m/b/m/1/300x300/216mbm/rw/mbm-velo-de-ville-trendy-femme.jpg', 16, 1, 6, 3),
+(22, '00010', 'VÃ©lo Trax', 'VÃ©lo tout suspendu pour fan de sensations', 159, 20, 'http://i2.cdscdn.com/pdt2/2/6/0/1/300x300/cf12260/rw/trax-vtt-tout-suspendu-trax-femme.jpg', 17, 1, 7, 1),
+(23, '00011', 'VÃ©lo roooose', 'Pour toutes celles qui ont du goÃ»t', 249, 20, 'http://i2.cdscdn.com/pdt2/7/8/4/1/300x300/ksc4250547523784/rw/velo-pour-dame-28-casino-6-vitesses-rose-tc-48-cm.jpg', 18, 1, 9, 3),
+(24, '00012', 'VÃ©lo Violetta', 'T''es fan de Violetta ? Il te faut ce vÃ©lo !', 199, 20, 'http://i2.cdscdn.com/pdt2/8/7/0/1/300x300/dis8422084005870/rw/violetta-velo-enfant-fille-16-pouces-5-8-ans.jpg', 6, 1, 4, 9),
+(25, '00014', 'VTT pour fille', 'VÃ©lo mignon tout suspendu', 149, 20, 'http://i2.cdscdn.com/pdt2/3/0/7/1/300x300/bac3700585509307/rw/vtt-20-tout-suspendu-fille-6-vitesses-avec-frein.jpg', 12, 1, 3, 7),
+(26, '00015', 'Beach cruiser', 'VÃ©lo de course-route pour femme qui bouge', 349, 20, 'http://i2.cdscdn.com/pdt2/2/0/0/1/300x300/ele0601479225200/rw/beach-cruiser-electra-cruiser-7d-vert-femme.jpg', 18, 1, 7, 2),
+(27, '00016', 'VÃ©lo Bombtrack', 'VÃ©lo de course-route pour femme qui a de l''argent', 689, 20, 'http://i2.cdscdn.com/pdt2/0/5/1/1/300x300/mp01694051/rw/bombtrack-oxbridge-velo-femme-women-vert.jpg', 17, 1, 4, 2),
+(28, '00017', 'VÃ©lo hollandais', 'VÃ©lo bleu clair joli mignon', 259, 20, 'http://i2.cdscdn.com/pdt2/4/2/2/1/300x300/auc4052406142422/rw/ortler-detroit-velo-hollandais-bleu-clair.jpg', 15, 1, 6, 3),
+(29, '00018', 'VÃ©lo style', 'VÃ©lo de ville pour homme', 234, 20, 'http://i2.cdscdn.com/pdt2/8/m/c/1/300x300/1328mc/rw/mgr-vtc-28-paris-homme.jpg', 19, 1, 6, 6),
+(30, '00019', 'VÃ©lo abordable', 'VTT de base pour petit budget', 199, 20, 'http://i2.cdscdn.com/pdt2/6/8/0/1/300x300/spr3700585509680/rw/velo-vtt-tout-suspendu-axis-26-pouces-mixte.jpg', 19, 1, 8, 4),
+(31, '00020', 'VÃ©lo Pat patrouille', 'Pour les gamins qu''ont pas la trouille', 109, 20, 'http://i2.cdscdn.com/pdt2/0/1/s/1/300x300/vevepp1401s/rw/pat-patrouille-velo-14-4-7-ans-garcon.jpg', 9, 1, 6, 7);
 
 -- --------------------------------------------------------
 
