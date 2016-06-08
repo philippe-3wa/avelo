@@ -31,15 +31,8 @@ else
 		if ($option == "edit_categorie")
 			{
 				$manager = new CategorieManager($link);
-				try
-				{
-					$id = $_GET['id'];
-					$categorie = $manager->findById($id);
-				}
-				catch (Exception $exception)
-				{
-					$error = $exception->getMessage();
-				}
+				$id = $_GET['id'];
+				$categorie = $manager->findById($id);
 				require('views/admin_bloc_categorie_edit.phtml');
 			}
 		else if ($option == "add_sous_categorie")
@@ -47,20 +40,23 @@ else
 		else if ($option == "edit_sous_categorie")
 			{
 				$manager = new SousCategorieManager($link);
-				try
-				{
-					$id = $_GET['id'];
-					$sous_categorie = $manager->findById($id);	
-				}
-				catch (Exception $exception)
-				{
-					$error = $exception->getMessage();
-				}
+				$id = $_GET['id'];
+				$sous_categorie = $manager->findById($id);
 				require('views/admin_bloc_sous_categorie_edit.phtml');
 			}
 		else if ($option == "add_produit")
 			require('views/admin_bloc_produit_add.phtml');
 		else if ($option == "edit_produit")
+			$manager = new ProduitManager($link);
+			$id = $_GET['id'];
+			$produit = $manager->findById($id);
+
+			$sous_categorie_manager = new SousCategorieManager($link);
+			$sous_categorie = $sous_categorie_manager->findById($produit->getIdSousCategorie());
+			$firstCategorie = $sous_categorie->getCategorie();
+			$firstCategorie = $firstCategorie->getId();
+			var_dump($firstCategorie);
+			
 			require('views/admin_bloc_produit_edit.phtml');
 	}
 } 
