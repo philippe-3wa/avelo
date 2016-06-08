@@ -11,7 +11,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="reference">Référence</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="reference" name="reference" placeholder="Reference" value="<?=$produit->getReference();?>">
+                <input type="text" class="form-control" id="reference" name="reference" placeholder="Reference" value="<?=htmlentities($produit->getReference())?>">
             </div>
         </div>
 
