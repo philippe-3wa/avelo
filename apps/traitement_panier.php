@@ -19,6 +19,12 @@ if (isset($_POST['action']))
 			}
 			$produit = new ProduitManager($link);
 			$produit = $produit->findById($_POST['id_produit']);
+			if ($_POST['quantite'] > $produit->getStock())
+			{
+				require('views/error.phtml');
+				exit;
+			}
+			
 			$compteur = 0;
 			$max = intval($_POST['quantite']);
 			while ($compteur < $max) 
