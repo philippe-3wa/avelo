@@ -179,5 +179,23 @@ class ProduitManager
 	{
 		return $this->findById($id);
 	}
+
+	public function removeStock(Produit $produit, $quantite)
+	{
+		$id = $produit->getId();
+		if ($id)
+		{
+			$stock = $produit->getStock();
+			$newstock = $stock-$quantite;
+		
+			$request = "UPDATE produit SET stock = '".$newstock."' WHERE id=".$id;
+			$res = mysqli_query($this->link, $request);
+			if ($res)
+				return $this->findById($id);
+			else
+				throw new Exception ("Internal server error");
+		}
+	}
+
 }
 ?>
