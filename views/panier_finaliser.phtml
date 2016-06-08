@@ -14,13 +14,13 @@
 </div>
 
 <div>
-	<a href="index.php?page=panier&option=finaliser&adresse=1&paiement=ok">
+
 
 		<form method="POST">
 			<input type="hidden" name="adresse" value="<?=$adresse->getId()?>">	
-			<input type="hidden" name="action" value="paiementok">	
+			<input type="hidden" name="action" value="paiementok"><input type="hidden" name="adresse" value="<?=$adresse->getId()?>">	
 		<input type="submit" class="btn btn-info btn-panier pull-right" value="FINALISER LA COMMANDE">
 	</form>
 
-	</a>
+	
 </div>
