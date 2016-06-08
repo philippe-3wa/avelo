@@ -21,7 +21,7 @@ if (isset($_POST['action']))
 			$produit = $produit->findById($_POST['id_produit']);
 			if ($_POST['quantite'] > $produit->getStock())
 			{
-				require('views/error.phtml');
+				header('Location: index.php');
 				exit;
 			}
 			
