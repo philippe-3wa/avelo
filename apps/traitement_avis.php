@@ -9,11 +9,20 @@ if (isset($_POST['action']))
 			try
 			{
 				$avis = $manager->findById($_POST['id_avis']);
-				$avis->setNote($_POST['note']);
-				$avis->setContenu($_POST['contenu']);
-				$manager->update($avis);
-				header('Location: index.php');
-				exit;
+				if ($avis)
+				{
+					$avis->setNote($_POST['note']);
+					$avis->setContenu($_POST['contenu']);
+					$manager->update($avis);
+					header('Location: index.php');
+					exit;
+				}
+				else
+				{
+					header('Location: index.php');
+					exit;
+				}
+
 			}
 			catch (Exception $exception)
 			{
@@ -52,7 +61,8 @@ if (isset($_SESSION['admin']))
 		{
 			$manager = new AvisManager($link);
 			$avis = $manager->findById($id);
-			$manager->remove($avis);
+			if ($avis)
+				$manager->remove($avis);
 
 			header('Location: index.php?page=admin&bloc=avis');
 			exit;
