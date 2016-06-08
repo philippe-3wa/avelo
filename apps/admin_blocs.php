@@ -47,6 +47,7 @@ else
 		else if ($option == "add_produit")
 			require('views/admin_bloc_produit_add.phtml');
 		else if ($option == "edit_produit")
+		{
 			$manager = new ProduitManager($link);
 			$id = $_GET['id'];
 			$produit = $manager->findById($id);
@@ -54,10 +55,10 @@ else
 			$sous_categorie_manager = new SousCategorieManager($link);
 			$sous_categorie = $sous_categorie_manager->findById($produit->getIdSousCategorie());
 			$firstCategorie = $sous_categorie->getCategorie();
-			$firstCategorie = $firstCategorie->getId();
-			var_dump($firstCategorie);
+			$idCategory = $firstCategorie->getId();
 			
 			require('views/admin_bloc_produit_edit.phtml');
+		}
 	}
 } 
 ?>

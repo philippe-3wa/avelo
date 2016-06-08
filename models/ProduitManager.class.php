@@ -141,10 +141,10 @@ class ProduitManager
 				return $produit;
 			}
 			else
-				throw new Exception ("aInternal server error");
+				throw new Exception ("Internal server error");
 		}
 		else
-			throw new Exception ("bInternal server error");
+			throw new Exception ("Internal server error");
 		
 	}
 
