@@ -66,9 +66,9 @@
             <label class="col-sm-2 control-label" for="id_categorie" id="id_categorie" name="id_categorie">Catégorie</label>
             <div class="col-sm-3">
                 <select id="change_category" class="col-sm-2 form-control">
-                    <?php require('apps/produit_add.php'); ?>
+                    <?php require('apps/sous_categorie_add.php'); ?>
                 </select>
-                <script>
+                                <script>
                    $('#change_category').change(function()
                     {
                       $.get('index.php?page=sous_categorieAjax&ajax&id='+$(this).val(), function(data)
@@ -78,7 +78,8 @@
                     });
                 </script>
             </div>    
-        </div>
+        </div>  
+<div id="subcat"><?php require('apps/sous_categorieAjax.php'); ?></div>
 
 
     <div class="form-group">
