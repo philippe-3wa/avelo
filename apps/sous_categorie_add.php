@@ -2,7 +2,7 @@
 	$manager = new CategorieManager($link);
 	if (!isset($firstCategorie))
 		$firstCategorie = null;
-	$categories = $manager->findAll();
+	$categories = $manager->findAllActif();
 	$count = 0;
 	$max = sizeof($categories);
 	while ($count < $max)

@@ -42,7 +42,7 @@ class SousCategorieManager
 	{
 		$list = [];
 		$id_categorie = $categorie->getId();
-		$request = "SELECT * FROM sous_categorie WHERE id_categorie=".$id_categorie;
+		$request = "SELECT * FROM sous_categorie WHERE actif=1 AND id_categorie=".$id_categorie;
 		$res = mysqli_query($this->link, $request);
 		while ($sous_categorie = mysqli_fetch_object($res, "SousCategorie", [$this->link]))
 			$list[] = $sous_categorie;
