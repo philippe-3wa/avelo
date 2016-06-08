@@ -136,6 +136,8 @@ class Produit
 	}
 	public function setPhoto($photo)
 	{
+		if ($photo == "")
+			$photo = "http://localhost/avelo/public/images/velo.jpg";
 		$this->photo = $photo;
 	}
 	public function setPoids($poids)
