@@ -35,7 +35,7 @@ class Produit
 		if ($this->sous_categorie === null)
 		{
 			$sous_categorieManager = new SousCategorieManager($this->link);
-			$this->sous_categorie = $sous_categorieManager->findId($this->id_sous_categorie);
+			$this->sous_categorie = $sous_categorieManager->findById($this->id_sous_categorie);
 		}
 		return $this->sous_categorie;
 	}

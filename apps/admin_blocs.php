@@ -51,13 +51,18 @@ else
 			$manager = new ProduitManager($link);
 			$id = $_GET['id'];
 			$produit = $manager->findById($id);
+			if ($produit)
+			{
+				$sous_categorie = $produit->getSousCategorie();
+				$firstCategorie = $sous_categorie->getCategorie();
+				$idCategory = $firstCategorie->getId();
+				$idSousCategory = $sous_categorie->getId();
+				require('views/admin_bloc_produit_edit.phtml');
+			}
+			else
+				require('views/error.phtml');
 
-			$sous_categorie_manager = new SousCategorieManager($link);
-			$sous_categorie = $sous_categorie_manager->findById($produit->getIdSousCategorie());
-			$firstCategorie = $sous_categorie->getCategorie();
-			$idCategory = $firstCategorie->getId();
 			
-			require('views/admin_bloc_produit_edit.phtml');
 		}
 	}
 } 

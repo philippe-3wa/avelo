@@ -1,1 +1,4 @@
-<option value="<?=$sous_categorie->getId();?>"><?=$sous_categorie->getNom();?></option>
+<option value="<?=$sous_categorie->getId();?>"
+	<?php
+	if (isset($idSousCategory) && $idSousCategory==$sous_categorie->getId()) 
+{echo "selected=selected";} ?>"><?=$sous_categorie->getNom();?></option>

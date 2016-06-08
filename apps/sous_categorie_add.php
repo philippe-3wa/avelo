@@ -1,6 +1,7 @@
 <?php
-$manager = new CategorieManager($link);
-	$firstCategorie = null;
+	$manager = new CategorieManager($link);
+	if (!isset($firstCategorie))
+		$firstCategorie = null;
 	$categories = $manager->findAll();
 	$count = 0;
 	$max = sizeof($categories);

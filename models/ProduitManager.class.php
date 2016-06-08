@@ -99,6 +99,8 @@ class ProduitManager
 			throw new Exception ("Missing paramater : id_sous_categorie");
 	}
 
+
+
 	public function create($data)
 	{
 		if (!isset($_SESSION['admin']))
@@ -150,8 +152,6 @@ class ProduitManager
 
 	public function update(Produit $produit)
 	{
-		$this->verifVariables($produit);
-		$produit = new Produit($this->link);
 		$id = $produit->getId();
 		if ($id)
 		{

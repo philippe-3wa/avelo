@@ -110,7 +110,7 @@ else
 				$produit = $manager->findById($_POST['id']);
 				if ($produit)
 				{
-					$produit->setId($_POST['id']);
+
 					$produit->setReference($_POST['reference']);
 					$produit->setNom($_POST['nom']);
 					$produit->setDescription($_POST['description']);
