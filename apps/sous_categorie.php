@@ -8,6 +8,7 @@ else
 {	$id = intval($_GET['id']);
 	$manager = new SousCategorieManager($link);
 	$sous_categorie = $manager->findById($id);
+	$categorie = $sous_categorie->getCategorie();
 	
 	if ($sous_categorie)
 		require('views/sous_categorie.phtml');
