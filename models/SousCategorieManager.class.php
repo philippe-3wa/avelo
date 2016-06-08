@@ -86,8 +86,8 @@ class SousCategorieManager
 		
 		$nom = mysqli_real_escape_string($this->link, $sous_categorie->getNom());
 		$description = mysqli_real_escape_string($this->link, $sous_categorie->getDescription());
-		$id_categorie = $sous_categorie->getIdCategorie();
-		$actif = $sous_categorie->getActif();
+		$id_categorie = intval($sous_categorie->getIdCategorie());
+		$actif = intval($sous_categorie->getActif());
 
 		$request = "INSERT INTO sous_categorie (nom, description, id_categorie, actif) VALUES('".$nom."', '".$description."', '".$id_categorie."', '".$actif."')";
 		$res = mysqli_query($this->link, $request);
@@ -117,8 +117,8 @@ class SousCategorieManager
 		{
 			$nom = mysqli_real_escape_string($this->link, $sous_categorie->getNom());
 			$description = mysqli_real_escape_string($this->link, $sous_categorie->getDescription());
-			$id_categorie = $sous_categorie->getIdCategorie();
-			$actif = $sous_categorie->getActif();
+			$id_categorie = intval($sous_categorie->getIdCategorie());
+			$actif = intval($sous_categorie->getActif());
 			$request = "UPDATE sous_categorie SET nom='".$nom."', description='".$description."', id_categorie='".$id_categorie."', actif='".$actif."' WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)
