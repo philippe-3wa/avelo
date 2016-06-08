@@ -607,8 +607,8 @@ ul.callbacks_tabs.callbacks2_tabs {
 /*--end-account--*/
 /*--start-breadcrumbs--*/
 .breadcrumbs {
-	border-top: 1px solid #999;
-	border-bottom: 1px solid #999;
+	border-top: 1px solid #00C8CF;
+	border-bottom: 1px solid #00C8CF;
 	margin-top: 1em;
 }
 ol.breadcrumb {
@@ -616,13 +616,15 @@ ol.breadcrumb {
 }
 .breadcrumb li a{
 	color:#242424;
+	font-weight: bold;
 }
 .breadcrumb li a:hover{
-	color:#e64b50;
+	color:#00C8CF;
 	text-decoration:none;
 }
 .breadcrumb > .active {
 	color: #242424;
+	font-weight: bold
 }
 .breadcrumb {
 	background: none;
