@@ -70,9 +70,9 @@ class AvisManager
 			throw new Exception ("Missing paramater : id_produit");
 
 		$note = $avis->setNote($data['note']);
-		$contenu = $avis->setContenu($data['contenu']);
-		$id_user = $_SESSION['id'];
-		$id_produit = $avis->setIdProduit($data['id_produit']);
+		$contenu = mysqli_real_escape_string($this->link, $avis->setContenu($data['contenu']));
+		$id_user = intval($_SESSION['id']);
+		$id_produit = intval($avis->setIdProduit($data['id_produit']));
 
 		$request = "INSERT INTO avis (contenu, note, id_user, id_produit) VALUES('".$contenu."', '".$note."', '".$id_user."', '".$id_produit."')";
 		$res = mysqli_query($this->link, $request);

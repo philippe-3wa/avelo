@@ -37,8 +37,9 @@ if (isset($_POST['action']))
 			$manager = new AvisManager($link);
 			try
 			{
-				$avis = $manager->create($_POST);
 				$id_produit = $_POST['id_produit'];
+				$avis = $manager->create($_POST);
+			
 				header("Location: index.php?page=produit&id=".$id_produit);
 				exit;
 			}
