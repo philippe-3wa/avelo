@@ -74,13 +74,13 @@ class AdresseManager
 		$adresse->setPays($data['pays']);
 		$adresse->setTelephone($data['telephone']);
 		
-		$nom = $adresse->getNom();
-		$numero = $adresse->getNumero();
-		$rue = $adresse->getRue();
-		$cp = $adresse->getCp();
-		$ville = $adresse->getVille();
-		$pays = $adresse->getPays();
-		$telephone = $adresse->gettelephone();
+		$nom = mysqli_real_escape_string($this->link, $adresse->getNom());
+		$numero = intval($adresse->getNumero());
+		$rue = mysqli_real_escape_string($this->link, $adresse->getRue());
+		$cp = intval($adresse->getCp());
+		$ville = mysqli_real_escape_string($this->link, $adresse->getVille());
+		$pays = mysqli_real_escape_string($this->link, $adresse->getPays());
+		$telephone = mysqli_real_escape_string($this->link, $adresse->gettelephone());
 		$id_user = $_SESSION['id'];	// à vérifier
 
 		$request = "INSERT INTO adresse (nom, numero, rue, cp, ville, pays, telephone, id_user) VALUES('".$nom."', '".$numero."', '".$rue."', '".$cp."', '".$ville."', '".$pays."', '".$telephone."', '".$id_user."')";
