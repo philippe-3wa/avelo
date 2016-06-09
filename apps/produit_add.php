@@ -3,8 +3,6 @@
 
 	$sous_categories = $categorie->getSousCategories();
 
-				var_dump($firstCategorie);
-				var_dump($idSousCategory);
 	$count = 0;
 	$max = sizeof($sous_categories);
 	while ($count < $max)

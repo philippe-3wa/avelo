@@ -66,7 +66,6 @@ class avis
 
 	public function setNote($note)
 	{
-		var_dump($note);
 		$note = intval($note);
 		if (($note < 1) || ($note > 5) || ($note===""))
 			throw new Exception("Note doit aller de 1 à 5");
@@ -88,9 +87,5 @@ class avis
 		return $this->contenu = $contenu;
 	}
 
-
-
-	// Méthodes spécifiques
-	// public function getListComment / getCommentList / getComments / getList
 }
 ?>
