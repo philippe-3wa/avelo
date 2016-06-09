@@ -68,8 +68,8 @@ class avis
 	{
 		var_dump($note);
 		$note = intval($note);
-		if (($note < 0) || ($note > 5) || ($note===""))
-			throw new Exception("Note de 0 à 5)");
+		if (($note < 1) || ($note > 5) || ($note===""))
+			throw new Exception("Note doit aller de 1 à 5");
 		return $this->note = $note;
 	}
 
