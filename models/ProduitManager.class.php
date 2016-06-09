@@ -18,7 +18,7 @@ class ProduitManager
 		return $list;
 	}
 
-		public function findAllActif()
+	public function findAllActif()
 	{
 		$list = [];
 		$request = "SELECT * FROM produit WHERE actif=1";
@@ -69,6 +69,16 @@ class ProduitManager
 		INNER JOIN sous_categorie 
 		ON sous_categorie.id=produit.id_sous_categorie
 		WHERE sous_categorie.id_categorie=".$id_categorie;
+		$res = mysqli_query($this->link, $request);
+		while ($produit = mysqli_fetch_object($res, "Produit", [$this->link]))
+			$list[] = $produit;
+		return $list;
+	}
+
+	public function findAllSearch($motcle)
+	{
+		$list = [];
+		$request = "SELECT * FROM produit WHERE nom LIKE '%".$motcle."%'";
 		$res = mysqli_query($this->link, $request);
 		while ($produit = mysqli_fetch_object($res, "Produit", [$this->link]))
 			$list[] = $produit;

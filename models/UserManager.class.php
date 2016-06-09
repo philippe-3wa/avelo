@@ -191,10 +191,10 @@ class UserManager
 		$id = $user->getId();
 		if ($id)
 		{
-			$login = $user->getLogin();
-			$email = $user->getEmail();
+			$login = mysqli_real_escape_string($this->link, $user->getLogin());
+			$email = mysqli_real_escape_string($this->link, $user->getEmail());
 			$password = $user->getPassword();
-			$actif = $user->getActif();
+			$actif = intval($user->getActif());
 			$request = "UPDATE user SET login='".$login."', email='".$email."', password='".$password."', actif='".$actif."' WHERE id=".$id;
 			$res = mysqli_query($this->link, $request);
 			if ($res)

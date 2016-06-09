@@ -118,7 +118,6 @@ class PanierManager
 				while ($i < count($list)) 
 				{
 					$produit = $list[$i];
-					// var_dump($produit);
 					$id_produit = $produit->getId();
 					mysqli_query($this->link, "INSERT INTO link_panier_produit (id_panier, id_produit, quantite) VALUES('".$id."', '".$id_produit."', 1)");
 					$i++;
