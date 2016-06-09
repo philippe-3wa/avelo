@@ -26,12 +26,12 @@ if (isset($_POST['action']))
 			}
 			if ($_POST['quantite'] < 1)
 			{
-				header('Location: index.php');
+				header('Location: index.php?page=panier');
 				exit;
 			}
 			if ($_POST['quantite'] > $produit->getStock())
 			{
-				header('Location: index.php');
+				header('Location: index.php?page=panier');
 				exit;
 			}
 			
