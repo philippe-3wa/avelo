@@ -2239,7 +2239,7 @@ div.star-rating{
         height: 30px;
         line-height: 18px;
         padding: 0 2px 0 2px;
-        border-radius:1px;
+        border-radius:3px;
     }
 
 .btn-search {
@@ -2247,5 +2247,6 @@ div.star-rating{
     position: absolute;
     right: 0;
     top: 5px;
-    border-radius:1px;
+    border-radius:3px;
+    border: solid #00C8CF 1px;
 }
