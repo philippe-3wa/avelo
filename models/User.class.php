@@ -130,7 +130,11 @@ class User
 			throw new Exception ("Date de naissance trop courte (< 9)");
 		else if (strlen($date_naissance) > 11)
 			throw new Exception ("Date de naissance trop longue (> 11)");
-		$this->date_naissance = $date_naissance;
+
+		if (strtotime($date_naissance) < (time() - (18 * 60 * 60 * 24 * 365)))
+			$this->date_naissance = $date_naissance;
+		else
+			throw new Exception ("Vous devez être majeur pour vous inscrire");		
 	}
 	public function setActif($actif)
 	{
