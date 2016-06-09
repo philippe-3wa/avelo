@@ -4,6 +4,8 @@
 			<div class="breadcrumbs-main">
 				<ol class="breadcrumb">
 					<li><a href="index.php?page=home">Home</a></li>
+					<li><a href="index.php?page=categorie&id=<?=$produit->getCategorie()->getId()?>"><?=$produit->getCategorie()->getNom()?></a></li>
+					<li><a href="index.php?page=sous_categorie&id=<?=$produit->getSousCategorie()->getId()?>"><?=$produit->getSousCategorie()->getNom()?></a></li>
 					<li class="active"><?=htmlentities($produit->getNom()); ?></li>
 				</ol>
 			</div>
