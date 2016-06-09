@@ -40,6 +40,12 @@ else
 							{
 								$adresse_manager = new AdresseManager($link);
 								$adresse = $adresse_manager->getById($getAdresse);
+								if (!$adresse)
+								{
+									$error = "adresse inconnue";
+									require('views/error.phtml');
+									exit;
+								}
 								require('views/panier_finaliser.phtml');
 							}
 						}

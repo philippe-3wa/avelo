@@ -3,6 +3,7 @@
     	<td><?=$produit->getId(); ?></td>
 	    <td><?=htmlentities($produit->getNom()); ?></td>
 	    <td><?=htmlentities($produit->getDescription()); ?></td>
+	    <td><?=$produit->getStock(); ?></td>
 	    <td><?=$produit->getActif(); ?></td>
 
         <td><a href="index.php?page=admin&bloc=produit&option=edit_produit&id=<?=$produit->getId(); ?>"><img src="public/images/user_edit.png" alt="" title="" border="0" /></a></td>

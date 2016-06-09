@@ -101,7 +101,7 @@ class Adresse
 
 	public function setRue($rue)
 	{
-		if (strlen($rue) < 5)		
+		if (strlen($rue) < 3)		
 			throw new Exception("Rue trop court");
 		else if (strlen($rue) > 255)		
 			throw new Exception("rue trop longue");
@@ -111,7 +111,7 @@ class Adresse
 
 	public function setVille($ville)
 	{
-		if (strlen($ville) < 5)		
+		if (strlen($ville) < 3)		
 			throw new Exception("ville trop court");
 		else if (strlen($ville) > 127)		
 			throw new Exception("ville trop longue");
@@ -121,6 +121,8 @@ class Adresse
 
 	public function setPays($pays)
 	{
+		if (strlen($pays) < 2)		
+			throw new Exception("pays trop long");
 		if (strlen($pays) > 127)		
 			throw new Exception("pays trop long");
 

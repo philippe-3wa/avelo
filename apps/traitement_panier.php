@@ -19,6 +19,11 @@ if (isset($_POST['action']))
 			}
 			$produit = new ProduitManager($link);
 			$produit = $produit->findById($_POST['id_produit']);
+			if (!$produit)
+			{
+				header('Location: index.php');
+				exit;
+			}
 			if ($_POST['quantite'] > $produit->getStock())
 			{
 				header('Location: index.php');
@@ -53,8 +58,13 @@ if (isset($_POST['action']))
 
 		$produit = new ProduitManager($link);
 		$produit = $produit->findById($_POST['id_produit']);
+		if (!$produit)
+		{
+			header('Location: index.php?page=panier');
+			exit;
+		}
 		$compteur = 0;
-		$max = intval($_POST['quantite']);
+		$max = 1;
 		while ($compteur < $max) 
 		{
 			$panier->removeProduit($produit);

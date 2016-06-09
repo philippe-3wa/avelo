@@ -7,7 +7,7 @@ if (isset($_POST['action']))
 		try
 		{
 			$user = $manager->create($_POST);
-			header('Location: index.php');
+			header('Location: index.php?page=user&message=ok');
 			exit;
 		}
 		catch (Exception $exception)
@@ -78,7 +78,7 @@ if (isset($_POST['action']))
 					}
 					else 
 					{
-						header('Location: index.php?page=profil');
+						header('Location: index.php?page=profil&message=ok');
 						exit;
 					}
 					

@@ -9,6 +9,8 @@
         </div>
     </div>
 
+    <?php if (isset($_GET['message'])) {echo "<br /><p><strong>Votre profil a bien été modifié</strong></p>"; }   ?>
+
 <form class="form-horizontal" role="form" method="POST" action="index.php?page=user">
 
     <div class="header">

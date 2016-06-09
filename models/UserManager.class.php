@@ -102,12 +102,12 @@ class UserManager
 		$user->setSexe($data['sexe']);
 		$user->setDateNaissance($data['date_naissance']);
 	
-		$email = $user->getEmail();
-		$login = $user->getLogin();
+		$email = mysqli_real_escape_string($this->link, $user->getEmail());
+		$login = mysqli_real_escape_string($this->link, $user->getLogin());
 		$password = $user->getPassword();
-		$prenom = $user->getPrenom();
-		$nom = $user->getNom();
-		$sexe = $user->getSexe();
+		$prenom = mysqli_real_escape_string($this->link, $user->getPrenom());
+		$nom = mysqli_real_escape_string($this->link, $user->getNom());
+		$sexe = intval($user->getSexe());
 		$date_naissance = $user->getDateNaissance();
 		$request = "INSERT INTO user (email, login, password, prenom, nom, sexe, date_naissance) VALUES('".$email."', '".$login."', '".$password."', '".$prenom."', '".$nom."', '".$sexe."', '".$date_naissance."')";
 		$res = mysqli_query($this->link, $request);
