@@ -12,7 +12,7 @@
     <td><a href="index.php?page=adresse&option=edit_adresse&id=<?=$adresse->getId(); ?>"><img src="public/images/user_edit.png" alt="" title="" border="0" /></a></td>
     <td><a href="index.php?page=adresse&option=remove&id=<?=$adresse->getId(); ?>"><img src="public/images/trash.png" alt="" title="" border="0" /></a></td>
 
-    <td><form method="POST" action="index.php?page=panier&option=finaliser&adresse=<?=$adresse->getId()?>"> 
+    <td><form method="POST" action="index.php?page=panier&option=finaliser&adresse=<?=$adresse->getId()?>#finaliser"> 
         <input type="submit" class="btn btn-warning" value="CHOISIR CETTE ADRESSE">
     </form>
     </td>
