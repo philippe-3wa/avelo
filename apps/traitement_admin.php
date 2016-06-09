@@ -16,7 +16,7 @@ else
 			try
 			{
 				$categorie = $manager->create($_POST);
-				header('Location: index.php?page=admin');
+				header('Location: index.php?page=admin&bloc=categorie');
 				exit;
 			}
 			catch (Exception $exception)
@@ -37,7 +37,7 @@ else
 					$categorie->setDescription($_POST['description']);
 					$categorie->setActif($_POST['actif']);
 					$manager->update($categorie);
-					header('Location: index.php?page=admin');
+					header('Location: index.php?page=admin&bloc=categorie');
 					exit;
 				}
 				else
@@ -55,7 +55,7 @@ else
 			try
 			{
 				$sous_categorie = $manager->create($_POST);
-				header('Location: index.php?page=admin');
+				header('Location: index.php?page=admin&bloc=sous_categorie');
 				exit;
 			}
 			catch (Exception $exception)
@@ -76,7 +76,7 @@ else
 					$sous_categorie->setIdCategorie($_POST['id_categorie']);
 					$sous_categorie->setActif($_POST['actif']);
 					$manager->update($sous_categorie);
-					header('Location: index.php?page=admin');
+					header('Location: index.php?page=admin&bloc=sous_categorie');
 					exit;
 				}
 				else
@@ -94,7 +94,7 @@ else
 			try
 			{
 				$produit = $manager->create($_POST);
-				header('Location: index.php?page=admin');
+				header('Location: index.php?page=admin&bloc=produit');
 				exit;
 			}
 			catch (Exception $exception)
@@ -124,7 +124,7 @@ else
 					//$produit->setIdCategorie($_POST['id_categorie']);
 					//$produit->setAvis($_POST['avis']);
 					$manager->update($produit);
-					header('Location: index.php?page=admin');
+					header('Location: index.php?page=admin&bloc=produit');
 					exit;
 				}
 				else

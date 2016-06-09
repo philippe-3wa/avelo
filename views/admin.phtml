@@ -1,4 +1,18 @@
-<div id="main_container">
+
+<div class="breadcrumbs">
+	<div class="container">
+		<div class="breadcrumbs-main">
+			<ol class="breadcrumb">
+				<li><a href="index.php?page=admin">Administration</a></li>
+				<?php if (isset($_GET['bloc']))
+				{
+					echo "<li class=\"active\">".$_GET['bloc']."</li>";
+				}
+				?>
+			</ol>
+		</div>
+	</div> 
+	</div> 
 
 <?php require('apps/admin_blocs.php'); ?>
 
