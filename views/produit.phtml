@@ -25,6 +25,9 @@
 					<h2 class="quick">Description :</h2>
 					<p class="quick_desc"> <?=htmlentities($produit->getDescription()); ?></p>
 
+					<h2 class="quick">Poids :</h2>
+					<p class="quick_desc"> <?=$produit->getPoids(); ?> Kg</p>
+
 					<?php require('apps/produit_by_profile.php'); ?>
 
 					</div>
