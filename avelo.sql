@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 08 Juin 2016 à 15:54
+-- Généré le: Jeu 09 Juin 2016 à 10:12
 -- Version du serveur: 5.5.47-0ubuntu0.14.04.1
 -- Version de PHP: 5.5.9-1ubuntu4.14
 
@@ -66,7 +66,45 @@ CREATE TABLE IF NOT EXISTS `avis` (
   PRIMARY KEY (`id`),
   KEY `id_user` (`id_user`),
   KEY `id_produit` (`id_produit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=74 ;
+
+--
+-- Contenu de la table `avis`
+--
+
+INSERT INTO `avis` (`id`, `contenu`, `note`, `date`, `id_user`, `id_produit`) VALUES
+(42, 'bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien bien ', 3, '2016-06-09 07:29:16', 1, 3),
+(43, 'TrÃ¨s bonne qualitÃ© de finition.', 3, '2016-06-09 07:33:14', 2, 1),
+(44, 'Je le trouve trop petit pour un Velo adulte femme. Je suis un peu dÃ©Ã§ue. Je pense que c est ma fille qui s en servira', 1, '2016-06-09 07:34:12', 3, 22),
+(45, 'il est tres beau dommage que les vitesse soient si mal reglÃ©es\r\nles roues blanches originales\r\nla hauteur de la celle parfaite pour ma femme 1m60', 5, '2016-06-09 07:35:47', 4, 1),
+(46, 'vÃ©lo de moyenne qualitÃ© aprÃ¨s un mois d''usage la fixation de la selle a lachÃ©e.', 2, '2016-06-09 07:36:46', 5, 19),
+(47, 'VÃ©lo vraiment bas de gamme, sans avoir utilisÃ© le vÃ©lo au niveau de la fourche un boulon a pÃ©tÃ©.', 1, '2016-06-09 07:37:01', 6, 19),
+(48, 'Bon rapport qualitÃ©/prix sachant que la ou j''habite, on ne trouve pas de vÃ©lo Ã  moins de 200 euros.', 5, '2016-06-09 07:37:12', 7, 19),
+(49, 'C''est un vÃ©lo fonctionnel, magnifique. Livret merveilleusement protÃ©gÃ©, il est arrivÃ© entiÃ¨rement montÃ©... et le jour dit.', 5, '2016-06-09 07:38:16', 8, 23),
+(50, 'Bien reÃ§u et vÃ©lo trÃ©s sympa ! AprÃ¨s une petite ballade RAS, tout est impeccable et les Ã©quipements dessus trÃ©s utiles. ', 4, '2016-06-09 07:38:53', 9, 21),
+(51, 'TrÃ¨s beau vÃ©lo mono vitesse. EmballÃ© dans un seul grand carton. Le poids est correct. Le seul dÃ©faut que je lui trouve est le systÃ¨me de fixation du panier a l''avant', 4, '2016-06-09 07:39:50', 10, 20),
+(52, 'Nice bicycle for my wife, however there is a wish that it had a hub gear set. Never mind, will have to fit one in due course', 4, '2016-06-09 07:44:04', 1, 26),
+(53, 'TRÃˆS BELLE MACHINE ET TOUT A FAIT OPÃ‰RATIONNELLE POUR CE QUE JE VEUX EN FAIRE', 4, '2016-06-09 07:44:53', 2, 2),
+(54, 'parfait moche Ã  souhait', 3, '2016-06-09 07:45:28', 3, 6),
+(55, 'Il est tout Ã©quipÃ© et presque totalement montÃ©, mon mari a dit qu''il est super Ã  monter et ma fille en est trÃ¨s contente. L''image est fidÃ¨le Ã  la rÃ©alitÃ©.', 5, '2016-06-09 07:45:58', 4, 7),
+(56, 'Super VÃ©lo, TrÃ¨s joli, bonne qualitÃ© et Ã©quipÃ© de petites roues ce qui est rare pour un vÃ©lo de cette taille !!', 4, '2016-06-09 07:46:22', 5, 8),
+(57, 'ma fille adore la couleur, le panier devant\r\nvÃ©lo trÃ¨s facile Ã  prendre en main\r\ntrÃ¨s joli qui lui a tout de suite plu pour son anniversaire', 5, '2016-06-09 07:46:45', 6, 9),
+(58, 'TrÃ¨s bon vÃ©lo, fonctionnel et agrÃ©able, le seul petit dÃ©faut qu''on pourrait lui trouvÃ© est son poids un peu Ã©levÃ©.', 4, '2016-06-09 07:48:13', 7, 22),
+(59, 'Comme j''ai des problÃ¨mes de dos je ne sent pas les bosses sur la route\r\ntrÃ¨s lÃ©ger', 5, '2016-06-09 07:48:48', 8, 10),
+(60, 'gÃ©nial ,trÃ¨s pratique,dommage pour le choix des coloris, nâ€™existe pas dans la mÃªme qualitÃ©;Ã  recommander pour des enfants dÃ¨s l''age de deux ans.', 5, '2016-06-09 07:49:38', 9, 16),
+(61, 'Montage plutÃ´t facile (bien enlever les caches des tubes de a selle et du guidon). ', 2, '2016-06-09 07:49:53', 10, 16),
+(62, 'Lorsque que j''ai effectuÃ© ma commande, sur les images je ne me rendais pas bien compte du style et de l''apparence de se vÃ©lo, mais 4 jours plus tard quand je l''ai reÃ§u, j''ai Ã©tÃ© vÃ©ritablement stupÃ©fait de la beautÃ©, de la prÃ©sentation, et le dÃ©signe, tout est parfait, pour moi, c''est le plus beau vÃ©lo que j''aurais possÃ©dÃ© !!!! MERCI.', 5, '2016-06-09 07:50:57', 1, 17),
+(63, 'Simple et efficace. Bravo.\r\nJuste une remarque su l montage de la selle, le mode d''emploi ne correspond pas.\r\nLa chaine se dÃ©tend assez rapidement, Ã  surveiller.\r\nSinon, il faut un super cadenas, car il fait des jaloux au collÃ¨ge !!!!', 4, '2016-06-09 07:51:36', 2, 23),
+(64, 'Absolument rien Ã  dire', 4, '2016-06-09 07:51:58', 3, 18),
+(65, 'Hyper beau, se remarque ...\r\nJe l''utilise de faÃ§on mixte, route et chemin, remplace avantageusement mon VTT, qui n''avanÃ§ait pas sur la route.\r\nEt sur les chemin, mÃªme quand Ã§a tape, il ne crÃ¨ve pas !\r\nIl suffit de se mettre en danseuse quand Ã§a monte un peu, et Ã§a passe sans soucis.', 5, '2016-06-09 07:52:31', 4, 18),
+(66, 'Tres bon velo juste un petit probleme au pignon qui craque mais vu que je suis bricoleur je vais y remedier', 3, '2016-06-09 07:53:23', 5, 30),
+(67, 'Un excellent rapport qualitÃ© prix. Un look sublime.', 4, '2016-06-09 07:53:56', 6, 29),
+(68, 'TrÃ¨s joli vÃ©lo, ma niÃ¨ce de 3 ans a adorÃ©, surtout avec le petit panier sympa Ã  l''avant.\r\nVÃ©lo solide et facile Ã  monter\r\nJe le recommande', 5, '2016-06-09 07:54:45', 7, 24),
+(69, 'TrÃ¨s satisfaite de cet achat vÃ©lo facile Ã  monter et qui semble solide.', 4, '2016-06-09 07:55:04', 8, 31),
+(70, 'TrÃ¨s beau velo hollandais.\r\nLa femme Ã©tait ravie.\r\nLivraison nickel dans les temps mÃªme avec NoÃ«l. Bravo\r\nLa couleur du vÃ©lo est super belle\r\nL''assise trÃ¨s bien. La bÃ©quille arriÃ¨re centrale que du bonheur.', 5, '2016-06-09 07:56:11', 9, 28),
+(71, 'AprÃ¨s un w.e a Amsterdam j''ai voulu un velo hollandais et celui-ci me plait car le prix est raisonnable. Le transport et dÃ©lais sont bons, rien Ã  redire. La selle est super confort mais couine un peu Ã  l''usage car les ressorts sont tes nombreux', 3, '2016-06-09 07:56:31', 10, 28),
+(72, 'Un trÃ¨s bon single speed', 4, '2016-06-09 07:57:33', 3, 27),
+(73, 'Super vÃ©lo et assez "girly", ma fille l''adore. Nous faisons de longues balades en forÃªt en dehors des sentiers battus et les suspensions sont parfaites. Je recommande.', 4, '2016-06-09 07:58:59', 3, 25);
 
 -- --------------------------------------------------------
 
@@ -248,18 +286,23 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Contenu de la table `user`
 --
 
 INSERT INTO `user` (`id`, `email`, `login`, `password`, `prenom`, `nom`, `sexe`, `date_naissance`, `date_inscription`, `actif`, `admin`) VALUES
-(1, 'admin@admin.com', 'admin', '$2y$08$lx4mx4gGVlp9ByfKHOy79e3v9Mv2GaZ03rcX4uqr.dvGiKz0.9wrC', 'philippe', 'dos santos', 1, '2000-10-01', '2016-05-27 13:47:02', 0, 0),
-(2, 'germany@country.com', 'john', '$2y$08$psgkji7RojAaNabEjlpMT.eF5RCtawj6MlAizqKAW6.ygse74w.tm', 'John', 'Thegerman', 1, '1998-01-01', '2016-05-27 13:48:21', 1, 0),
-(3, 'toto@toto.com', 'toto', '$2y$08$WFweU6bqC.ExSqAso80vw.CidTWm7pAtdzOM.JOHsHPSR20mQMkRi', 'toto', 'monsieurtoto', 1, '2000-01-01', '2016-05-27 14:10:40', 1, 1),
-(4, 'client@yahoo.fr', 'client', '$2y$08$s2C9hh2n.6TBizrgppjC8eSRAAnp7IZdW8EKeychuxjeQT49.1Fxi', 'newclient', 'nomclient', 1, '2000-01-10', '2016-06-02 11:23:19', 1, 0),
-(5, 'fil@yahoo.fr', 'filipe', '$2y$08$A1KC2WgNJviwHyn06I0KjuN0bIUyQ//AkXWWZmYQeJuloxJ1bMeC2', 'filipe', 'dossanros', 1, '1978-10-24', '2016-06-07 14:26:47', 1, 0);
+(1, 'admin@admin.com', 'admin', '$2y$08$lx4mx4gGVlp9ByfKHOy79e3v9Mv2GaZ03rcX4uqr.dvGiKz0.9wrC', 'philippe', 'dos santos', 1, '1950-10-01', '2016-05-27 13:47:02', 0, 0),
+(2, 'germany@country.com', 'john', '$2y$08$psgkji7RojAaNabEjlpMT.eF5RCtawj6MlAizqKAW6.ygse74w.tm', 'John', 'Thegerman', 1, '1960-01-01', '2016-05-27 13:48:21', 1, 0),
+(3, 'toto@toto.com', 'toto', '$2y$08$WFweU6bqC.ExSqAso80vw.CidTWm7pAtdzOM.JOHsHPSR20mQMkRi', 'toto', 'monsieurtoto', 1, '1980-01-01', '2016-05-27 14:10:40', 1, 1),
+(4, 'client@yahoo.fr', 'client', '$2y$08$s2C9hh2n.6TBizrgppjC8eSRAAnp7IZdW8EKeychuxjeQT49.1Fxi', 'newclient', 'nomclient', 1, '1980-01-10', '2016-06-02 11:23:19', 1, 0),
+(5, 'fil@yahoo.fr', 'filipe', '$2y$08$A1KC2WgNJviwHyn06I0KjuN0bIUyQ//AkXWWZmYQeJuloxJ1bMeC2', 'filipe', 'dossanros', 1, '1978-10-24', '2016-06-07 14:26:47', 1, 0),
+(6, 'bibi@bibi.fr', 'bibi', '$2y$08$oNHRTcyx53EFqnRFUpA9juWAAfnsU7OSW/IVndvMZyNnxYL1/7a1K', 'bibi', 'bibi', 1, '1972-06-15', '2016-06-09 08:00:53', 1, 0),
+(7, 'truc@truc.fr', 'truc', '$2y$08$MPIIR1Yg1bXSQitdQzsdluXDBuqJ6SfukTAfKMA63t4Qby1fMz6Pi', 'truc', 'truc', 0, '1978-06-22', '1980-06-09 08:01:25', 1, 0),
+(8, 'machin@chose.fr', 'machin', '$2y$08$OIYp7X9OF2H8X/BeInjf5uQQz0vLDhE8m4ZB97KRAdb2DFZePSy.6', 'machin', 'chose', 0, '1975-06-23', '2016-06-09 08:01:54', 1, 0),
+(9, 'why@why.fr', 'whynot', '$2y$08$d8.OGRxJlsIv7XlyZogWkeP1xk7NSEEqdBiODRMOknkI15rLQOyo.', 'whynot', 'whynot', 1, '1987-07-23', '2016-06-09 08:06:19', 1, 0),
+(10, 'tupu@tupu.fr', 'tupu', '$2y$08$4nIgSBqdHRTSOTB15.C9B.s2wf0LetsE8cRbYWP0wSRAY/X02hdM6', 'tupu', 'tupu', 1, '1973-06-13', '2016-06-09 08:07:00', 1, 0);
 
 --
 -- Contraintes pour les tables exportées
