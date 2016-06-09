@@ -81,8 +81,8 @@ class avis
 
 	public function setContenu($contenu)
 	{
-		if (strlen($contenu) < 20)
-			throw new Exception("Contenu trop court (< 20)");
+		if (strlen($contenu) < 5)
+			throw new Exception("Contenu trop court (< 5)");
 		else if (strlen($contenu) > 2023)
 			throw new Exception("Contenu trop long (> 2023)");
 		return $this->contenu = $contenu;
