@@ -124,7 +124,7 @@ class ProduitManager
 		$reference = mysqli_real_escape_string($this->link, $produit->getReference());
 		$nom = mysqli_real_escape_string($this->link, $produit->getNom());
 		$description = mysqli_real_escape_string($this->link, $produit->getDescription());
-		$prix = $produit->getPrix();
+		$prix = floatval($produit->getPrix());
 		$tva = $produit->getTva();
 		$photo = mysqli_real_escape_string($this->link, $produit->getPhoto());
 		$poids = $produit->getPoids();
