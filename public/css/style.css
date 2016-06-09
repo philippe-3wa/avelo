@@ -2177,17 +2177,17 @@ a:hover.bt_red{ text-decoration:underline;}
 }
 
 /* jQuery.Rating Plugin CSS - http://www.fyneworks.com/jquery/star-rating/ */
-div.rating-cancel,div.star-rating{
+div.star-rating{
 	float:left;width:17px;height:15px;text-indent:-999em;cursor:pointer;display:block;background:transparent;overflow:hidden
 }
-div.rating-cancel,div.rating-cancel a{
+div.rating-cancel a{
 	background:url(../images/delete.gif) no-repeat 0 -16px;
 	-webkit-transition:color 0.2s ease-in, background-color 0.2s ease-in;  
     -moz-transition:color 0.2s ease-in, background-color 0.2s ease-in;  
     -o-transition:color 0.2s ease-in, background-color 0.2s ease-in;  
     transition:color 0.2s ease-in, background-color 0.2s ease-in; 
 }
-div.star-rating,div.star-rating a{
+div.star-rating a{
 	background:url(../images/star.gif) no-repeat 0 0px;
 	-webkit-transition:color 0.2s ease-in, background-color 0.2s ease-in;  
     -moz-transition:color 0.2s ease-in, background-color 0.2s ease-in;  
@@ -2195,7 +2195,7 @@ div.star-rating,div.star-rating a{
     transition:color 0.2s ease-in, background-color 0.2s ease-in; 
 }
 
-div.rating-cancel a,div.star-rating a{
+div.star-rating a{
 	display:block;width:16px;height:100%;background-position:0 0px;border:0
 }
 div.star-rating-on a{
