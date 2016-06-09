@@ -6,5 +6,4 @@ if (isset($_SESSION['id'])) {
 }
 else
 	require('views/error.phtml');
-
 ?>

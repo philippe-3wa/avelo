@@ -30,6 +30,74 @@ if (isset($_POST['action']))
 			$error = $exception->getMessage();
 		}
 	}
+
+
+	if($_POST['action'] == 'update_user')
+	{
+		if (isset($_SESSION['id']))
+		{
+			if ($_SESSION['id'] == $_POST['id'])
+			{
+				$manager = new UserManager($link);
+				$user = $manager->findById($_POST['id']);
+
+				try
+				{	
+									
+					$password1 =$_POST['password1']; 
+					$password1 = $user->verifyPassword($password1);
+					if (!$password1)
+					{
+						header('Location: index.php?page=error');
+						exit;
+					}
+				
+					if ($_POST['password2'] != "")
+					{
+						$password2 = $_POST['password2'];
+						$password3 = $_POST['password3'];
+						if ($password2 != $password3) 
+						{
+							header('Location: index.php?page=error');
+							exit;
+						}
+						else
+							$password = $user->setPassword($password2);
+
+					}
+
+					$login = $user->setLogin($_POST['login']);
+					$email = $user->setEmail($_POST['email']);
+					$actif = $user->setActif($_POST['actif']);
+					$manager->ProfileUpdate($user);
+
+					if ($_POST['actif'] == '0')
+					{
+						header('location:index.php?page=user&action=logout');
+						exit;
+					}
+					else 
+					{
+						header('Location: index.php?page=profil');
+						exit;
+					}
+					
+									
+				}
+				catch (Exception $exception)
+				{
+					$error = $exception->getMessage();
+				}
+			}
+		}	
+	}
+
+
+
+
+
+
+
 }
 
 if (isset($_GET['action']))
@@ -41,6 +109,9 @@ if (isset($_GET['action']))
 		exit;
 	}
 }
+
+
+
 if (isset($_GET['option']))
 {
 	if ($_GET['option'] == 'update')
