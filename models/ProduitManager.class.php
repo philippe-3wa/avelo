@@ -78,7 +78,7 @@ class ProduitManager
 	public function findAllSearch($motcle)
 	{
 		$list = [];
-		$request = "SELECT * FROM produit WHERE nom LIKE '%".$motcle."%'";
+		$request = "SELECT * FROM produit WHERE nom LIKE '%".$motcle."%' OR description LIKE '%".$motcle."%'";
 		$res = mysqli_query($this->link, $request);
 		while ($produit = mysqli_fetch_object($res, "Produit", [$this->link]))
 			$list[] = $produit;
